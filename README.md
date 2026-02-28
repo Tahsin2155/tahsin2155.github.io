@@ -28,8 +28,7 @@
 
 ### **DayMark**
 
-Live app: [https://daymark.streamlit.app/daymark](https://daymark.streamlit.app/daymark)
-GitHub: [https://github.com/Tahsin2155/DayMark](https://github.com/Tahsin2155/DayMark)
+[LIVE APP](https://daymark.streamlit.app/daymark) | [GitHub Repo](https://github.com/Tahsin2155/DayMark)
 
 A simple productivity web app built to track habits, journal daily thoughts, and manage tasks — all in one place.
 
@@ -60,14 +59,14 @@ Designed the structure, logic flow, and UI layout myself.
 * Defined the project idea
 * Coordinated development
 * Managed planning and design thinking
-* Reached Zonal Level
+* **Reached Zonal Level**
 
 ---
 
 ## **Interests**
 
 * Gaming
-* Listening to music while coding
+* Listening to music
 * Building random side projects just to see if they work
 
 ---
@@ -75,7 +74,7 @@ Designed the structure, logic flow, and UI layout myself.
 ## **Contact**
 
 * **Email:** [tahsindlg@gmail.com](mailto:tahsindlg@gmail.com)
-* **Instagram:** @tahsin_2155
+* **Instagram:** [@tahsin_2155](https://www.instagram.com/tahsin_2155)
 * **GitHub:** [https://github.com/Tahsin2155](https://github.com/Tahsin2155)
 
 ---
