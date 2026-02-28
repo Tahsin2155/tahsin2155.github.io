@@ -59,7 +59,7 @@ function isValidContentShape(content) {
 }
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'index2.html'));
 });
 
 app.get('/xyzadmin', (req, res) => {
