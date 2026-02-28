@@ -341,7 +341,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">tahsin.dev</span>
+  <span class="nav-logo" id="navLogo">tahsin.dev</span>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#timeline">Journey</a>
@@ -367,17 +367,17 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
 <section id="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-blob"></div>
-  <p class="hero-tag">👋 Hey there, I'm</p>
-  <h1 class="hero-name">MD Tahsin<br><span class="accent-word">Ali Abtahi</span></h1>
+  <p class="hero-tag" id="heroTag">👋 Hey there, I'm</p>
+  <h1 class="hero-name" id="heroName">MD Tahsin<br><span class="accent-word">Ali Abtahi</span></h1>
   <div class="typing-wrapper">
     I'm a <span class="typed-text" id="typedText"></span><span class="typing-cursor"></span>
   </div>
-  <p class="hero-sub">
+  <p class="hero-sub" id="heroSub">
     11th-grader by day, aspiring developer by night. Started with Minecraft redstone, ended up writing Python. No regrets. 🎮🐍
   </p>
   <div class="hero-cta">
-    <a href="#projects" class="btn btn-primary">See My Work 🚀</a>
-    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    <a href="#projects" class="btn btn-primary" id="heroCtaPrimary">See My Work 🚀</a>
+    <a href="#contact" class="btn btn-outline" id="heroCtaSecondary">Get in Touch</a>
   </div>
 </section>
 
@@ -385,15 +385,15 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
 <section id="about">
   <div class="reveal">
     <p class="section-label">// who am i</p>
-    <h2 class="section-title">About Me</h2>
+    <h2 class="section-title" id="aboutTitle">About Me</h2>
   </div>
   <div class="about-grid">
-    <div class="about-text reveal">
+    <div class="about-text reveal" id="aboutText">
       <p>I'm a Science stream student at <strong>PM SHRI KV 210 CoBRA CRPF Dalgaon</strong>, studying PCMCs — Physics, Chemistry, Mathematics & Computer Science.</p>
       <p>What started as curiosity about Minecraft redstone circuits slowly transformed into a genuine love for programming. Today I build real apps, experiment with Python, and vibe-code my way through side projects. 😄</p>
       <p>I'm a hackathon veteran (team leader, no less!) and an aspiring developer who believes the best way to learn is to just <em>build stuff</em> — even if it breaks first.</p>
     </div>
-    <div class="about-facts reveal">
+    <div class="about-facts reveal" id="aboutFacts">
       <div class="fact-card"><div class="fact-emoji">🏫</div><div class="fact-label">School</div><div class="fact-value">PM SHRI KV 210 CoBRA CRPF Dalgaon</div></div>
       <div class="fact-card"><div class="fact-emoji">📚</div><div class="fact-label">Stream</div><div class="fact-value">PCMCs — 11th Standard</div></div>
       <div class="fact-card"><div class="fact-emoji">🎮</div><div class="fact-label">Origin Story</div><div class="fact-value">Minecraft Redstone → Coding</div></div>
@@ -406,9 +406,9 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
 <section id="timeline">
   <div class="reveal">
     <p class="section-label">// how it started</p>
-    <h2 class="section-title">My Coding Journey</h2>
+    <h2 class="section-title" id="timelineTitle">My Coding Journey</h2>
   </div>
-  <div class="timeline">
+  <div class="timeline" id="timelineList">
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-year">8TH STANDARD • THE BEGINNING</div>
@@ -453,9 +453,9 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
 <section id="skills">
   <div class="reveal">
     <p class="section-label">// tools of the trade</p>
-    <h2 class="section-title">Skills</h2>
+    <h2 class="section-title" id="skillsTitle">Skills</h2>
   </div>
-  <div class="skills-grid reveal">
+  <div class="skills-grid reveal" id="skillsList">
     <div class="skill-chip"><span>🐍</span> Python</div>
     <div class="skill-chip"><span>🌐</span> HTML</div>
     <div class="skill-chip"><span>🎨</span> CSS</div>
@@ -497,7 +497,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
       <div class="gh-label">Coding Journey</div>
     </div>
   </div>
-  <a href="https://github.com/Tahsin2155" target="_blank" class="gh-profile-link reveal">
+  <a href="https://github.com/Tahsin2155" target="_blank" class="gh-profile-link reveal" id="ghProfileLink">
     🐙 Visit GitHub Profile →
   </a>
 </section>
@@ -511,9 +511,9 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
   <div class="np-card reveal">
     <div class="np-album">🎵</div>
     <div class="np-info">
-      <div class="np-status"><div class="np-dot"></div> Listening on Spotify</div>
-      <div class="np-track">Whatever's on the playlist</div>
-      <div class="np-artist">Music fuels the code ☕</div>
+      <div class="np-status"><div class="np-dot"></div> <span id="npStatusText">Listening on Spotify</span></div>
+      <div class="np-track" id="npTrack">Whatever's on the playlist</div>
+      <div class="np-artist" id="npArtist">Music fuels the code ☕</div>
       <div class="np-bars">
         <div class="np-bar"></div>
         <div class="np-bar"></div>
@@ -523,16 +523,16 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
       </div>
     </div>
   </div>
-  <p class="np-note reveal">🎧 Gaming + music = the ultimate coding setup. Ask me what I'm listening to!</p>
+  <p class="np-note reveal" id="npNote">🎧 Gaming + music = the ultimate coding setup. Ask me what I'm listening to!</p>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="reveal">
     <p class="section-label">// things i've shipped</p>
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title" id="projectsTitle">Projects</h2>
   </div>
-  <div class="projects-grid">
+  <div class="projects-grid" id="projectsList">
     <div class="project-card project-featured reveal">
       <div class="project-emoji">📅</div>
       <div class="project-title">DayMark</div>
@@ -578,17 +578,17 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
 <section id="contact">
   <div class="reveal">
     <p class="section-label">// let's connect</p>
-    <h2 class="section-title">Get in Touch</h2>
+    <h2 class="section-title" id="contactTitle">Get in Touch</h2>
   </div>
-  <p class="contact-sub reveal">Have a cool project idea? Want to collaborate? Or just want to talk code, games, or music? I'm always down. 📩</p>
+  <p class="contact-sub reveal" id="contactSub">Have a cool project idea? Want to collaborate? Or just want to talk code, games, or music? I'm always down. 📩</p>
   <div class="contact-links reveal">
-    <a href="mailto:tahsindlg@gmail.com" class="contact-link email">✉️ tahsindlg@gmail.com</a>
-    <a href="https://www.instagram.com/tahsin_2155" target="_blank" class="contact-link instagram">📸 @tahsin_2155</a>
-    <a href="https://github.com/Tahsin2155" target="_blank" class="contact-link github-link">🐙 Tahsin2155</a>
+    <a href="mailto:tahsindlg@gmail.com" class="contact-link email" id="contactEmail">✉️ tahsindlg@gmail.com</a>
+    <a href="https://www.instagram.com/tahsin_2155" target="_blank" class="contact-link instagram" id="contactInstagram">📸 @tahsin_2155</a>
+    <a href="https://github.com/Tahsin2155" target="_blank" class="contact-link github-link" id="contactGithub">🐙 Tahsin2155</a>
   </div>
 </section>
 
-<footer>© 2025 MD Tahsin Ali Abtahi — built with Python, vibes & redstone logic 🎮</footer>
+<footer id="siteFooter">© 2025 MD Tahsin Ali Abtahi — built with Python, vibes & redstone logic 🎮</footer>
 
 <script>
 // Custom cursor
@@ -608,33 +608,177 @@ hamburger.addEventListener('click', () => {
 });
 function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
 
-// Typing effect
-const phrases = ['Aspiring Developer 💻','Future Engineer 🔧','Python Enthusiast 🐍','Vibe Coder ✨','11th Std. Student 📚'];
+// Dynamic content + typing effect
+let phrases = ['Aspiring Developer 💻','Future Engineer 🔧','Python Enthusiast 🐍','Vibe Coder ✨','11th Std. Student 📚'];
+let ghUsername = 'Tahsin2155';
 let pi=0, ci=0, deleting=false;
 const el = document.getElementById('typedText');
-function type(){
-  const phrase = phrases[pi];
-  if(!deleting){ el.textContent=phrase.slice(0,++ci); if(ci===phrase.length){setTimeout(()=>{deleting=true;},1800);setTimeout(type,100);} else setTimeout(type,65); }
-  else { el.textContent=phrase.slice(0,--ci); if(ci===0){deleting=false;pi=(pi+1)%phrases.length;setTimeout(type,400);} else setTimeout(type,35); }
+
+function escapeHtml(text) {
+  return String(text ?? '').replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
 }
-type();
+
+function applyContent(content) {
+  if (!content || typeof content !== 'object') return;
+
+  if (content.site?.title) document.title = content.site.title;
+  if (content.site?.navLogo) document.getElementById('navLogo').textContent = content.site.navLogo;
+  if (content.site?.footer) document.getElementById('siteFooter').textContent = content.site.footer;
+
+  if (content.hero) {
+    if (content.hero.tag) document.getElementById('heroTag').textContent = content.hero.tag;
+    if (content.hero.nameFirstLine || content.hero.nameAccent) {
+      document.getElementById('heroName').innerHTML = `${escapeHtml(content.hero.nameFirstLine || '')}<br><span class="accent-word">${escapeHtml(content.hero.nameAccent || '')}</span>`;
+    }
+    if (content.hero.subtitle) document.getElementById('heroSub').textContent = content.hero.subtitle;
+    if (Array.isArray(content.hero.typingPhrases) && content.hero.typingPhrases.length) {
+      phrases = content.hero.typingPhrases;
+    }
+    if (content.hero.ctaPrimaryText) document.getElementById('heroCtaPrimary').textContent = content.hero.ctaPrimaryText;
+    if (content.hero.ctaPrimaryHref) document.getElementById('heroCtaPrimary').href = content.hero.ctaPrimaryHref;
+    if (content.hero.ctaSecondaryText) document.getElementById('heroCtaSecondary').textContent = content.hero.ctaSecondaryText;
+    if (content.hero.ctaSecondaryHref) document.getElementById('heroCtaSecondary').href = content.hero.ctaSecondaryHref;
+  }
+
+  if (content.about) {
+    if (content.about.title) document.getElementById('aboutTitle').textContent = content.about.title;
+    if (Array.isArray(content.about.paragraphs) && content.about.paragraphs.length) {
+      document.getElementById('aboutText').innerHTML = content.about.paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join('');
+    }
+    if (Array.isArray(content.about.facts) && content.about.facts.length) {
+      document.getElementById('aboutFacts').innerHTML = content.about.facts.map((fact) => `
+        <div class="fact-card reveal">
+          <div class="fact-emoji">${escapeHtml(fact.emoji || '✨')}</div>
+          <div class="fact-label">${escapeHtml(fact.label || '')}</div>
+          <div class="fact-value">${escapeHtml(fact.value || '')}</div>
+        </div>
+      `).join('');
+    }
+  }
+
+  if (content.timeline) {
+    if (content.timeline.title) document.getElementById('timelineTitle').textContent = content.timeline.title;
+    if (Array.isArray(content.timeline.items) && content.timeline.items.length) {
+      document.getElementById('timelineList').innerHTML = content.timeline.items.map((item) => `
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-year">${escapeHtml(item.year || '')}</div>
+          <div class="tl-title">${escapeHtml(item.title || '')}</div>
+          <div class="tl-desc">${escapeHtml(item.desc || '')}</div>
+          ${item.badge ? `<div class="tl-badge">${escapeHtml(item.badge)}</div>` : ''}
+        </div>
+      `).join('');
+    }
+  }
+
+  if (content.skills) {
+    if (content.skills.title) document.getElementById('skillsTitle').textContent = content.skills.title;
+    if (Array.isArray(content.skills.items) && content.skills.items.length) {
+      document.getElementById('skillsList').innerHTML = content.skills.items.map((skill) => `<div class="skill-chip reveal">${escapeHtml(skill)}</div>`).join('');
+    }
+  }
+
+  if (content.github?.username) {
+    ghUsername = content.github.username;
+    const profileLink = document.getElementById('ghProfileLink');
+    profileLink.href = `https://github.com/${ghUsername}`;
+  }
+
+  if (content.nowPlaying) {
+    if (content.nowPlaying.status) document.getElementById('npStatusText').textContent = content.nowPlaying.status;
+    if (content.nowPlaying.track) document.getElementById('npTrack').textContent = content.nowPlaying.track;
+    if (content.nowPlaying.artist) document.getElementById('npArtist').textContent = content.nowPlaying.artist;
+    if (content.nowPlaying.note) document.getElementById('npNote').textContent = content.nowPlaying.note;
+  }
+
+  if (content.projects) {
+    if (content.projects.title) document.getElementById('projectsTitle').textContent = content.projects.title;
+    if (Array.isArray(content.projects.items) && content.projects.items.length) {
+      document.getElementById('projectsList').innerHTML = content.projects.items.map((project) => `
+        <div class="project-card ${project.featured ? 'project-featured' : ''} reveal">
+          <div class="project-emoji">${escapeHtml(project.emoji || '📦')}</div>
+          <div class="project-title">${escapeHtml(project.title || '')}</div>
+          <div class="project-desc">${escapeHtml(project.desc || '')}</div>
+          <div class="project-tags">
+            ${(project.tags || []).map((tag) => `<span class="project-tag">${escapeHtml(tag)}</span>`).join('')}
+          </div>
+          ${project.liveUrl ? `<a href="${escapeHtml(project.liveUrl)}" target="_blank" class="project-link">Live App →</a><br>` : ''}
+          ${project.repoUrl ? `<a href="${escapeHtml(project.repoUrl)}" target="_blank" class="project-link">GitHub Repo →</a>` : ''}
+        </div>
+      `).join('');
+    }
+  }
+
+  if (content.contact) {
+    if (content.contact.title) document.getElementById('contactTitle').textContent = content.contact.title;
+    if (content.contact.subtitle) document.getElementById('contactSub').textContent = content.contact.subtitle;
+    if (content.contact.email) {
+      const emailEl = document.getElementById('contactEmail');
+      emailEl.href = `mailto:${content.contact.email}`;
+      emailEl.textContent = `✉️ ${content.contact.email}`;
+    }
+    if (content.contact.instagramUrl || content.contact.instagramHandle) {
+      const instagramEl = document.getElementById('contactInstagram');
+      if (content.contact.instagramUrl) instagramEl.href = content.contact.instagramUrl;
+      instagramEl.textContent = `📸 ${content.contact.instagramHandle || ''}`;
+    }
+    if (content.contact.githubUrl || content.contact.githubHandle) {
+      const githubEl = document.getElementById('contactGithub');
+      if (content.contact.githubUrl) githubEl.href = content.contact.githubUrl;
+      githubEl.textContent = `🐙 ${content.contact.githubHandle || ''}`;
+    }
+  }
+}
+
+async function loadPortfolioContent() {
+  try {
+    const res = await fetch('/api/content');
+    if (!res.ok) return;
+    const content = await res.json();
+    applyContent(content);
+  } catch (e) {
+  }
+}
+
+function type(){
+  const phrase = phrases[pi] || '';
+  if(!deleting){
+    el.textContent = phrase.slice(0, ++ci);
+    if(ci===phrase.length){ setTimeout(()=>{deleting=true;},1800); setTimeout(type,100); }
+    else setTimeout(type,65);
+  } else {
+    el.textContent = phrase.slice(0, --ci);
+    if(ci===0){ deleting=false; pi=(pi+1)%phrases.length; setTimeout(type,400); }
+    else setTimeout(type,35);
+  }
+}
 
 // Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*70); obs.unobserve(e.target); } });
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), index * 70);
+      obs.unobserve(entry.target);
+    }
+  });
 }, { threshold: 0.1 });
-reveals.forEach(el => obs.observe(el));
+
+function setupReveal() {
+  document.querySelectorAll('.reveal:not([data-observed])').forEach((node) => {
+    node.dataset.observed = '1';
+    obs.observe(node);
+  });
+}
 
 // GitHub Stats
 async function loadGHStats(){
   try {
-    const res = await fetch('https://api.github.com/users/Tahsin2155');
+    const res = await fetch(`https://api.github.com/users/${ghUsername}`);
     const data = await res.json();
     document.getElementById('gh-repos').textContent = data.public_repos ?? '—';
     document.getElementById('gh-followers').textContent = data.followers ?? '—';
     // Stars: fetch repos and sum
-    const reposRes = await fetch('https://api.github.com/users/Tahsin2155/repos?per_page=100');
+    const reposRes = await fetch(`https://api.github.com/users/${ghUsername}/repos?per_page=100`);
     const repos = await reposRes.json();
     const stars = Array.isArray(repos) ? repos.reduce((a,r) => a + (r.stargazers_count||0), 0) : '—';
     document.getElementById('gh-stars').textContent = stars;
@@ -643,7 +787,12 @@ async function loadGHStats(){
     ['gh-repos','gh-stars','gh-followers'].forEach(id => document.getElementById(id).textContent = '—');
   }
 }
-loadGHStats();
+
+loadPortfolioContent().finally(() => {
+  setupReveal();
+  type();
+  loadGHStats();
+});
 </script>
 </body>
 </html>

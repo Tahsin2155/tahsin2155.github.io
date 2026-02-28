@@ -1,0 +1,16 @@
+{
+  "name": "tahsin2155-portfolio-cms",
+  "version": "1.0.0",
+  "description": "Full-stack portfolio with admin content editor",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}
