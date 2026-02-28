@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>404 — Page Not Found</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Sora',sans-serif;background:#0f1117;color:#e4e6ef;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;}
+  .error-page{max-width:480px;padding:2rem;}
+  .error-code{font-size:8rem;font-weight:800;letter-spacing:-0.06em;background:linear-gradient(135deg,#2563eb,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+  .error-title{font-size:1.5rem;font-weight:700;margin:1rem 0 0.5rem;}
+  .error-desc{color:#8b8fa7;font-size:0.95rem;line-height:1.7;margin-bottom:2rem;}
+  .error-link{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.7rem;background:#2563eb;color:#fff;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:transform 0.2s,box-shadow 0.2s;}
+  .error-link:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,0.3);}
+  .glitch{animation:glitch 3s infinite;}
+  @keyframes glitch{0%,90%,100%{transform:none}92%{transform:translate(-2px,1px)}94%{transform:translate(2px,-1px)}96%{transform:translate(-1px,2px)}98%{transform:translate(1px,-2px)}}
+</style>
+</head>
+<body>
+<div class="error-page">
+  <div class="error-code glitch">404</div>
+  <h1 class="error-title">Page Not Found</h1>
+  <p class="error-desc">The page you're looking for doesn't exist or has been moved. Maybe the redstone circuit got disconnected. 🔧</p>
+  <a href="/" class="error-link">← Back to Home</a>
+</div>
+</body>
+</html>

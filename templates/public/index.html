@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{ c.settings.site_title or 'Portfolio' }}</title>
+<meta name="description" content="{{ c.settings.meta_description or 'Personal portfolio' }}"/>
+<meta name="author" content="{{ c.hero.name_line1 }} {{ c.hero.name_line2 }}"/>
+<meta property="og:title" content="{{ c.settings.site_title or 'Portfolio' }}"/>
+<meta property="og:description" content="{{ c.settings.meta_description or 'Personal portfolio' }}"/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#2563eb"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/public.css') }}"/>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+{# ── NAV ─────────────────────────────────────────── #}
+<nav>
+  <span class="nav-logo">{{ c.settings.nav_logo or 'portfolio' }}</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#timeline">Journey</a>
+    <a href="#skills">Skills</a>
+    {% if c.github.show_stats %}<a href="#github">GitHub</a>{% endif %}
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button>
+  </div>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#timeline">Journey</a>
+  <a href="#skills">Skills</a>
+  {% if c.github.show_stats %}<a href="#github">GitHub</a>{% endif %}
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</div>
+
+{# ── HERO ────────────────────────────────────────── #}
+{% set hero = c.hero %}
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-blob"></div>
+  <p class="hero-tag">{{ hero.tag }}</p>
+  <h1 class="hero-name">{{ hero.name_line1 }}<br><span class="accent-word">{{ hero.name_line2 }}</span></h1>
+  <div class="typing-wrapper">
+    I'm a <span class="typed-text" id="typedText" data-phrases='{{ hero.typing_phrases | tojson }}'></span><span class="typing-cursor"></span>
+  </div>
+  <p class="hero-sub">{{ hero.subtitle }}</p>
+  <div class="hero-cta">
+    <a href="{{ hero.cta_primary_link }}" class="btn btn-primary">{{ hero.cta_primary_text }}</a>
+    <a href="{{ hero.cta_secondary_link }}" class="btn btn-outline">{{ hero.cta_secondary_text }}</a>
+  </div>
+</section>
+
+{# ── ABOUT ───────────────────────────────────────── #}
+{% set about = c.about %}
+<section id="about">
+  <div class="reveal">
+    <p class="section-label">// who am i</p>
+    <h2 class="section-title">About Me</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      {% for p in about.paragraphs %}
+        <p>{{ p | safe }}</p>
+      {% endfor %}
+    </div>
+    <div class="about-facts reveal">
+      {% for fact in about.facts %}
+      <div class="fact-card">
+        <div class="fact-emoji">{{ fact.emoji }}</div>
+        <div class="fact-label">{{ fact.label }}</div>
+        <div class="fact-value">{{ fact.value }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ── TIMELINE ────────────────────────────────────── #}
+{% set tl = c.timeline %}
+<section id="timeline">
+  <div class="reveal">
+    <p class="section-label">// how it started</p>
+    <h2 class="section-title">My Coding Journey</h2>
+  </div>
+  <div class="timeline">
+    {% for item in tl["items"] %}
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-year">{{ item.year }}</div>
+      <div class="tl-title">{{ item.title }}</div>
+      <div class="tl-desc">{{ item.description }}</div>
+      {% if item.badge %}
+        <div class="tl-badge">{{ item.badge }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{# ── SKILLS ──────────────────────────────────────── #}
+{% set sk = c.skills %}
+<section id="skills">
+  <div class="reveal">
+    <p class="section-label">// tools of the trade</p>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid reveal">
+    {% for s in sk["items"] %}
+    <div class="skill-chip"><span>{{ s.emoji }}</span> {{ s.name }}</div>
+    {% endfor %}
+  </div>
+</section>
+
+{# ── GITHUB STATS ────────────────────────────────── #}
+{% if c.github.show_stats %}
+{% set gh = c.github %}
+<section id="github">
+  <div class="reveal">
+    <p class="section-label">// open source</p>
+    <h2 class="section-title">GitHub Stats</h2>
+  </div>
+  <div class="github-stats-grid" id="ghStats" data-username="{{ gh.username }}">
+    <div class="gh-card reveal">
+      <div class="gh-icon">📦</div>
+      <div class="gh-value gh-loading" id="gh-repos">...</div>
+      <div class="gh-label">Public Repos</div>
+    </div>
+    <div class="gh-card reveal">
+      <div class="gh-icon">⭐</div>
+      <div class="gh-value gh-loading" id="gh-stars">...</div>
+      <div class="gh-label">Total Stars</div>
+    </div>
+    <div class="gh-card reveal">
+      <div class="gh-icon">👥</div>
+      <div class="gh-value gh-loading" id="gh-followers">...</div>
+      <div class="gh-label">Followers</div>
+    </div>
+    <div class="gh-card reveal">
+      <div class="gh-icon">🌍</div>
+      <div class="gh-value">Since 8th</div>
+      <div class="gh-label">Coding Journey</div>
+    </div>
+  </div>
+  <a href="https://github.com/{{ gh.username }}" target="_blank" class="gh-profile-link reveal">
+    🐙 Visit GitHub Profile →
+  </a>
+</section>
+{% endif %}
+
+{# ── NOW PLAYING ─────────────────────────────────── #}
+{% set np = c.nowplaying %}
+<section id="nowplaying">
+  <div class="reveal">
+    <p class="section-label">// current vibes</p>
+    <h2 class="section-title">Now Playing</h2>
+  </div>
+  <div class="np-card reveal">
+    <div class="np-album">🎵</div>
+    <div class="np-info">
+      <div class="np-status"><div class="np-dot"></div> Listening on Spotify</div>
+      <div class="np-track">{{ np.track }}</div>
+      <div class="np-artist">{{ np.artist }}</div>
+      <div class="np-bars">
+        <div class="np-bar"></div>
+        <div class="np-bar"></div>
+        <div class="np-bar"></div>
+        <div class="np-bar"></div>
+        <div class="np-bar"></div>
+      </div>
+    </div>
+  </div>
+  <p class="np-note reveal">{{ np.note }}</p>
+</section>
+
+{# ── PROJECTS ────────────────────────────────────── #}
+{% set proj = c.projects %}
+<section id="projects">
+  <div class="reveal">
+    <p class="section-label">// things i've shipped</p>
+    <h2 class="section-title">Projects</h2>
+  </div>
+  <div class="projects-grid">
+    {% for p in proj["items"] %}
+    <div class="project-card {{ 'project-featured' if p.featured }} reveal">
+      <div class="project-emoji">{{ p.emoji }}</div>
+      <div class="project-title">{{ p.title }}</div>
+      <div class="project-desc">{{ p.description }}</div>
+      <div class="project-tags">
+        {% for tag in p.tags %}
+        <span class="project-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% for link in p.links %}
+        <a href="{{ link.url }}" target="_blank" class="project-link">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{# ── CONTACT ─────────────────────────────────────── #}
+{% set ct = c.contact %}
+<section id="contact">
+  <div class="reveal">
+    <p class="section-label">// let's connect</p>
+    <h2 class="section-title">Get in Touch</h2>
+  </div>
+  <p class="contact-sub reveal">{{ ct.tagline }}</p>
+  <div class="contact-links reveal">
+    <a href="mailto:{{ ct.email }}" class="contact-link email">✉️ {{ ct.email }}</a>
+    {% for s in ct.socials %}
+      <a href="{{ s.url }}" target="_blank" class="contact-link social">{{ s.label }}</a>
+    {% endfor %}
+  </div>
+</section>
+
+<footer>{{ c.settings.footer }}</footer>
+
+<button id="back-to-top" title="Back to top">↑</button>
+
+<script src="{{ url_for('static', filename='js/public.js') }}"></script>
+</body>
+</html>

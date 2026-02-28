@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin Login — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}"/>
+</head>
+<body class="login-page">
+
+<div class="login-card">
+  <h1>🔐 Admin Login</h1>
+  <p class="login-sub">Sign in to manage your portfolio content.</p>
+
+  {% if error %}
+  <div class="error">{{ error }}</div>
+  {% endif %}
+
+  <form method="POST" action="{{ url_for('admin_login') }}">
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" name="username" class="form-input" placeholder="admin" required autofocus/>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" class="form-input" placeholder="••••••••" required/>
+    </div>
+    <button type="submit" class="btn-admin btn-admin-primary" style="width:100%;justify-content:center;margin-top:0.5rem;">
+      Sign In →
+    </button>
+  </form>
+
+  <p style="text-align:center;margin-top:1.5rem;">
+    <a href="{{ url_for('public_index') }}" style="color:var(--a-muted);font-size:0.82rem;text-decoration:none;">
+      ← Back to site
+    </a>
+  </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin Dashboard — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}"/>
+</head>
+<body>
+
+<div class="dashboard">
+
+  {# ── Mobile Toggle ─ #}
+  <button class="mobile-sidebar-toggle">☰</button>
+
+  {# ── Sidebar ────────────────────────────────────── #}
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span>⚡</span> Portfolio Admin</h2>
+      <p>Editing as <strong>{{ session.admin }}</strong></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" data-section="settings">⚙️ Settings</a>
+      <div class="nav-divider"></div>
+      <a href="#" data-section="hero">🏠 Hero</a>
+      <a href="#" data-section="about">👤 About</a>
+      <a href="#" data-section="timeline">🗓️ Timeline</a>
+      <a href="#" data-section="skills">🛠️ Skills</a>
+      <a href="#" data-section="github">🐙 GitHub</a>
+      <a href="#" data-section="nowplaying">🎵 Now Playing</a>
+      <a href="#" data-section="projects">🚀 Projects</a>
+      <a href="#" data-section="contact">📬 Contact</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="{{ url_for('public_index') }}" target="_blank" style="margin-bottom:0.6rem;color:var(--a-accent);">
+        🌐 View Public Site
+      </a>
+      <a href="{{ url_for('admin_logout') }}">🚪 Sign Out</a>
+    </div>
+  </aside>
+
+  {# ── Main Content ───────────────────────────────── #}
+  <main class="main-content">
+
+    {# Settings Panel #}
+    <div id="panel-settings" class="section-panel">
+      <div class="content-header">
+        <h1>⚙️ Settings</h1>
+        <p>General site settings and account management.</p>
+      </div>
+    </div>
+
+    {# Hero Panel #}
+    <div id="panel-hero" class="section-panel">
+      <div class="content-header">
+        <h1>🏠 Hero Section</h1>
+        <p>The first thing visitors see — your name, tagline, and calls to action.</p>
+      </div>
+    </div>
+
+    {# About Panel #}
+    <div id="panel-about" class="section-panel">
+      <div class="content-header">
+        <h1>👤 About Me</h1>
+        <p>Your bio paragraphs and quick fact cards.</p>
+      </div>
+    </div>
+
+    {# Timeline Panel #}
+    <div id="panel-timeline" class="section-panel">
+      <div class="content-header">
+        <h1>🗓️ Timeline</h1>
+        <p>Your coding journey — milestones, events, and achievements.</p>
+      </div>
+    </div>
+
+    {# Skills Panel #}
+    <div id="panel-skills" class="section-panel">
+      <div class="content-header">
+        <h1>🛠️ Skills</h1>
+        <p>Tools, languages, and capabilities.</p>
+      </div>
+    </div>
+
+    {# GitHub Panel #}
+    <div id="panel-github" class="section-panel">
+      <div class="content-header">
+        <h1>🐙 GitHub</h1>
+        <p>GitHub stats integration settings.</p>
+      </div>
+    </div>
+
+    {# Now Playing Panel #}
+    <div id="panel-nowplaying" class="section-panel">
+      <div class="content-header">
+        <h1>🎵 Now Playing</h1>
+        <p>Show what you're listening to.</p>
+      </div>
+    </div>
+
+    {# Projects Panel #}
+    <div id="panel-projects" class="section-panel">
+      <div class="content-header">
+        <h1>🚀 Projects</h1>
+        <p>Showcase your work — add, edit, reorder projects.</p>
+      </div>
+    </div>
+
+    {# Contact Panel #}
+    <div id="panel-contact" class="section-panel">
+      <div class="content-header">
+        <h1>📬 Contact</h1>
+        <p>Email and social links.</p>
+      </div>
+    </div>
+
+  </main>
+
+  {# ── Save Bar ───────────────────────────────────── #}
+  <div class="save-bar">
+    <div class="save-info">⚠️ You have unsaved changes</div>
+    <button class="btn-admin btn-admin-success" onclick="saveAllDirty()">💾 Save All Changes</button>
+  </div>
+
+</div>
+
+<div class="toast-container"></div>
+
+{# Pass content data to JS #}
+<script id="contentData" type="application/json">{{ content | tojson }}</script>
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+
+</body>
+</html>
