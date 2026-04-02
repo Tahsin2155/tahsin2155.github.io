@@ -171,6 +171,7 @@ section { padding: 6rem 6%; }
 .fact-card { background: var(--bg); border-radius: var(--radius); padding: 1.3rem; border: 1px solid var(--border); transition: transform 0.2s; }
 .fact-card:hover { transform: translateY(-3px); }
 .fact-emoji { font-size: 1.5rem; margin-bottom: 0.4rem; }
+.fact-emoji svg { width: 1.5rem; height: 1.5rem; stroke: var(--ink); display: block; }
 .fact-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-family: 'DM Mono', monospace; }
 .fact-value { font-size: 0.88rem; font-weight: 600; margin-top: 0.2rem; }
 
@@ -205,6 +206,7 @@ section { padding: 6rem 6%; }
   font-size: 0.86rem; font-weight: 600;
   transition: border-color 0.2s, transform 0.2s, background 0.2s;
 }
+.skill-chip svg { width: 1rem; height: 1rem; stroke: currentColor; display: block; flex-shrink: 0; }
 .skill-chip:hover { border-color: var(--accent); transform: translateY(-2px); background: #eff6ff; }
 
 /* GITHUB STATS */
@@ -217,6 +219,7 @@ section { padding: 6rem 6%; }
 }
 .gh-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
 .gh-card .gh-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+.gh-card .gh-icon svg { width: 1.8rem; height: 1.8rem; stroke: var(--ink); display: block; margin: 0 auto; }
 .gh-card .gh-value { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
 .gh-card .gh-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; font-family: 'DM Mono', monospace; letter-spacing: 0.06em; }
 .gh-card .gh-loading { font-size: 1rem; color: var(--muted); }
@@ -341,7 +344,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">tahsin.dev</span>
+  <span class="nav-logo">tahsin2155.github.io</span>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#timeline">Journey</a>
@@ -367,16 +370,16 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
 <section id="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-blob"></div>
-  <p class="hero-tag">👋 Hey there, I'm</p>
-  <h1 class="hero-name">MD Tahsin<br><span class="accent-word">Ali Abtahi</span></h1>
+  <p class="hero-tag">Hey there, I'm</p>
+  <h1 class="hero-name">Tahsin<br><span class="accent-word">Ali Abtahi</span></h1>
   <div class="typing-wrapper">
     I'm a <span class="typed-text" id="typedText"></span><span class="typing-cursor"></span>
   </div>
   <p class="hero-sub">
-    11th-grader by day, aspiring developer by night. Started with Minecraft redstone, ended up writing Python. No regrets. 🎮🐍
+    I build, break, and rebuild things until they work better than before.
   </p>
   <div class="hero-cta">
-    <a href="#projects" class="btn btn-primary">See My Work 🚀</a>
+    <a href="#projects" class="btn btn-primary">See My Work <i data-lucide="palette"></i></a>
     <a href="#contact" class="btn btn-outline">Get in Touch</a>
   </div>
 </section>
@@ -390,14 +393,14 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
   <div class="about-grid">
     <div class="about-text reveal">
       <p>I'm a Science stream student at <strong>PM SHRI KV 210 CoBRA CRPF Dalgaon</strong>, studying PCMCs — Physics, Chemistry, Mathematics & Computer Science.</p>
-      <p>What started as curiosity about Minecraft redstone circuits slowly transformed into a genuine love for programming. Today I build real apps, experiment with Python, and vibe-code my way through side projects. 😄</p>
-      <p>I'm a hackathon veteran (team leader, no less!) and an aspiring developer who believes the best way to learn is to just <em>build stuff</em> — even if it breaks first.</p>
+      <p>What started as curiosity around logic and systems turned into a real interest in programming. These days I build practical apps, experiment with Python, and keep learning through side projects.</p>
+      <p>I'm a hackathon participant and team leader, and I seriously believe the fastest way to learn is to build things, test them, and improve them as I go.</p>
     </div>
     <div class="about-facts reveal">
-      <div class="fact-card"><div class="fact-emoji">🏫</div><div class="fact-label">School</div><div class="fact-value">PM SHRI KV 210 CoBRA CRPF Dalgaon</div></div>
-      <div class="fact-card"><div class="fact-emoji">📚</div><div class="fact-label">Stream</div><div class="fact-value">PCMCs — 11th Standard</div></div>
-      <div class="fact-card"><div class="fact-emoji">🎮</div><div class="fact-label">Origin Story</div><div class="fact-value">Minecraft Redstone → Coding</div></div>
-      <div class="fact-card"><div class="fact-emoji">🏆</div><div class="fact-label">Achievement</div><div class="fact-value">Hackathon — Zonal Level (Top 120)</div></div>
+      <div class="fact-card"><div class="fact-emoji"><i data-lucide="school"></i></div><div class="fact-label">School</div><div class="fact-value">PM SHRI KV 210 CoBRA CRPF Dalgaon</div></div>
+      <div class="fact-card"><div class="fact-emoji"><i data-lucide="book-open"></i></div><div class="fact-label">Stream</div><div class="fact-value">PCMCs — 12th Standard</div></div>
+      <div class="fact-card"><div class="fact-emoji"><i data-lucide="hammer"></i></div><div class="fact-label">Currently Building</div><div class="fact-value">DayMark, MarkdStudio, and Velin</div></div>
+      <div class="fact-card"><div class="fact-emoji"><i data-lucide="trophy"></i></div><div class="fact-label">Achievement</div><div class="fact-value">Hackathon — Zonal Level (Top 120)</div></div>
     </div>
   </div>
 </section>
@@ -412,38 +415,38 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-year">8TH STANDARD • THE BEGINNING</div>
-      <div class="tl-title">🎮 Minecraft Led Me Here</div>
-      <div class="tl-desc">Got my first laptop. Was obsessed with Minecraft redstone — complex circuits, logic gates, contraptions. Somehow that wired my brain for programming. Started tinkering with HTML, made some practice projects (that I later deleted 😅).</div>
+      <div class="tl-title">Minecraft Started the Journey</div>
+      <div class="tl-desc">Got my first laptop and spent hours building redstone circuits, logic setups, and contraptions in Minecraft. That problem-solving mindset naturally pulled me toward programming, and I started experimenting with HTML projects.</div>
     </div>
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-year">8TH–9TH STANDARD • THE DETOUR</div>
-      <div class="tl-title">🤖 Built a JARVIS — Without Knowing Python</div>
-      <div class="tl-desc">Decided to build a Jarvis-like desktop assistant using Python. Problem: I literally knew 0% Python. Solution: copy code from YouTube tutorials. Result: it somehow worked — and I accidentally learned Python syntax along the way. Then continued with CSS.</div>
+      <div class="tl-title">Built a JARVIS Before Learning Python</div>
+      <div class="tl-desc">I decided to build a Jarvis-style desktop assistant in Python before I properly knew the language. I followed YouTube tutorials line by line, and through that process I picked up Python syntax and kept improving my CSS skills too.</div>
     </div>
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-year">10TH STANDARD • THE PAUSE</div>
-      <div class="tl-title">📝 Board Exams Hit Different</div>
-      <div class="tl-desc">Started a proper Python course — but life had other plans. 10th board exams took over. Coding went on the back burner. The grind was real.</div>
+      <div class="tl-title">Board Exams Took Priority</div>
+      <div class="tl-desc">I started a structured Python course, but 10th board exams demanded full focus. Coding had to pause for a while until academics settled down.</div>
     </div>
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-year">11TH STANDARD • THE COMEBACK</div>
-      <div class="tl-title">🐍 Python, Completed. Streamlit, Unlocked.</div>
-      <div class="tl-desc">Picked up Python again — this time, finished it properly. Then discovered Streamlit and realized I could build real web apps with pure Python. Things clicked. The momentum was back.</div>
+      <div class="tl-title">Python Done, Streamlit Added</div>
+      <div class="tl-desc">I returned to Python and completed it properly. Then I discovered Streamlit and realized I could build real web apps using pure Python, which gave me strong momentum again.</div>
     </div>
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
-      <div class="tl-year">MID 11TH • THE AHA MOMENT ⚡</div>
-      <div class="tl-title">🏆 Hackathon: School → Zonal Level</div>
-      <div class="tl-desc">Led my team in an All-India school-level hackathon. We cleared the school round and made it to Zonal level — finishing in the top 120 nationwide. That moment hit different. This is real.</div>
-      <div class="tl-badge">🏅 Top 120 Nationally</div>
+      <div class="tl-year">MID 11TH • THE AHA MOMENT</div>
+      <div class="tl-title">Hackathon from School to Zonal</div>
+      <div class="tl-desc">I led my team in an All-India school-level hackathon. We cleared the school round and reached the Zonal level, finishing in the top 120 nationwide. That was the moment I knew I wanted to keep building seriously.</div>
+      <div class="tl-badge">Top 120 Nationally</div>
     </div>
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-year">MID 11TH • THE LAUNCH</div>
-      <div class="tl-title">📅 DayMark Goes Live</div>
+      <div class="tl-title">DayMark Goes Live</div>
       <div class="tl-desc">Developed and deployed DayMark — a real, live productivity web app. My first proper full-stack project shipped to the world. Still running at daymark.streamlit.app.</div>
     </div>
   </div>
@@ -456,16 +459,14 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
     <h2 class="section-title">Skills</h2>
   </div>
   <div class="skills-grid reveal">
-    <div class="skill-chip"><span>🐍</span> Python</div>
-    <div class="skill-chip"><span>🌐</span> HTML</div>
-    <div class="skill-chip"><span>🎨</span> CSS</div>
-    <div class="skill-chip"><span>⚡</span> Streamlit</div>
-    <div class="skill-chip"><span>✨</span> Vibe Coding</div>
-    <div class="skill-chip"><span>🔢</span> Mathematics</div>
-    <div class="skill-chip"><span>🧪</span> Physics & Science</div>
-    <div class="skill-chip"><span>🐙</span> Git & GitHub</div>
-    <div class="skill-chip"><span>🧠</span> Problem Solving</div>
-    <div class="skill-chip"><span>🎮</span> Minecraft Redstone (origin)</div>
+    <div class="skill-chip"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="16" height="16"> Python</div>
+    <div class="skill-chip"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5" width="16" height="16"> HTML</div>
+    <div class="skill-chip"><img src="https://www.svgrepo.com/show/452185/css-3.svg" alt="CSS3" width="16" height="16"> CSS</div>
+    <div class="skill-chip"><img src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="Streamlit" width="16" height="16"> Streamlit</div>
+    <div class="skill-chip"><span data-lucide="calculator"></span> Mathematics</div>
+    <div class="skill-chip"><span data-lucide="flask-conical"></span> Physics & Science</div>
+    <div class="skill-chip"><img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" width="16" height="16"> Git & GitHub</div>
+    <div class="skill-chip"><span data-lucide="brain"></span> Problem Solving</div>
   </div>
 </section>
 
@@ -477,32 +478,32 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
   </div>
   <div class="github-stats-grid" id="ghStats">
     <div class="gh-card reveal">
-      <div class="gh-icon">📦</div>
+      <div class="gh-icon"><i data-lucide="package"></i></div>
       <div class="gh-value gh-loading" id="gh-repos">...</div>
       <div class="gh-label">Public Repos</div>
     </div>
     <div class="gh-card reveal">
-      <div class="gh-icon">⭐</div>
+      <div class="gh-icon"><i data-lucide="star"></i></div>
       <div class="gh-value gh-loading" id="gh-stars">...</div>
       <div class="gh-label">Total Stars</div>
     </div>
     <div class="gh-card reveal">
-      <div class="gh-icon">👥</div>
+      <div class="gh-icon"><i data-lucide="users"></i></div>
       <div class="gh-value gh-loading" id="gh-followers">...</div>
       <div class="gh-label">Followers</div>
     </div>
     <div class="gh-card reveal">
-      <div class="gh-icon">🌍</div>
-      <div class="gh-value">Since 8th</div>
-      <div class="gh-label">Coding Journey</div>
+      <div class="gh-icon"><i data-lucide="git-branch"></i></div>
+      <div class="gh-value gh-loading" id="gh-latestrepo">...</div>
+      <div class="gh-label">Latest Repo</div>
     </div>
   </div>
   <a href="https://github.com/Tahsin2155" target="_blank" class="gh-profile-link reveal">
-    🐙 Visit GitHub Profile →
+    Visit GitHub Profile →
   </a>
 </section>
 
-<!-- NOW PLAYING -->
+<!-- TODO: music section
 <section id="nowplaying">
   <div class="reveal">
     <p class="section-label">// current vibes</p>
@@ -525,6 +526,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
   </div>
   <p class="np-note reveal">🎧 Gaming + music = the ultimate coding setup. Ask me what I'm listening to!</p>
 </section>
+-->
 
 <!-- PROJECTS -->
 <section id="projects">
@@ -534,14 +536,13 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
   </div>
   <div class="projects-grid">
     <div class="project-card project-featured reveal">
-      <div class="project-emoji">📅</div>
+      <div class="project-emoji"><img src="https://github.com/Tahsin2155/DayMark/blob/main/assets/logo.png?raw=1" alt="DayMark logo" width="40" height="40"></div>
       <div class="project-title">DayMark</div>
       <div class="project-desc">A personal productivity web app built entirely with Python & Streamlit. Track your days, mark milestones, and stay organised — all in a clean, minimal interface. Live and running!</div>
       <div class="project-tags">
         <span class="project-tag">Python</span>
         <span class="project-tag">Streamlit</span>
         <span class="project-tag">Productivity</span>
-        <span class="project-tag">Live 🟢</span>
       </div>
       <a href="https://daymark.streamlit.app" target="_blank" class="project-link">Live App →</a><br>
       <a href="https://github.com/Tahsin2155/DayMark" target="_blank" class="project-link">GitHub Repo →</a>
@@ -549,27 +550,28 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
     </div>
 
     <div class="project-card reveal">
-      <div class="project-emoji">🤖</div>
-      <div class="project-title">JARVIS Desktop Assistant</div>
-      <div class="project-desc">The project that started it all. A voice-controlled desktop assistant inspired by Iron Man — built when I knew 0% Python, by copying YouTube code and reverse-engineering it into understanding.</div>
+      <div class="project-emoji"><img src="https://markdstudio.netlify.app/favicon-48.png" alt="MarkdStudio icon" width="40" height="40"></div>
+      <div class="project-title">MarkdStudio</div>
+      <div class="project-desc">A markdown editor and writing app focused on clean writing flow and simple formatting. Built for drafting, editing, and shipping content faster.</div>
       <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Personal</span>
-        <span class="project-tag">Origin Project</span>
+        <span class="project-tag">Markdown</span>
+        <span class="project-tag">Editor</span>
+        <span class="project-tag">Writing</span>
       </div>
-      <a href="https://github.com/Tahsin2155" target="_blank" class="project-link">View GitHub →</a>
+      <a href="https://markdstudio.netlify.app" target="_blank" class="project-link">Live App →</a><br>
+      <a href="https://github.com/Tahsin2155/markdstudio" target="_blank" class="project-link">GitHub Repo →</a>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-emoji">🔬</div>
-      <div class="project-title">Math & Science Explorations</div>
-      <div class="project-desc">Scripts and mini-projects exploring PCMCs concepts — visualizations, problem solvers, and anything that makes studying less boring and more interactive.</div>
+      <div class="project-emoji"><img src="https://newvelintab.netlify.app/favicon-light.svg" alt="Velin icon" width="40" height="40"></div>
+      <div class="project-title">Velin</div>
+      <div class="project-desc">A custom new tab page designed to make your browser start cleaner and more useful. It is live right now and actively in development.</div>
       <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Math</span>
-        <span class="project-tag">Research</span>
+        <span class="project-tag">New Tab</span>
+        <span class="project-tag">Productivity</span>
+        <span class="project-tag">In Development</span>
       </div>
-      <a href="https://github.com/Tahsin2155" target="_blank" class="project-link">View GitHub →</a>
+      <a href="https://newvelintab.netlify.app" target="_blank" class="project-link">Live App →</a>
     </div>
   </div>
 </section>
@@ -580,17 +582,19 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
     <p class="section-label">// let's connect</p>
     <h2 class="section-title">Get in Touch</h2>
   </div>
-  <p class="contact-sub reveal">Have a cool project idea? Want to collaborate? Or just want to talk code, games, or music? I'm always down. 📩</p>
+  <p class="contact-sub reveal">Have a project idea or want to collaborate? Feel free to reach out anytime. I'm always open to a good conversation.</p>
   <div class="contact-links reveal">
-    <a href="mailto:tahsindlg@gmail.com" class="contact-link email">✉️ tahsindlg@gmail.com</a>
-    <a href="https://www.instagram.com/tahsin_2155" target="_blank" class="contact-link instagram">📸 @tahsin_2155</a>
-    <a href="https://github.com/Tahsin2155" target="_blank" class="contact-link github-link">🐙 Tahsin2155</a>
+    <a href="mailto:tahsindlg@gmail.com" class="contact-link email"><span data-lucide="mail"></span> tahsindlg@gmail.com</a>
+    <a href="https://www.instagram.com/tahsin_2155" target="_blank" class="contact-link instagram"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" width="16" height="16"> @tahsin_2155</a>
+    <a href="https://github.com/Tahsin2155" target="_blank" class="contact-link github-link"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" width="16" height="16"> Tahsin2155</a>
   </div>
 </section>
 
-<footer>© 2025 MD Tahsin Ali Abtahi — built with Python, vibes & redstone logic 🎮</footer>
+<footer>© 2025 MD Tahsin Ali Abtahi</footer>
 
+<script src="https://unpkg.com/lucide@latest"></script>
 <script>
+document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
 // Custom cursor
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
@@ -609,7 +613,7 @@ hamburger.addEventListener('click', () => {
 function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
 
 // Typing effect
-const phrases = ['Aspiring Developer 💻','Future Engineer 🔧','Python Enthusiast 🐍','Vibe Coder ✨','11th Std. Student 📚'];
+const phrases = ['Python Developer', 'Aspiring Engineer', '12th Std. Student'];
 let pi=0, ci=0, deleting=false;
 const el = document.getElementById('typedText');
 function type(){
@@ -637,10 +641,16 @@ async function loadGHStats(){
     const reposRes = await fetch('https://api.github.com/users/Tahsin2155/repos?per_page=100');
     const repos = await reposRes.json();
     const stars = Array.isArray(repos) ? repos.reduce((a,r) => a + (r.stargazers_count||0), 0) : '—';
+    let latestRepo = '—';
+    if (Array.isArray(repos)) {
+      const sortedRepos = [...repos].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+      latestRepo = sortedRepos.length ? sortedRepos[0].name : '—';
+    }
     document.getElementById('gh-stars').textContent = stars;
-    ['gh-repos','gh-stars','gh-followers'].forEach(id => document.getElementById(id).classList.remove('gh-loading'));
+    document.getElementById('gh-latestrepo').textContent = latestRepo;
+    ['gh-repos','gh-stars','gh-followers','gh-latestrepo'].forEach(id => document.getElementById(id).classList.remove('gh-loading'));
   } catch(e) {
-    ['gh-repos','gh-stars','gh-followers'].forEach(id => document.getElementById(id).textContent = '—');
+    ['gh-repos','gh-stars','gh-followers','gh-latestrepo'].forEach(id => document.getElementById(id).textContent = '—');
   }
 }
 loadGHStats();
