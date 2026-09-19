@@ -194,6 +194,13 @@ section { padding: 6rem 6%; }
 .page-title { font-size: clamp(2.2rem, 5.5vw, 4rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
 .page-lead { margin-top: 1.2rem; max-width: 620px; color: var(--muted); font-size: 1.05rem; font-weight: 300; line-height: 1.75; }
 
+/* CASE STUDY HEADING — project icon beside the title */
+.case-heading { display: flex; align-items: center; gap: 1.1rem; }
+.case-icon { flex-shrink: 0; display: flex; }
+.case-icon img { width: 56px; height: 56px; object-fit: contain; border-radius: 12px; display: block; }
+.case-icon .project-glyph { width: 56px; height: 56px; border-radius: 14px; }
+.case-icon .project-glyph svg { width: 30px; height: 30px; }
+
 /* BREADCRUMB (case study pages) */
 .breadcrumb { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--muted); margin-bottom: 1.2rem; }
 .breadcrumb a { color: var(--accent); text-decoration: none; }
@@ -249,6 +256,23 @@ section { padding: 6rem 6%; }
 .tl-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
 .tl-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
 .tl-badge { display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.7rem; background: #fef3c7; color: #d97706; border-radius: 100px; font-size: 0.72rem; font-weight: 700; }
+
+/* TIMELINE FOLD — JS adds .is-collapsed; without JS the whole timeline just shows */
+.timeline .tl-item.is-folded { display: none; }
+.timeline.is-collapsed { padding-bottom: 0.5rem; }
+.timeline.is-collapsed::after {
+  content: ''; position: absolute; left: -1px; right: 0; bottom: 0; height: 5rem;
+  background: linear-gradient(180deg, rgba(246,244,239,0) 0%, var(--bg) 100%);
+  pointer-events: none;
+}
+.timeline-toggle {
+  margin-top: 1.2rem; display: inline-flex; align-items: center; gap: 0.7rem;
+  padding: 0.7rem 1.4rem; background: var(--ink); color: #fff; border: 0; border-radius: 100px;
+  font: 600 0.88rem 'Sora', sans-serif; cursor: pointer; transition: transform 0.2s;
+}
+.timeline-toggle:hover { transform: translateY(-2px); }
+.timeline-toggle-count { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 400; opacity: 0.6; }
+.timeline-toggle[aria-expanded="true"] .timeline-toggle-count { display: none; }
 
 /* SKILLS */
 #skills { background: var(--surface); }

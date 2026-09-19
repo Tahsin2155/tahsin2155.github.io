@@ -130,3 +130,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   load();
 })();
+
+// Timeline: show only the newest few entries, with a toggle for the rest.
+// Without JS (or with <= visible entries) everything simply stays visible.
+(function () {
+  const list = document.getElementById('timelineList');
+  const btn = document.getElementById('timelineToggle');
+  if (!list || !btn) return;
+  const visible = parseInt(list.dataset.visible, 10) || 3;
+  const items = Array.from(list.querySelectorAll('.tl-item'));
+  if (items.length <= visible) return;
+
+  const label = btn.querySelector('.timeline-toggle-label');
+  const count = document.getElementById('timelineCount');
+  const hiddenCount = items.length - visible;
+
+  function setExpanded(expanded, moveFocus) {
+    items.forEach((el, i) => {
+      const fold = !expanded && i >= visible;
+      el.classList.toggle('is-folded', fold);
+      // items revealed by the toggle should not wait for a scroll observer
+      if (!fold) el.classList.add('visible');
+    });
+    list.classList.toggle('is-collapsed', !expanded);
+    btn.setAttribute('aria-expanded', String(expanded));
+    label.textContent = expanded ? 'Hide full timeline' : 'Show full timeline';
+    count.textContent = expanded ? '' : '+' + hiddenCount + ' earlier';
+    // when collapsing from far down the page, bring the timeline back into view
+    if (!expanded && moveFocus) {
+      const top = list.getBoundingClientRect().top;
+      if (top < 0) list.scrollIntoView({ block: 'start' });
+    }
+  }
+
+  btn.hidden = false;
+  setExpanded(false, false);
+  btn.addEventListener('click', () => setExpanded(btn.getAttribute('aria-expanded') !== 'true', true));
+})();
