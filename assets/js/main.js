@@ -1,0 +1,132 @@
+// Mark JS as available — CSS uses this so .reveal content is never hidden when JS is off
+document.documentElement.classList.add('js');
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+});
+
+// Custom cursor (fine-pointer devices only; the elements are display:none otherwise)
+(function () {
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  if (!cursor || !ring) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  });
+  (function animateRing() {
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  })();
+})();
+
+// Mobile menu
+(function () {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (!hamburger || !mobileMenu) return;
+  function setOpen(open) {
+    hamburger.classList.toggle('open', open);
+    mobileMenu.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+  }
+  hamburger.addEventListener('click', () => setOpen(!mobileMenu.classList.contains('open')));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+})();
+
+// Typing effect (home page only)
+(function () {
+  const el = document.getElementById('typedText');
+  if (!el) return;
+  const phrases = ['Python Developer', 'Aspiring Engineer', 'Hackathon Team Lead'];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) { el.textContent = phrases[0]; return; }
+  let pi = 0, ci = 0, deleting = false;
+  function type() {
+    const phrase = phrases[pi];
+    if (!deleting) {
+      el.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) { setTimeout(() => { deleting = true; type(); }, 1800); }
+      else setTimeout(type, 65);
+    } else {
+      el.textContent = phrase.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(type, 400); }
+      else setTimeout(type, 35);
+    }
+  }
+  type();
+})();
+
+// Scroll reveal
+(function () {
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+})();
+
+// GitHub stats (home page only) — cached in sessionStorage for 10 minutes to avoid
+// hitting the unauthenticated GitHub API's 60 req/hour limit on every page load
+(function () {
+  const ids = ['gh-repos', 'gh-stars', 'gh-followers', 'gh-latestrepo'];
+  if (!document.getElementById('gh-repos')) return;
+
+  function apply(result) {
+    document.getElementById('gh-repos').textContent = result.repos;
+    document.getElementById('gh-followers').textContent = result.followers;
+    document.getElementById('gh-stars').textContent = result.stars;
+    document.getElementById('gh-latestrepo').textContent = result.latestRepo;
+    ids.forEach(id => document.getElementById(id).classList.remove('gh-loading'));
+  }
+
+  async function load() {
+    const CACHE_KEY = 'gh-stats-cache';
+    const CACHE_TTL = 10 * 60 * 1000;
+    try {
+      const cached = sessionStorage.getItem(CACHE_KEY);
+      if (cached) {
+        const { data, ts } = JSON.parse(cached);
+        if (Date.now() - ts < CACHE_TTL) { apply(data); return; }
+      }
+    } catch (e) { /* storage unavailable or corrupt cache — fall through to fetch */ }
+
+    try {
+      const res = await fetch('https://api.github.com/users/Tahsin2155');
+      if (!res.ok) throw new Error('GitHub API returned ' + res.status);
+      const data = await res.json();
+      const reposRes = await fetch('https://api.github.com/users/Tahsin2155/repos?per_page=100');
+      if (!reposRes.ok) throw new Error('GitHub API returned ' + reposRes.status);
+      const repos = await reposRes.json();
+      const stars = Array.isArray(repos) ? repos.reduce((a, r) => a + (r.stargazers_count || 0), 0) : '—';
+      let latestRepo = '—';
+      if (Array.isArray(repos) && repos.length) {
+        latestRepo = [...repos].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))[0].name;
+      }
+      const result = { repos: data.public_repos ?? '—', followers: data.followers ?? '—', stars, latestRepo };
+      apply(result);
+      try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data: result, ts: Date.now() })); } catch (e) { /* non-fatal */ }
+    } catch (e) {
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        el.textContent = '—';
+        el.classList.remove('gh-loading');
+      });
+    }
+  }
+  load();
+})();
