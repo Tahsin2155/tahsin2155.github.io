@@ -117,6 +117,14 @@
     <h2 class="section-title">Get in Touch</h2>
   </div>
   <p class="contact-sub reveal">I'd love to connect with mentors, fellow builders, or anyone curious about the same things I am — always up for a good conversation or a collaboration on something interesting. (Still in high school, so I'm not looking for internships or paid work right now — just good people and good ideas.)</p>
+  <form class="contact-form reveal" action="https://formspree.io/f/xwlpvooz" method="POST">
+    <div class="contact-field"><label for="contact-name">Name</label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
+    <div class="contact-field"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+    <div class="contact-field contact-field-full"><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" type="text" placeholder="What would you like to talk about?" required></div>
+    <div class="contact-field contact-field-full"><label for="contact-message">Message</label><textarea id="contact-message" name="message" placeholder="Write your message..." required></textarea></div>
+    <input type="hidden" name="_subject" value="New message from tahsin2155.github.io">
+    <button class="btn btn-primary contact-submit" type="submit">Send message</button>
+  </form>
   <div class="contact-links reveal">
     <a href="mailto:tahsindlg@gmail.com" class="contact-link email"><span data-lucide="mail"></span> tahsindlg@gmail.com</a>
     <a href="https://www.linkedin.com/in/tahsinaliabtahi/" target="_blank" rel="noopener noreferrer" class="contact-link linkedin"><img loading="lazy" src="../assets/img/InBug-White.png" alt="" width="16" height="16"> LinkedIn</a>

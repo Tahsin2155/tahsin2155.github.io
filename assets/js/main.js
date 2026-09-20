@@ -11,13 +11,67 @@ document.addEventListener('DOMContentLoaded', () => {
   const ring = document.getElementById('cursor-ring');
   if (!cursor || !ring) return;
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const root = document.documentElement;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  let hasEntered = false;
+  let clickTimer;
+
+  root.classList.add('cursor-ready');
+
+  function setPosition(x, y) {
+    mx = x;
+    my = y;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+    if (reduceMotion) {
+      rx = mx;
+      ry = my;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+    }
+  }
+
+  function setVisible(visible) {
+    hasEntered = visible;
+    cursor.classList.toggle('is-visible', visible);
+    ring.classList.toggle('is-visible', visible);
+  }
+
+  function setHovering(target) {
+    const interactive = target instanceof Element
+      ? target.closest('a, button, input, textarea, select, [role="button"]')
+      : null;
+    const hovering = Boolean(interactive);
+    cursor.classList.toggle('is-hovering', hovering);
+    ring.classList.toggle('is-hovering', hovering);
+  }
+
+  document.addEventListener('pointermove', e => {
+    setPosition(e.clientX, e.clientY);
+    if (!hasEntered) setVisible(true);
+    setHovering(e.target);
   });
+  document.addEventListener('pointerdown', () => {
+    cursor.classList.add('is-clicking');
+    ring.classList.add('is-clicking');
+    clearTimeout(clickTimer);
+    clickTimer = setTimeout(() => {
+      cursor.classList.remove('is-clicking');
+      ring.classList.remove('is-clicking');
+    }, 160);
+  });
+  document.addEventListener('pointerleave', () => setVisible(false));
+  document.addEventListener('pointerenter', e => {
+    setPosition(e.clientX, e.clientY);
+    setVisible(true);
+  });
+
   (function animateRing() {
-    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    if (!reduceMotion) {
+      rx += (mx - rx) * 0.14;
+      ry += (my - ry) * 0.14;
+    }
     ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
     requestAnimationFrame(animateRing);
   })();
