@@ -25,7 +25,9 @@ Live site: https://tahsin2155.github.io
 │   ├── css/style.css
 │   ├── js/main.js
 │   └── img/           project icons, LinkedIn icon, social preview image
-├── tools/build.py     old page generator (do not run, see below)
+├── tools/
+│   ├── serve.py       local preview server that behaves like GitHub Pages
+│   └── build.py       old page generator (do not run, see below)
 ├── sitemap.xml
 └── robots.txt
 ```
@@ -44,11 +46,24 @@ Live site: https://tahsin2155.github.io
 
 The pages are edited by hand. The nav, footer and `<head>` are repeated in every page, so a change to any of them has to be made in each file.
 
-To preview locally, run this from the repo root and open http://localhost:8000:
+### URLs
+
+Pages are linked without `.html` (`/about`, `/projects/daymark`). GitHub Pages serves `about.html` at `/about`, so the files keep their `.html` names. When you add or rename a page:
+
+- Link to it without `.html`.
+- Use the same extensionless URL in its canonical link, its `og:url` and `sitemap.xml`.
+- Keep paths relative and keep pages as files (`about.html`, not `about/index.html`), so `assets/` and `../assets/` keep resolving at each depth.
+- The one exception is `404.html`. GitHub Pages serves it at whatever URL was missed (`/about/`, `/a/b/c`), so a relative path would break there. It uses root paths (`/assets/css/style.css`, `/about`, `/`) instead.
+
+### Preview locally
+
+Run this from the repo root and open http://localhost:8000:
 
 ```
-python3 -m http.server 8000
+python3 tools/serve.py
 ```
+
+`python3 -m http.server` will not do here, because it cannot serve extensionless URLs. `tools/serve.py` follows the GitHub Pages rules: `/about` serves `about.html`, `/projects` redirects to `/projects/`, unknown URLs get `404.html`, and file names are case-sensitive. It accepts `--port` and `--bind` (use `--bind 0.0.0.0` to open the site from a phone on the same Wi-Fi). It never serves dot-files such as `.git`.
 
 Fonts, icons, GitHub stats and the contact form need an internet connection.
 
@@ -57,7 +72,7 @@ Fonts, icons, GitHub stats and the contact form need an internet connection.
 `tools/build.py` was written to generate every page from one script so the shared parts stayed identical. **It is out of date. Do not run it.**
 
 - It writes straight into the repo root (its docstring says `./site`, but the code writes to the root). Running it overwrites `index.html`, `about.html`, `projects/*.html`, `404.html`, `sitemap.xml` and `robots.txt`, which reverts any hand edits.
-- There have been many hand edits to the pages since it was last updated, so its output no longer matches the site.
+- There have been many hand edits to the pages since it was last updated, so its output no longer matches the site. It also still writes `.html` links instead of the extensionless URLs the site now uses.
 
 Edit the HTML files directly. The script is kept only for reference.
 

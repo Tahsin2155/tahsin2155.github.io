@@ -329,7 +329,7 @@ section { padding: 6rem 6%; }
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 1.8rem; position: relative; overflow: hidden;
   display: flex; flex-direction: column;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  transition: translate 0.25s ease, box-shadow 0.25s ease;
 }
 .project-card::after {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -337,8 +337,13 @@ section { padding: 6rem 6%; }
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.3s ease;
 }
-.project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 48px rgba(0,0,0,0.09); border-color: transparent; }
+.project-card:hover { translate: 0 -5px; box-shadow: 0 20px 48px rgba(0,0,0,0.09); }
 .project-card:hover::after { transform: scaleX(1); }
+/* Cards also carry .reveal. Its later `transition` (opacity, transform) replaced the card's own list,
+   so the shadow snapped in with no animation, and its `transform: none` beat the hover `transform`,
+   so the card never lifted. The hover now uses `translate`, and this list keeps the scroll-reveal
+   (0.65s) and the hover (0.25s) animations apart. The blue border stays as it is on hover. */
+.project-card.reveal { transition: opacity 0.65s ease, transform 0.65s ease, translate 0.25s ease, box-shadow 0.25s ease; }
 .project-emoji { font-size: 2rem; margin-bottom: 1rem; }
 .project-glyph { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: var(--ink); }
 .project-glyph svg { width: 22px; height: 22px; stroke: #fff; display: block; }
@@ -419,7 +424,6 @@ section { padding: 6rem 6%; }
   transition: transform 0.2s;
 }
 .contact-link:hover { transform: translateY(-2px); }
-.contact-link.email { background: var(--accent); color: #fff; }
 .contact-link.instagram { background: rgba(255,255,255,0.07); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
 .contact-link.github-link { background: rgba(255,255,255,0.07); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
 .contact-link.linkedin { background: rgba(255,255,255,0.07); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
@@ -452,6 +456,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .hero-blob { animation: none !important; }
   .typing-cursor { animation: none !important; opacity: 1; }
   .reveal { opacity: 1 !important; transform: none !important; }
+  .project-card:hover { translate: none; }
   h1.hero-name, .hero-tag, .typing-wrapper, .hero-sub, .hero-cta, .fact-card, nav[aria-label="Main"] { opacity: 1 !important; animation: none !important; }
 }
 
