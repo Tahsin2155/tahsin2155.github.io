@@ -351,6 +351,16 @@ section { padding: 6rem 6%; }
 .project-link:hover { gap: 0.7rem; }
 .project-featured { border-color: #bfdbfe; background: linear-gradient(135deg, #eff6ff 0%, #fff 60%); }
 
+/* HOME PROJECTS FOLD — JS adds .is-collapsed and hides every card past the first row;
+   without JS all cards show. The "See all projects" link below leads to the rest. */
+.projects-grid .project-card.is-folded { display: none; }
+.projects-grid.is-collapsed { position: relative; }
+.projects-grid.is-collapsed::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--surface) 100%);
+  pointer-events: none;
+}
+
 /* CASE STUDY */
 .case-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 4rem; align-items: start; }
 .case-body h2 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; margin: 2.4rem 0 0.8rem; }

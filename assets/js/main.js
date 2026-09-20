@@ -221,3 +221,30 @@ document.addEventListener('DOMContentLoaded', () => {
   setExpanded(false, false);
   btn.addEventListener('click', () => setExpanded(btn.getAttribute('aria-expanded') !== 'true', true));
 })();
+
+// Home page projects: show only the first row of cards, faded out at the bottom, because the
+// "See all projects" link right below leads to the rest. Cards per row follow the CSS grid,
+// so the count is re-read on resize. Without JS every card stays visible.
+(function () {
+  const grid = document.querySelector('#projects .projects-grid');
+  if (!grid) return;
+  const cards = Array.from(grid.querySelectorAll('.project-card'));
+
+  function fold() {
+    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+    cards.forEach((el, i) => {
+      const hide = i >= cols;
+      // a card revealed by a wider layout should not wait for a scroll observer
+      if (!hide && el.classList.contains('is-folded')) el.classList.add('visible');
+      el.classList.toggle('is-folded', hide);
+    });
+    grid.classList.toggle('is-collapsed', cards.length > cols);
+  }
+
+  let frame;
+  fold();
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(fold);
+  });
+})();
