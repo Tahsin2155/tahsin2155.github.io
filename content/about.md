@@ -76,11 +76,11 @@ Education card containing the current school and academic history.
 
 ### PM SHRI KV 210 CoBRA CRPF Dalgaon, Assam
 
-**Class 10 · 2024–25**  
-Appeared for the 10th board examination from this school.
-
 **Class 12 · now**  
 Studying Science with Physics, Chemistry, Mathematics and Computer Science (PCMCs).
+
+**Class 10 · 2024–25**  
+Appeared for the 10th board examination from this school.
 
 
 ---
