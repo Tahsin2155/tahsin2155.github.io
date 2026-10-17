@@ -19,6 +19,22 @@ PURPOSE: Detailed case-study page for the Handoff project.
 
 # Handoff
 
+<!--
+SOURCE-ONLY CASE-STUDY DETAILS:
+The breadcrumb is a navigation landmark with aria-label="Breadcrumb"; slash separators are aria-hidden.
+The project-details sidebar is labelled with aria-label="Project details", sticky above 900px, and static below 900px.
+The case-study layout becomes one column below 900px.
+The project heading uses a decorative Lucide mouse-pointer-click icon with aria-hidden="true" rather than an image.
+Previous and next links are ordinary HTML links with no JavaScript carousel behavior.
+-->
+<!--
+SOURCE-ONLY METADATA DETAILS:
+The page uses Open Graph type "article", page-specific title, description, URL, and the shared 1200x630 og-image.png.
+Twitter uses summary_large_image metadata.
+The canonical URL has no trailing slash.
+JSON-LD identifies the project as a schema.org SoftwareApplication and includes its repository URL and Tahsin as author.
+-->
+
 <!-- Breadcrumb navigation -->
 [Home](../) / [Projects](./) / Handoff
 
@@ -149,6 +165,15 @@ I'd love to connect with mentors, fellow builders, or anyone curious about the s
 
 
 ## Contact Form
+
+<!--
+SOURCE-ONLY FORM DETAILS:
+The form submits with POST to https://formspree.io/f/xwlpvooz.
+Name, email, subject, and message are required fields.
+Name and email use autocomplete="name" and autocomplete="email".
+A hidden _subject field is submitted with the value "New message from tahsin2155.github.io".
+Submission is handled by the browser and Formspree; there is no JavaScript submission handler or local storage.
+-->
 
 <!-- Name field -->
 **NAME**

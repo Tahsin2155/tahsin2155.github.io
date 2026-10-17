@@ -24,6 +24,22 @@ PURPOSE: Detailed case-study page for the Velin project.
 
 ## Velin
 
+<!--
+SOURCE-ONLY CASE-STUDY DETAILS:
+The breadcrumb is a navigation landmark with aria-label="Breadcrumb"; slash separators are aria-hidden.
+The project-details sidebar is labelled with aria-label="Project details", sticky above 900px, and static below 900px.
+The case-study layout becomes one column below 900px.
+The project icon is lazy-loaded with fixed dimensions and meaningful alt text.
+Previous and next links are ordinary HTML links with no JavaScript carousel behavior.
+-->
+<!--
+SOURCE-ONLY METADATA DETAILS:
+The page uses Open Graph type "article", page-specific title, description, URL, and the shared 1200x630 og-image.png.
+Twitter uses summary_large_image metadata.
+The canonical URL has no trailing slash.
+JSON-LD identifies the project as a schema.org SoftwareApplication and includes its live URL and Tahsin as author.
+-->
+
 A custom browser new tab page built to make starting the browser cleaner and more useful.
 
 
@@ -42,6 +58,8 @@ The new tab page is the first thing I see every time I open a tab, so I wanted i
 
 
 # How it's built
+
+<!-- The portfolio repository contains only the Velin case-study page, not the Velin application. IndexedDB, settings, timers, to-do data, notepad data, and related application behavior cannot be verified from this source and should remain attributed to the external app. -->
 
 - **Front end:** a web page hosted on Netlify
 - **Status:** in development, so features change often
@@ -133,6 +151,15 @@ I'd love to connect with mentors, fellow builders, or anyone curious about the s
 
 
 ## Contact Form
+
+<!--
+SOURCE-ONLY FORM DETAILS:
+The form submits with POST to https://formspree.io/f/xwlpvooz.
+Name, email, subject, and message are required fields.
+Name and email use autocomplete="name" and autocomplete="email".
+A hidden _subject field is submitted with the value "New message from tahsin2155.github.io".
+Submission is handled by the browser and Formspree; there is no JavaScript submission handler or local storage.
+-->
 
 <!-- Name field -->
 **NAME**

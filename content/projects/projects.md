@@ -4,6 +4,25 @@ URL: /projects/
 PURPOSE: Portfolio page showcasing shipped and deployed projects.
 -->
 
+<!--
+SOURCE-ONLY IMPLEMENTATION:
+The page includes a skip link, labelled main navigation, keyboard-visible focus outlines, aria-current page indicators, and a responsive hamburger menu controlled with aria-expanded and aria-controls.
+Lucide icons are rendered after DOMContentLoaded.
+Elements marked .reveal animate into view with IntersectionObserver; without JavaScript, they remain visible.
+The custom cursor runs only on hover-capable fine-pointer devices.
+prefers-reduced-motion disables cursor movement, reveal movement, smooth scrolling, and decorative transitions.
+The shared site uses no localStorage or IndexedDB.
+-->
+
+<!--
+SOURCE-ONLY HEAD DETAILS:
+Title: "Projects — Tahsin Ali Abtahi".
+Description: "Projects by Tahsin Ali Abtahi: DayMark, MarkdStudio, and Velin. Live apps built with Python, Streamlit, and the web platform."
+Canonical: https://tahsin2155.github.io/projects/
+Open Graph and Twitter cards use the same title and description plus the shared 1200x630 og-image.png.
+This page has no JSON-LD block.
+-->
+
 # Header
 
 <!-- Website brand / logo -->
@@ -32,6 +51,15 @@ Live apps I've built and deployed. Each one has a short write-up covering what i
 ---
 
 # Project List
+
+<!--
+SOURCE-ONLY PROJECT-CARD DETAILS:
+All five cards are rendered directly in the HTML: DayMark, MarkdStudio, Velin, Zipline, and Handoff.
+Unlike the home page, JavaScript does not fold this grid.
+Project images are lazy-loaded with fixed 40x40 dimensions and descriptive alt text.
+Handoff uses a decorative Lucide icon with aria-hidden="true".
+External project links open in a new tab with rel="noopener noreferrer".
+-->
 
 <!--
 PROJECT CARD: DayMark
@@ -137,6 +165,15 @@ I'd love to connect with mentors, fellow builders, or anyone curious about the s
 
 
 ## Contact Form
+
+<!--
+SOURCE-ONLY FORM DETAILS:
+The form submits with POST to https://formspree.io/f/xwlpvooz.
+Name, email, subject, and message are required fields.
+Name and email use autocomplete="name" and autocomplete="email".
+A hidden _subject field is submitted with the value "New message from tahsin2155.github.io".
+Submission is handled by the browser and Formspree; there is no JavaScript submission handler or local storage.
+-->
 
 <!-- Name field -->
 **NAME**
