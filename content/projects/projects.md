@@ -1,38 +1,18 @@
-<!--
-PAGE: Projects
-URL: /projects/
-PURPOSE: Portfolio page showcasing shipped and deployed projects.
--->
-
-<!--
-SOURCE-ONLY IMPLEMENTATION:
-The page includes a skip link, labelled main navigation, keyboard-visible focus outlines, aria-current page indicators, and a responsive hamburger menu controlled with aria-expanded and aria-controls.
-Lucide icons are rendered after DOMContentLoaded.
-Elements marked .reveal animate into view with IntersectionObserver; without JavaScript, they remain visible.
-The custom cursor runs only on hover-capable fine-pointer devices.
-prefers-reduced-motion disables cursor movement, reveal movement, smooth scrolling, and decorative transitions.
-The shared site uses no localStorage or IndexedDB.
--->
-
-<!--
-SOURCE-ONLY HEAD DETAILS:
-Title: "Projects — Tahsin Ali Abtahi".
-Description: "Projects by Tahsin Ali Abtahi: DayMark, MarkdStudio, and Velin. Live apps built with Python, Streamlit, and the web platform."
-Canonical: https://tahsin2155.github.io/projects/
-Open Graph and Twitter cards use the same title and description plus the shared 1200x630 og-image.png.
-This page has no JSON-LD block.
--->
+---
+page: "Projects"
+route: "/projects/"
+html: "projects/index.html"
+purpose: "Portfolio page showcasing shipped and deployed projects."
+title: "Projects — Tahsin Ali Abtahi"
+description: "Projects by Tahsin Ali Abtahi: DayMark, MarkdStudio, and Velin. Live apps built with Python, Streamlit, and the web platform."
+canonical: "https://tahsin2155.github.io/projects/"
+nav_active: "Projects"
+last_edited: 2026-07-01
+---
 
 # Header
 
-<!-- Website brand / logo -->
-**tahsin2155.github.io**
-
-<!-- Primary navigation -->
-- [Home](../)
-- [About](../about)
-- [Projects](../projects/)
-- [Contact](#contact)
+<!-- INCLUDE: header -->
 
 
 ---
@@ -52,14 +32,6 @@ Live apps I've built and deployed. Each one has a short write-up covering what i
 
 # Project List
 
-<!--
-SOURCE-ONLY PROJECT-CARD DETAILS:
-All five cards are rendered directly in the HTML: DayMark, MarkdStudio, Velin, Zipline, and Handoff.
-Unlike the home page, JavaScript does not fold this grid.
-Project images are lazy-loaded with fixed 40x40 dimensions and descriptive alt text.
-Handoff uses a decorative Lucide icon with aria-hidden="true".
-External project links open in a new tab with rel="noopener noreferrer".
--->
 
 <!--
 PROJECT CARD: DayMark
@@ -147,76 +119,27 @@ A prototype desktop automation agent. You give it a task in plain language, and 
 
 # Get in Touch
 
-<!-- Section eyebrow -->
-`// LET'S CONNECT`
-
-## Get in Touch
-
-I'd love to connect with mentors, fellow builders, or anyone curious about the same things I am — always up for a good conversation or a collaboration on something interesting.  
-(Still in high school, so I'm not looking for internships or paid work right now — just good people and good ideas.)
-
-
-<!-- Social links -->
-[LinkedIn](https://www.linkedin.com/in/tahsinaliabtahi/)
-
-[@tahsin_2155](https://www.instagram.com/tahsin_2155)
-
-[Tahsin2155](https://github.com/Tahsin2155)
-
-
-## Contact Form
-
-<!--
-SOURCE-ONLY FORM DETAILS:
-The form submits with POST to https://formspree.io/f/xwlpvooz.
-Name, email, subject, and message are required fields.
-Name and email use autocomplete="name" and autocomplete="email".
-A hidden _subject field is submitted with the value "New message from tahsin2155.github.io".
-Submission is handled by the browser and Formspree; there is no JavaScript submission handler or local storage.
--->
-
-<!-- Name field -->
-**NAME**
-
-Placeholder: `Your name`
-
-
-<!-- Email field -->
-**EMAIL**
-
-Placeholder: `you@example.com`
-
-
-<!-- Subject field -->
-**SUBJECT**
-
-Placeholder: `What would you like to talk about?`
-
-
-<!-- Message field -->
-**MESSAGE**
-
-Placeholder: `Write your message...`
-
-
-<!-- Submit button -->
-[Send message]
+<!-- INCLUDE: contact -->
 
 
 ---
 
-<!-- Footer -->
-© 2026 Tahsin Ali Abtahi
+# Footer
+
+<!-- INCLUDE: footer -->
 
 
 <!--
-SOURCE DETAILS FROM projects/index.html:
-- Page title: "Projects — Tahsin Ali Abtahi".
-- SEO description: "Projects by Tahsin Ali Abtahi: DayMark, MarkdStudio, and Velin. Live apps built with Python, Streamlit, and the web platform.".
-- Canonical URL: https://tahsin2155.github.io/projects/.
-- Case-study routes: daymark, markdstudio, velin, zipline, and handoff relative to /projects/.
-- Live project URLs: https://daymark.streamlit.app, https://markdstudio.netlify.app, and https://newvelintab.netlify.app.
-- GitHub URLs: https://github.com/Tahsin2155/DayMark, https://github.com/Tahsin2155/markdstudio, https://github.com/Tahsin2155/zipline, and https://github.com/Tahsin2155/handoff. Velin has no GitHub link in this page's HTML.
-- Contact form: POST to https://formspree.io/f/xwlpvooz; hidden subject: "New message from tahsin2155.github.io".
-- Social URLs: LinkedIn https://www.linkedin.com/in/tahsinaliabtahi/, Instagram https://www.instagram.com/tahsin_2155, GitHub https://github.com/Tahsin2155.
+TECHNICAL NOTES
+(Adds to the site-wide notes in _site.md.)
+
+HEAD & METADATA
+- This page has no JSON-LD block.
+
+PROJECT CARDS
+- All five cards are rendered directly in the HTML: DayMark, MarkdStudio, Velin, Zipline, and Handoff. Unlike the home page, JavaScript does not fold this grid.
+- Project images are lazy-loaded with fixed 40x40 dimensions and descriptive alt text. Handoff uses a decorative Lucide icon with aria-hidden="true".
+- External project links open in a new tab with rel="noopener noreferrer".
+- Velin has no GitHub link in this page's HTML.
+- The case-study routes (daymark, markdstudio, velin, zipline, handoff) are relative to /projects/.
 -->

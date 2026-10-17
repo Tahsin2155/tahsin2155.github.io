@@ -1,0 +1,152 @@
+---
+file: _site.md
+purpose: "Content and technical notes shared by every page: brand, navigation, contact section, footer. Pages pull these in with INCLUDE markers."
+last_edited: 2026-07-01
+---
+
+<!--
+HOW THIS FILE WORKS
+Each page file has markers written as HTML comments, like INCLUDE: header. Wherever a marker appears,
+the section of this file with that name belongs at that spot in the page. A page can override the part it
+says it overrides (for example the contact blurb); everything else is used as written here.
+Editing a section here changes it on every page that includes it.
+The sections below are named by the SECTION marker at their start.
+-->
+
+
+# Header
+
+<!-- SECTION: header -->
+
+<!-- Website logo / brand -->
+**tahsin2155.github.io**
+
+<!-- Primary navigation. Same four items, same order, on every page. -->
+- [Home](/)
+- [About](/about)
+- [Projects](/projects/)
+- [Contact](#contact)
+
+<!-- Link targets are written root-relative here. In the HTML each page uses the form that fits its depth
+(see "URLs" in the README); the 404 page uses root paths. On the 404 page the Contact link is /#contact.
+The active item on each page is set by nav_active in that page's front matter. -->
+
+
+---
+
+# Get in Touch
+
+<!-- SECTION: contact -->
+
+<!-- Section eyebrow -->
+`// LET'S CONNECT`
+
+## Get in Touch
+
+<!-- Default blurb. A page may override it (index.md does). -->
+I'd love to connect with mentors, fellow builders, or anyone curious about the same things I am — always up for a good conversation or a collaboration on something interesting.  
+(Still in high school, so I'm not looking for internships or paid work right now — just good people and good ideas.)
+
+
+### Social Links
+
+<!-- Social links -->
+[LinkedIn](https://www.linkedin.com/in/tahsinaliabtahi/)
+
+[@tahsin_2155](https://www.instagram.com/tahsin_2155)
+
+[Tahsin2155](https://github.com/Tahsin2155)
+
+
+## Contact Form
+
+<!-- Name field -->
+**NAME**
+
+Placeholder: `Your name`
+
+
+<!-- Email field -->
+**EMAIL**
+
+Placeholder: `you@example.com`
+
+
+<!-- Subject field -->
+**SUBJECT**
+
+Placeholder: `What would you like to talk about?`
+
+
+<!-- Message field -->
+**MESSAGE**
+
+Placeholder: `Write your message...`
+
+
+<!-- Submit button -->
+[Send message]
+
+
+---
+
+# Footer
+
+<!-- SECTION: footer -->
+
+<!-- Footer copyright -->
+© 2026 Tahsin Ali Abtahi
+
+
+<!--
+TECHNICAL NOTES (site-wide)
+These apply to every page. A page's own TECHNICAL NOTES block only adds to them.
+
+SHARED FILES
+- Every page loads the shared stylesheet assets/css/style.css and the shared script assets/js/main.js.
+  The 404 page loads them with root paths (/assets/...); the other pages use paths relative to their depth.
+
+HEAD & METADATA
+- Open Graph and Twitter cards use the page's own title and description plus the shared 1200x630
+  assets/img/og-image.png. The Twitter card type is summary_large_image.
+
+NAVIGATION & ACCESSIBILITY
+- Every page has a skip link and a labelled main navigation, and keyboard-visible focus outlines.
+- The active nav item carries aria-current="page" (the 404 page has no active item).
+- The hamburger menu on small screens is controlled with aria-expanded and aria-controls.
+
+BEHAVIOR
+- Lucide icons are rendered after DOMContentLoaded.
+- Elements marked .reveal animate into view with IntersectionObserver; without JavaScript they remain
+  visible. (The 404 page has no .reveal elements.)
+- The custom cursor runs only on hover-capable fine-pointer devices.
+- prefers-reduced-motion disables cursor movement, reveal movement, smooth scrolling and decorative
+  transitions.
+
+DATA & STORAGE
+- The site uses no localStorage or IndexedDB. Only the home page uses sessionStorage (GitHub stats cache).
+
+CONTACT FORM (every page except 404)
+- The form submits with POST to https://formspree.io/f/xwlpvooz.
+- Name, email, subject and message are required fields.
+- Name and email use autocomplete="name" and autocomplete="email".
+- A hidden _subject field is submitted with the value "New message from tahsin2155.github.io".
+- Submission is handled by the browser and Formspree; there is no JavaScript submission handler or
+  local storage.
+
+SOCIAL ICONS (every page except 404)
+- The icons are lazy-loaded. LinkedIn uses a local image (assets/img/InBug-White.png); Instagram and
+  GitHub use Simple Icons CDN images.
+- The images have empty alt text because the adjacent link text provides the accessible name.
+
+CASE-STUDY PAGES (projects/daymark, markdstudio, velin, zipline, handoff)
+- The breadcrumb is a navigation landmark with aria-label="Breadcrumb"; the slash separators are aria-hidden.
+  Its links go to ../ (Home) and ./ (Projects).
+- The project-details sidebar is labelled with aria-label="Project details", sticky above 900px and static
+  below 900px. The case-study layout becomes one column below 900px.
+- Previous and next links are ordinary HTML links with no JavaScript carousel behavior.
+- Open Graph type is "article", with a page-specific title, description and URL.
+- The canonical URL has no trailing slash.
+- JSON-LD identifies the project as a schema.org SoftwareApplication with Tahsin as author; each page's
+  notes say which URL it includes.
+-->

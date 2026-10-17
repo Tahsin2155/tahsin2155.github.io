@@ -1,41 +1,24 @@
-<!--
-PAGE: About
-PURPOSE: Personal portfolio "About Me" page.
-NOTE: The comments in this file describe sections, UI elements, and content context.
--->
-
-<!--
-SOURCE-ONLY IMPLEMENTATION:
-The page includes a skip link, labelled main navigation, keyboard-visible focus outlines, aria-current page indicators, and a responsive hamburger menu controlled with aria-expanded and aria-controls.
-Lucide icons are rendered after DOMContentLoaded.
-Elements marked .reveal animate into view with IntersectionObserver; without JavaScript, they remain visible.
-The custom cursor runs only on hover-capable fine-pointer devices.
-prefers-reduced-motion disables cursor movement, reveal movement, smooth scrolling, and decorative transitions.
-The shared site uses no localStorage or IndexedDB.
--->
+---
+page: "About"
+route: "/about"
+html: "about.html"
+purpose: 'Personal portfolio "About Me" page.'
+title: "About — Tahsin Ali Abtahi"
+description: "About Tahsin Ali Abtahi — 12th standard student, self-taught Python developer, hackathon team lead. My coding journey from Minecraft redstone to shipping web apps."
+canonical: "https://tahsin2155.github.io/about"
+nav_active: "About"
+last_edited: 2026-09-22
+---
 
 # Header
 
-<!-- Website brand / logo -->
-**tahsin2155.github.io**
-
-<!-- Main navigation -->
-- [Home](./)
-- [About](about)
-- [Projects](projects/)
-- [Contact](#contact)
+<!-- INCLUDE: header -->
 
 
 ---
 
 # About Me
 
-<!--
-SOURCE-ONLY HEAD DETAILS:
-Open Graph and Twitter cards use the page title "About — Tahsin Ali Abtahi", the page description, and the shared 1200x630 og-image.png.
-The canonical URL is https://tahsin2155.github.io/about.
-JSON-LD describes Tahsin as a schema.org Person with jobTitle, description, sameAs profiles, image, and knowsAbout values.
--->
 
 <!-- Section eyebrow -->
 `// WHO AM I`
@@ -60,8 +43,8 @@ The right side contains four fact cards.
 I'm 17, still in school, figuring out my life (with a fear of AI replacing me). I spend most of my free time on my computer, 
 doing _crawzy_ shit. "Self-taught programmer" wasn't planned - it just sort of happened... 
 Programming makes me feel like a god of this virtual world; I can make them do whatever I want. 
-I built things really badly, at first ; ), then less badly, and I keep improving and learning 
-(sometimes, or maybe a little bit more often, I hit up AI as well for help, uk!).....
+I build things really badly, at first ;), then less badly, and I keep improving and learning 
+(sometimes or maybe a little bit more often, I hit up AI as well for help, uk!).....
 
 
 ### Quick Facts
@@ -76,7 +59,7 @@ PCMCs, 12th grade
 
 <!-- Fact card -->
 **CURRENTLY**
-Boards szn. Pray for me
+Boards szn. Pray for me ✌️
 
 <!-- Fact card -->
 **ACHIEVEMENT**
@@ -173,27 +156,11 @@ Entries are presented from the most recent experience to the earliest.
 <!-- Timeline control. JavaScript folds the seven older entries again. -->
 [Hide full timeline]
 
-<!--
-SOURCE-ONLY TIMELINE DETAILS:
-The timeline contains ten entries but JavaScript initially shows only the newest three.
-The toggle is hidden until JavaScript confirms folding is needed, then exposes the seven older entries and updates aria-expanded and the "+{{total entries - 3}} earlier" count.
-Expanding changes the label to "Hide full timeline".
-Without JavaScript, all entries remain visible.
-When collapsing from lower on the page, JavaScript may scroll the timeline back into view.
--->
-
 
 ---
 
 # Skills
 
-<!--
-SOURCE-ONLY SKILL-ICON DETAILS:
-Python, HTML, Streamlit, Flask, and GitHub icons load lazily from Simple Icons CDN.
-The CSS icon loads from SVG Repo.
-Mathematics, Physics & Science, and Problem Solving use Lucide icons rendered after DOMContentLoaded.
-Image icons have empty alt text because the visible skill names provide the labels.
--->
 
 <!-- Section eyebrow -->
 `// TOOLS OF THE TRADE`
@@ -216,72 +183,31 @@ Image icons have empty alt text because the visible skill names provide the labe
 
 # Get in Touch
 
-<!-- Section eyebrow -->
-`// LET'S CONNECT`
-
-## Get in Touch
-
-I'd love to connect with mentors, fellow builders, or anyone curious about the same things I am — always up for a good conversation or a collaboration on something interesting.  
-(Still in high school, so I'm not looking for internships or paid work right now — just good people and good ideas.)
-
-
-<!-- Social / profile links -->
-[LinkedIn](https://www.linkedin.com/in/tahsinaliabtahi/)
-
-[@tahsin_2155](https://www.instagram.com/tahsin_2155)
-
-[Tahsin2155](https://github.com/Tahsin2155)
-
-
-## Contact Form
-
-<!--
-SOURCE-ONLY FORM DETAILS:
-The form submits with POST to https://formspree.io/f/xwlpvooz.
-Name, email, subject, and message are required fields.
-Name and email use autocomplete="name" and autocomplete="email".
-A hidden _subject field is submitted with the value "New message from tahsin2155.github.io".
-Submission is handled by the browser and Formspree; there is no JavaScript submission handler or local storage.
--->
-
-<!-- Form field: name -->
-**NAME**
-
-Placeholder: `Your name`
-
-<!-- Form field: email -->
-**EMAIL**
-
-Placeholder: `you@example.com`
-
-<!-- Form field: subject -->
-**SUBJECT**
-
-Placeholder: `What would you like to talk about?`
-
-<!-- Form field: message -->
-**MESSAGE**
-
-Placeholder: `Write your message...`
-
-<!-- Form submit button -->
-[Send message]
+<!-- INCLUDE: contact -->
 
 
 ---
 
-<!-- Footer -->
-© 2026 Tahsin Ali Abtahi
+# Footer
+
+<!-- INCLUDE: footer -->
 
 
 <!--
-SOURCE DETAILS FROM about.html and assets/js/main.js:
-- Page title: "About — Tahsin Ali Abtahi".
-- SEO description: "About Tahsin Ali Abtahi — 12th standard student, self-taught Python developer, hackathon team lead. My coding journey from Minecraft redstone to shipping web apps.".
-- Canonical URL: https://tahsin2155.github.io/about.
-- The timeline contains 10 entries and has data-visible="3". JavaScript initially shows the newest three and sets the button to "Show full timeline" with "+7 earlier"; expanding changes it to "Hide full timeline".
-- The timeline toggle is hidden until JavaScript confirms that folding is needed.
-- Skill icon sources include Simple Icons for Python, HTML5, Streamlit, Flask, and GitHub; CSS uses SVG Repo; Mathematics, Physics & Science, and Problem Solving use Lucide icons.
-- Contact form: POST to https://formspree.io/f/xwlpvooz; hidden subject: "New message from tahsin2155.github.io".
-- Social URLs: LinkedIn https://www.linkedin.com/in/tahsinaliabtahi/, Instagram https://www.instagram.com/tahsin_2155, GitHub https://github.com/Tahsin2155.
+TECHNICAL NOTES
+(Adds to the site-wide notes in _site.md.)
+
+HEAD & METADATA
+- JSON-LD describes Tahsin as a schema.org Person with jobTitle, description, sameAs profiles, image and knowsAbout values.
+
+BEHAVIOR (timeline)
+- The timeline contains ten entries and has data-visible="3". JavaScript initially shows only the newest three and sets the button to "Show full timeline" with "+7 earlier" (the "+{{total entries - 3}} earlier" count).
+- The toggle is hidden until JavaScript confirms folding is needed, then it exposes the seven older entries and updates aria-expanded and the count.
+- Expanding changes the label to "Hide full timeline". Without JavaScript, all entries remain visible.
+- When collapsing from lower on the page, JavaScript may scroll the timeline back into view.
+
+ASSETS & ICONS (skills)
+- The Python, HTML5, Streamlit, Flask and GitHub icons load lazily from Simple Icons CDN. The CSS icon loads from SVG Repo.
+- Mathematics, Physics & Science and Problem Solving use Lucide icons rendered after DOMContentLoaded.
+- Image icons have empty alt text because the visible skill names provide the labels.
 -->

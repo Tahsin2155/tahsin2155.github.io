@@ -25,9 +25,13 @@ Live site: https://tahsin2155.github.io
 │   ├── css/style.css
 │   ├── js/main.js
 │   └── img/           project icons, LinkedIn icon, social preview image
+├── content/           Markdown source of truth for every page (see Content below)
+│   └── projects/
 ├── tools/
 │   ├── serve.py       local preview server that behaves like GitHub Pages
-│   └── build.py       old page generator (do not run, see below)
+│   ├── scaffold.py    old page generator (do not run, see below)
+│   ├── content-format.md  how the Markdown in content/ is written and read
+│   └── prompt.md      AI prompts: update a page's HTML from its Markdown, update technical notes
 ├── sitemap.xml
 └── robots.txt
 ```
@@ -45,6 +49,12 @@ Live site: https://tahsin2155.github.io
 ## Editing
 
 The pages are edited by hand. The nav, footer and `<head>` are repeated in every page, so a change to any of them has to be made in each file.
+
+### Content
+
+`content/` holds the content of the site as Markdown: `_site.md` for what every page shares (navigation, contact section, footer, site-wide technical notes), plus one file per page (`index.md`, `about.md`, `404.md`, and `projects/` for the projects index and each case study). Each file also carries front matter (title, description, canonical, last-edited date) and a block of technical notes.
+
+The workflow is: edit the Markdown, then ask an AI to update **one page's HTML** from it using the prompt in `tools/prompt.md`. A `CHANGE:` comment in the Markdown asks for a structural or functional change. Every HTML file has a `<!-- content last edited: ... -->` line that should match the Markdown's `last_edited` date, so you can see at a glance whether a page is behind. The full format is in `tools/content-format.md`.
 
 ### URLs
 
@@ -67,9 +77,9 @@ python3 tools/serve.py
 
 Fonts, icons, GitHub stats and the contact form need an internet connection.
 
-## About `tools/build.py`
+## About `tools/scaffold.py`
 
-`tools/build.py` was written to generate every page from one script so the shared parts stayed identical. **It is out of date. Do not run it.**
+`tools/scaffold.py` was written to generate every page from one script so the shared parts stayed identical. **It is out of date. Do not run it.**
 
 - It writes straight into the repo root (its docstring says `./site`, but the code writes to the root). Running it overwrites `index.html`, `about.html`, `projects/*.html`, `404.html`, `sitemap.xml` and `robots.txt`, which reverts any hand edits.
 - There have been many hand edits to the pages since it was last updated, so its output no longer matches the site. It also still writes `.html` links instead of the extensionless URLs the site now uses.

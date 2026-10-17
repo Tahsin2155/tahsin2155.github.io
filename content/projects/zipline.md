@@ -1,18 +1,18 @@
-<!--
-PAGE: Zipline Project Case Study
-PURPOSE: Detailed case-study page for the Zipline project.
--->
+---
+page: "Zipline Project Case Study"
+route: "/projects/zipline"
+html: "projects/zipline.html"
+purpose: "Detailed case-study page for the Zipline project."
+title: "Zipline — Tahsin Ali Abtahi"
+description: "A personal, self-hosted file transfer app with login, per-user storage, nested folders, search, previews and a notes scratchpad, built with Flask and SQLite."
+canonical: "https://tahsin2155.github.io/projects/zipline"
+nav_active: "Projects"
+last_edited: 2026-07-01
+---
 
 # Header
 
-<!-- Website brand / logo -->
-**tahsin2155.github.io**
-
-<!-- Primary navigation -->
-- [Home](../)
-- [About](../about)
-- [Projects](../projects/)
-- [Contact](#contact)
+<!-- INCLUDE: header -->
 
 
 ---
@@ -24,21 +24,6 @@ PURPOSE: Detailed case-study page for the Zipline project.
 
 ## Zipline
 
-<!--
-SOURCE-ONLY CASE-STUDY DETAILS:
-The breadcrumb is a navigation landmark with aria-label="Breadcrumb"; slash separators are aria-hidden.
-The project-details sidebar is labelled with aria-label="Project details", sticky above 900px, and static below 900px.
-The case-study layout becomes one column below 900px.
-The project icon is lazy-loaded with fixed dimensions and meaningful alt text.
-Previous and next links are ordinary HTML links with no JavaScript carousel behavior.
--->
-<!--
-SOURCE-ONLY METADATA DETAILS:
-The page uses Open Graph type "article", page-specific title, description, URL, and the shared 1200x630 og-image.png.
-Twitter uses summary_large_image metadata.
-The canonical URL has no trailing slash.
-JSON-LD identifies the project as a schema.org SoftwareApplication and includes its repository URL and Tahsin as author.
--->
 
 A personal, self-hosted file transfer app with login, per-user storage, nested folders, search, previews and a notes scratchpad, built with Flask and SQLite.
 
@@ -154,78 +139,23 @@ Next project: Handoff
 
 # Get in Touch
 
-<!-- Section eyebrow -->
-`// LET'S CONNECT`
-
-## Get in Touch
-
-I'd love to connect with mentors, fellow builders, or anyone curious about the same things I am — always up for a good conversation or a collaboration on something interesting.  
-(Still in high school, so I'm not looking for internships or paid work right now — just good people and good ideas.)
-
-
-### Social Links
-
-[LinkedIn](https://www.linkedin.com/in/tahsinaliabtahi/)
-
-[@tahsin_2155](https://www.instagram.com/tahsin_2155)
-
-[Tahsin2155](https://github.com/Tahsin2155)
-
-
-## Contact Form
-
-<!--
-SOURCE-ONLY FORM DETAILS:
-The form submits with POST to https://formspree.io/f/xwlpvooz.
-Name, email, subject, and message are required fields.
-Name and email use autocomplete="name" and autocomplete="email".
-A hidden _subject field is submitted with the value "New message from tahsin2155.github.io".
-Submission is handled by the browser and Formspree; there is no JavaScript submission handler or local storage.
--->
-
-<!-- Name field -->
-**NAME**
-
-Placeholder: `Your name`
-
-
-<!-- Email field -->
-**EMAIL**
-
-Placeholder: `you@example.com`
-
-
-<!-- Subject field -->
-**SUBJECT**
-
-Placeholder: `What would you like to talk about?`
-
-
-<!-- Message field -->
-**MESSAGE**
-
-Placeholder: `Write your message...`
-
-
-<!-- Submit button -->
-[Send message]
+<!-- INCLUDE: contact -->
 
 
 ---
 
-<!-- Footer -->
-© 2026 Tahsin Ali Abtahi
+# Footer
+
+<!-- INCLUDE: footer -->
 
 
 <!--
-SOURCE DETAILS FROM projects/zipline.html:
-- Page title: "Zipline — Tahsin Ali Abtahi".
-- SEO description: "A personal, self-hosted file transfer app with login, per-user storage, nested folders, search, previews and a notes scratchpad, built with Flask and SQLite.".
-- Canonical URL: https://tahsin2155.github.io/projects/zipline.
-- Structured data identifies Zipline as a SoftwareApplication whose source URL is https://github.com/Tahsin2155/zipline.
-- Project image alt text: Zipline icon.
-- Breadcrumb links: ../ (Home) and ./ (Projects).
-- Previous project navigation is velin; next project is handoff.
-- Contact form: POST to https://formspree.io/f/xwlpvooz; hidden subject: "New message from tahsin2155.github.io".
-- Social URLs: LinkedIn https://www.linkedin.com/in/tahsinaliabtahi/, Instagram https://www.instagram.com/tahsin_2155, GitHub https://github.com/Tahsin2155.
+TECHNICAL NOTES
+(Adds to the site-wide notes in _site.md.)
+
+ASSETS & ICONS
+- The project icon is lazy-loaded with fixed dimensions and meaningful alt text ("Zipline icon").
+
+HEAD & METADATA
+- JSON-LD includes the repository URL https://github.com/Tahsin2155/zipline.
 -->
