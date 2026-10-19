@@ -7,7 +7,7 @@ title: "About — Tahsin Ali Abtahi"
 description: "About Tahsin Ali Abtahi — 12th standard student, self-taught Python developer, hackathon team lead. My coding journey from Minecraft redstone to shipping web apps."
 canonical: "https://tahsin2155.github.io/about"
 nav_active: "About"
-last_edited: 2026-09-22
+last_edited: 2026-10-19
 ---
 
 # Header
@@ -38,6 +38,20 @@ The left side contains descriptive paragraphs.
 The right side contains four fact cards.
 -->
 
+<!--
+CHANGE: Change the layout of this section on desktop so the text wraps around the four fact cards. Mobile stays exactly as it is now.
+
+Desktop (wider than 768px, the breakpoint the About grid already uses):
+- The four fact cards sit in the top-right corner as a 2x2 grid, taking up roughly half the section width. Their top edge lines up with the top of the first line of text. Do not vertically centre them against the text any more.
+- The "About Me" paragraphs start at the top-left and run in the left half, beside the cards.
+- Where the text gets below the bottom of the cards, the remaining lines continue at full width, all the way to the right edge of the section. So the cards are a block the text flows around, not a separate column. The lines under the cards must not stop at the old half-width column (drop the paragraphs' max-width cap here so they can use the full width).
+- Keep the paragraph spacing, line height, colors, card styling and hover effect, and the .reveal animation.
+
+Mobile (768px and below): unchanged. One column, the text first and the four fact cards after it, exactly as the page works today.
+
+For the text to flow around the cards, the cards and the paragraphs have to sit in the same container instead of two separate grid columns, for example by floating the cards to the right (with a small gap on their left and bottom). A float starts at the top only if it comes before the paragraphs in the HTML. If you move the cards ahead of the text, keep text-then-cards as the order on mobile (for example with CSS order in a one-column flex layout) and tell me if the reading order for screen readers changes. Check the layout between 769px and about 1000px, where the text beside the cards gets narrow, and report if it looks too cramped there.
+-->
+
 ## About Me
 
 I'm 17, still in school, figuring out my life (with a fear of AI replacing me). I spend most of my free time on my computer, 
@@ -45,6 +59,24 @@ doing _crawzy_ shit. "Self-taught programmer" wasn't planned - it just sort of h
 Programming makes me feel like a god of this virtual world; I can make them do whatever I want. 
 I build things really badly, at first ;), then less badly, and I keep improving and learning 
 (sometimes or maybe a little bit more often, I hit up AI as well for help, uk!).....
+
+No big plan, honestly. Most things I build start with a "wait, can I actually make this work?" 
+and then I keep poking at it until it does, or until boards remind me I have other things to do. 
+Half the time I'm reading docs I don't fully get yet and figuring it out as I go.
+
+Yes, I know, I'm scared of AI (sometimes) and I use it to build things. Don't judge me! 
+I'd rather say it straight than pretend I did everything alone. Most of the things on this site are 
+something I actually built, planned or learned, with the help of AI.
+
+When I'm not staring at a code editor, I'm trying to get into the MCU, and it's not as easy as it sounds. 
+I started really late, so the backlog is huge, and that's honestly what makes getting in so hard. 
+I'm already a fan of F1: For Constructor I support RedBull, but for Drivers I support Max Verstappen (Mad Max) 
+and Charles Leclerc (Banana Leclerc). I follow it every race week, and if I can't watch a race 
+I still make sure I'm up to date.
+
+This site is basically my little corner of the internet: the stuff I've made, how I ended up here, 
+and whatever I'm figuring out next. Scroll down for the full story, from Minecraft redstone to... 
+whatever Handoff turns out to be.
 
 
 ### Quick Facts
@@ -59,7 +91,7 @@ PCMCs, 12th grade
 
 <!-- Fact card -->
 **CURRENTLY**
-Boards szn. Pray for me ✌️
+Boards szn. Pray for me ✌️😭
 
 <!-- Fact card -->
 **ACHIEVEMENT**
@@ -116,7 +148,7 @@ Entries are presented from the most recent experience to the earliest.
 
 #### MARCH 2026
 ### MarkdStudio
-> Started MarkdStudio, a browser-based Markdown editor. It has since been rebuilt with the markdown-it parser and a test suite.
+> Started MarkdStudio, a browser-based Markdown editor.
 
 
 #### JANUARY 2026 - THE LAUNCH
@@ -147,14 +179,18 @@ Entries are presented from the most recent experience to the earliest.
 
 
 #### 8TH STANDARD - THE BEGINNING
-### Minecraft Started the Journey
-> Got my first laptop and spent hours building redstone circuits, logic setups, and contraptions in Minecraft. That problem-solving mindset naturally pulled me toward programming, and I started experimenting with HTML projects.
+### First Laptop Started the Journey
+> Got my first laptop in 8th, interest in technology, experience in Minecraft redstone and circuit, and problem-solving mindset was 
+already there. And that problem-solving mindset naturally pulled me toward programming, and I started experimenting with HTML projects.
 
+#### EARLIER - BEFORE 8TH
+### My interest and Minecraft
+> I was already interested in technology, figuring out how things work and all that. I was playing Minecraft (the cracked - pirated one) a lot back then. I liked working with redstone, which pulled my interest more into this tech field.
 
-<!-- Timeline control. JavaScript initially folds the seven older entries. -->
-[Show full timeline] [+7 earlier]
-<!-- Timeline control. JavaScript folds the seven older entries again. -->
-[Hide full timeline]
+<!-- Timeline control. JavaScript initially folds the older entries. Unfold them -->
+[Show full timeline] [+{{total entries - 3}} earlier]
+<!-- Timeline control. JavaScript folds the older entries again. -->
+[Fold the timeline]
 
 
 ---
@@ -203,7 +239,7 @@ HEAD & METADATA
 BEHAVIOR (timeline)
 - The timeline contains ten entries and has data-visible="3". JavaScript initially shows only the newest three and sets the button to "Show full timeline" with "+7 earlier" (the "+{{total entries - 3}} earlier" count).
 - The toggle is hidden until JavaScript confirms folding is needed, then it exposes the seven older entries and updates aria-expanded and the count.
-- Expanding changes the label to "Hide full timeline". Without JavaScript, all entries remain visible.
+- Expanding changes the label to "Fold the timeline". Without JavaScript, all entries remain visible.
 - When collapsing from lower on the page, JavaScript may scroll the timeline back into view.
 
 ASSETS & ICONS (skills)

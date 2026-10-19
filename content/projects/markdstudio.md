@@ -4,10 +4,10 @@ route: "/projects/markdstudio"
 html: "projects/markdstudio.html"
 purpose: "Detailed case-study page for the MarkdStudio project."
 title: "MarkdStudio — Tahsin Ali Abtahi"
-description: "A markdown editor and writing app focused on clean writing flow and simple formatting."
+description: "A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device."
 canonical: "https://tahsin2155.github.io/projects/markdstudio"
 nav_active: "Projects"
-last_edited: 2026-07-01
+last_edited: 2026-10-18
 ---
 
 # Header
@@ -25,36 +25,75 @@ last_edited: 2026-07-01
 ## MarkdStudio
 
 
-A markdown editor and writing app focused on clean writing flow and simple formatting.
+A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device.
 
 
 ---
 
+<!--
+CHANGE: Add a new section "What it can do" after "Why I built it". It is a bullet list where each item starts with a bold label. Use the same section styling as the other sections.
+-->
+
 # What it is
 
-MarkdStudio is a markdown editor and writing app. It is built around a clean writing flow and simple formatting, so drafting and editing feel quick.
+MarkdStudio is a Markdown editor that runs entirely in your browser. You write on one side and see the rendered result live on the other, and you can keep several documents open at once in tabs, like browser tabs.
 
-It is live at **markdstudio.netlify.app**.
+There's no account and no server. Your documents are stored on your own device, in the browser.
 
 
 # Why I built it
 
-I wanted a writing tool that stays out of the way. Many editors do a lot more than I need, so I built one around the things I actually use when I write and format notes.
+I wanted a Markdown editor that was fast, rendered live and was simple to start, with my data stored only on my device and no account to create.
 
+The thing I cared about most was tabs. I wanted several documents open at once, browser-tab style, with an easy way to start a new one or delete one. Most of the features I wanted already existed in other editors, but I couldn't find one that had them all together, and none had the tab system. (Maybe one does and I just never found it.)
+
+A few extras were on my wish list too: editing a file on my disk straight from the browser without installing an app, and different themes and styles.
+
+
+# What it can do
+
+- **Tabs:** keep several documents open at once, with an unsaved-changes indicator on each tab, and start a new one or close one easily.
+- **Four modes:** Split, Write, Preview and Inline, where you edit right inside the rendered text.
+- **Code editor:** syntax highlighting, line numbers, bracket matching, multi-cursor, and find/replace with regex.
+- **Rich Markdown:** Mermaid diagrams, KaTeX math, callouts, footnotes, task lists, tables, emoji shortcodes and highlighted code blocks.
+- **Table of contents:** it builds from your headings and tracks where you are.
+- **Edit files on your disk:** open and save real files straight from the browser, in browsers that support it.
+- **Preview styles:** five to pick from (GitHub, Documentation, Blog, Minimal and Academic), plus light and dark.
+- **Export:** HTML, PDF (margin, orientation and paper size), print, an embeddable HTML snippet, or a plain Markdown file.
+
+
+<!--
+CHANGE: "How it's built" is now short paragraphs instead of a bullet list. The paragraph that starts with the bold label "About AI:" is a normal paragraph with a bold lead-in.
+-->
 
 # How it's built
 
-<!-- The portfolio repository contains no MarkdStudio editor, preview renderer, document storage, keyboard-shortcut handler, or API implementation. Those details belong to the external MarkdStudio application and cannot be verified from this source. -->
+MarkdStudio is a static site with no backend: plain HTML, CSS and JavaScript, hosted on Netlify. The editor is CodeMirror 5, and the rendering uses marked.js, highlight.js, KaTeX, Mermaid and DOMPurify. PDF export uses html2pdf.js. All of those load from CDNs.
 
-- **Front end:** a web app hosted on Netlify
-- **Source:** public on GitHub
+Your documents are saved in your browser's IndexedDB, and your settings in localStorage, so your documents never leave your device.
 
-Add the specific technical details here: how the preview renders, how documents are saved, and anything else you want to explain.
+**About AI:** MarkdStudio is entirely vibe coded. AI wrote all of the code. The idea and the list of features I wanted came from me, and I use it regularly.
 
 
 # What I learned
 
-Working on an editor showed me how many small details (cursor behaviour, keyboard shortcuts, live preview) decide whether a writing tool feels good to use.
+- **Working with AI:** how to use it efficiently to get the best output, how to manage its work, and how to approach a problem even when AI is writing the code.
+- **Browser storage:** how localStorage and IndexedDB work.
+- **SEO and launching:** a lot about SEO, getting indexed by search engines, optimizing a site, and Google Analytics.
+
+
+<!--
+CHANGE: Add a new section "Limits and next steps" after "What I learned". It is a bullet list where each item starts with a bold label, followed by one closing line of plain text. Use the same section styling as the other sections.
+-->
+
+# Limits and next steps
+
+- **Deleted documents are gone for good.** There's no trash or undo.
+- **Your documents only live in your browser.** If the browser clears its data, they're lost.
+- **The Inline mode isn't good.**
+- **Print and PDF export are still a bit glitchy.** Print works a little better than PDF download.
+
+My next step, maybe, is a v2 built a better way, with a better Markdown engine and rendering that looks more like GitHub's.
 
 
 ---
@@ -69,13 +108,13 @@ SIDEBAR: Project metadata and quick links.
 Live
 
 **BUILT WITH**  
-HTML, CSS, JavaScript
+HTML, CSS, JavaScript, CodeMirror 5, marked.js, highlight.js, KaTeX, Mermaid, DOMPurify, html2pdf.js, IndexedDB, Netlify
 
 **WHEN**  
-11th–12th standard
+March 2026
 
 **TOPICS**  
-`Markdown` `Editor` `Writing`
+`JavaScript` `Markdown` `Editor` `Vibe Coded`
 
 ---
 
@@ -83,18 +122,6 @@ HTML, CSS, JavaScript
 [Open live app →](https://markdstudio.netlify.app)
 
 [GitHub repo →](https://github.com/Tahsin2155/markdstudio)
-
-
----
-
-<!--
-DRAFT CONTENT NOTICE:
-This notice indicates that the current write-up was drafted from descriptions
-from the old site and is intended to be replaced with more detailed content.
--->
-
-> **Draft content.** This write-up was drafted from the project descriptions on the old site.  
-> Replace it with your own notes, screenshots, and details.
 
 
 ---

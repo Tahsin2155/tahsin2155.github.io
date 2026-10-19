@@ -7,7 +7,7 @@ title: "Tahsin Ali Abtahi"
 description: "Tahsin Ali Abtahi — self-taught programmer, still in school, building things and breaking them first. DayMark, Zipline, Velin, Handoff, and whatever's next."
 canonical: "https://tahsin2155.github.io/"
 nav_active: "Home"
-last_edited: 2026-09-22
+last_edited: 2026-10-19
 ---
 
 # Header
@@ -82,7 +82,7 @@ PCMCs, 12th grade
 
 <!-- Fact card -->
 **CURRENTLY**
-Boards szn. Pray for me
+Boards szn. Pray for me ✌️😭
 
 <!-- Fact card -->
 **ACHIEVEMENT**
@@ -98,16 +98,24 @@ Zonal-level, Hackathon [hover: AI Vidyasetu 1.0]
 CHANGE: The Home project grid now shows only 3 cards — Handoff, Zipline, Velin, in that order — instead of all 5. Remove the "keep all five cards in HTML, fold after first CSS grid row" JS behavior entirely; the DOM should only contain these 3 cards. The "Rest of the mess →" link leads to /projects/.
 -->
 
+<!--
+CHANGE: Make the whole project card clickable. Clicking anywhere on a card opens that project's case study, the same page the "Read the case study →" link opens. The "Read the case study →" link stays exactly as it is. The "Live app →" and "GitHub repo →" links keep opening their own destinations in a new tab and must not trigger the case-study link. Do not put links inside a link: stretch the case-study link over the whole card (for example with a ::after overlay on that link, position: relative on the card, and the other links raised above the overlay), so there is still one case-study link per card for keyboard and screen-reader users. Keep a visible keyboard focus outline on the card and keep the existing hover lift. Apply it to all three cards here, and use the same method as on the Projects page.
+-->
+
+<!--
+CHANGE: Every project card here must have the project-featured class (the highlight), with no exceptions, in addition to project-card and reveal.
+-->
+
 <!-- Section eyebrow -->
 `// THINGS I'VE SHIPPED`
 
 <!-- Project card -->
 ### Handoff
 
-An agent that controls a Windows PC from a plain-language task — it looks at the screen, decides what to do, and moves the mouse and keyboard like a person would. Early prototype, built on Gemini's computer-use model.
+A prototype agent that operates a Windows PC from a plain-language task, using a Gemini computer-use model and PyAutoGUI.
 
 **Tags:**  
-`AI Agent` `Python` `Automation` `Prototype`
+`Python` `Gemini` `PyAutoGUI` `Prototype`
 
 [Read the case study →](/projects/handoff)  
 [GitHub repo →](https://github.com/Tahsin2155/handoff)
@@ -116,11 +124,11 @@ An agent that controls a Windows PC from a plain-language task — it looks at t
 <!-- Project card -->
 ### Zipline
 
-A personal file-transfer app I built to move files between my own devices. Grew into a small self-hosted drive — folders, previews, search, and a notes scratchpad. Runs on Flask and SQLite.
+A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite.
 
 
 **Tags:**  
-`Flask` `SQLite` `Self-hosted`
+`Python` `Flask` `SQLite` `Self-hosted`
 
 [Read the case study →](/projects/zipline)  
 [GitHub repo →](https://github.com/Tahsin2155/zipline)
@@ -129,14 +137,14 @@ A personal file-transfer app I built to move files between my own devices. Grew 
 <!-- Project card -->
 ### Velin
 
-A custom new tab page with a clock, Pomodoro timer, to-do list, and notepad — because the default new tab screen was doing nothing for me.
+A customizable new-tab page with a clock, Pomodoro timer, to-do list, notes and bookmarks, saved in your browser.
 
 **Tags:**  
-`New Tab` `Vanilla web` `Customizable` `Personal Tool` `Live`
+`New Tab` `Vanilla web` `Customizable` `Personal Tool` `Vibe Coded`
 
 [Read the case study →](/projects/velin)  
 [Live app →](https://newvelintab.netlify.app)  
-[Github repo →](https://github.com/Tahsin2155/velin)
+[GitHub repo →](https://github.com/Tahsin2155/velin)
 
 
 <!-- Link to the complete projects page -->

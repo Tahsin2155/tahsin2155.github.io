@@ -4,10 +4,10 @@ route: "/projects/"
 html: "projects/index.html"
 purpose: "Portfolio page showcasing shipped and deployed projects."
 title: "Projects — Tahsin Ali Abtahi"
-description: "Projects by Tahsin Ali Abtahi: DayMark, MarkdStudio, and Velin. Live apps built with Python, Streamlit, and the web platform."
+description: "Projects by Tahsin Ali Abtahi: Handoff, Zipline, Velin, MarkdStudio, and DayMark. Apps built with Python, Flask, Streamlit, and the web platform."
 canonical: "https://tahsin2155.github.io/projects/"
 nav_active: "Projects"
-last_edited: 2026-07-01
+last_edited: 2026-10-19
 ---
 
 # Header
@@ -34,53 +34,32 @@ Live apps I've built and deployed. Each one has a short write-up covering what i
 
 
 <!--
-PROJECT CARD: DayMark
+CHANGE: Reorder the five project cards from latest to oldest: Handoff, Zipline, Velin, MarkdStudio, DayMark. Move the existing cards; do not recreate them. This order applies to this page only; the home page keeps its own order.
 -->
 
-## DayMark
+<!--
+CHANGE: Make the whole project card clickable. Clicking anywhere on a card opens that project's case study, the same page the "Read the case study →" link opens. The "Read the case study →" link stays exactly as it is. The "Live app →" and "GitHub repo →" links keep opening their own destinations in a new tab and must not trigger the case-study link. Do not put links inside a link: stretch the case-study link over the whole card (for example with a ::after overlay on that link, position: relative on the card, and the other links raised above the overlay), so there is still one case-study link per card for keyboard and screen-reader users. Keep a visible keyboard focus outline on the card and keep the existing hover lift. Apply it to every card on this page.
+-->
 
-A personal productivity web app built entirely with Python & Streamlit. Track your days, mark milestones, and stay organised — all in a clean, minimal interface.
-
-<!-- Project tags -->
-`Python` `Streamlit` `Productivity`
-
-<!-- Project links -->
-[Read the case study →](daymark)
-[Live app →](https://daymark.streamlit.app)
-[GitHub repo →](https://github.com/Tahsin2155/DayMark)
+<!--
+CHANGE: Every project card on this page must have the project-featured class (the highlight), with no exceptions, in addition to project-card and reveal.
+-->
 
 
 <!--
-PROJECT CARD: MarkdStudio
+PROJECT CARD: Handoff
 -->
 
-## MarkdStudio
+## Handoff
 
-A markdown editor and writing app focused on clean writing flow and simple formatting. Built for drafting, editing, and shipping content faster.
-
-<!-- Project tags -->
-`Markdown` `Editor` `Writing`
-
-<!-- Project links -->
-[Read the case study →](markdstudio)
-[Live app →](https://markdstudio.netlify.app)
-[GitHub repo →](https://github.com/Tahsin2155/markdstudio)
-
-
-<!--
-PROJECT CARD: Velin
--->
-
-## Velin
-
-A custom new tab page designed to make your browser start cleaner and more useful. It is live right now and actively in development.
+A prototype agent that operates a Windows PC from a plain-language task, using a Gemini computer-use model and PyAutoGUI.
 
 <!-- Project tags -->
-`New Tab` `Productivity` `In Development`
+`Python` `Gemini` `PyAutoGUI` `Prototype`
 
 <!-- Project links -->
-[Read the case study →](velin)
-[Live app →](https://newvelintab.netlify.app)
+[Read the case study →](handoff)
+[GitHub repo →](https://github.com/Tahsin2155/handoff)
 
 
 <!--
@@ -89,7 +68,7 @@ PROJECT CARD: Zipline
 
 ## Zipline
 
-A personal, self-hosted file transfer and storage app built with Flask and SQLite. Log in from any device to upload, organise, preview and download your files, with a scratchpad for quick notes.
+A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite.
 
 <!-- Project tags -->
 `Python` `Flask` `SQLite` `Self-hosted`
@@ -100,19 +79,54 @@ A personal, self-hosted file transfer and storage app built with Flask and SQLit
 
 
 <!--
-PROJECT CARD: Handoff
+PROJECT CARD: Velin
 -->
 
-## Handoff
+## Velin
 
-A prototype desktop automation agent. You give it a task in plain language, and it looks at the screen, decides what to do, and operates the mouse and keyboard on Windows.
+A customizable new-tab page with a clock, Pomodoro timer, to-do list, notes and bookmarks, saved in your browser.
 
 <!-- Project tags -->
-`Python` `Gemini` `PyAutoGUI` `Prototype`
+`New Tab` `Vanilla web` `Customizable` `Personal Tool` `Vibe Coded`
 
 <!-- Project links -->
-[Read the case study →](handoff)
-[GitHub repo →](https://github.com/Tahsin2155/handoff)
+[Read the case study →](velin)
+[Live app →](https://newvelintab.netlify.app)
+[GitHub repo →](https://github.com/Tahsin2155/velin)
+
+
+<!--
+PROJECT CARD: MarkdStudio
+-->
+
+## MarkdStudio
+
+A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device.
+
+<!-- Project tags -->
+`JavaScript` `Markdown` `Editor` `Vibe Coded`
+
+<!-- Project links -->
+[Read the case study →](markdstudio)
+[Live app →](https://markdstudio.netlify.app)
+[GitHub repo →](https://github.com/Tahsin2155/markdstudio)
+
+
+<!--
+PROJECT CARD: DayMark
+-->
+
+## DayMark
+
+A habit tracker and daily journal with a to-do list and monthly analytics, built with Streamlit and Firebase.
+
+<!-- Project tags -->
+`Python` `Streamlit` `Firebase` `Habit Tracker`
+
+<!-- Project links -->
+[Read the case study →](daymark)
+[Live app →](https://daymark.streamlit.app)
+[GitHub repo →](https://github.com/Tahsin2155/DayMark)
 
 
 ---
