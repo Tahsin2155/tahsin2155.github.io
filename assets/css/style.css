@@ -224,6 +224,8 @@ section { padding: 6rem 6%; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .about-text p { color: var(--muted); line-height: 1.85; font-size: 1rem; font-weight: 300; margin-bottom: 1rem; max-width: 62ch; }
 .about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+/* HOME ABOUT TEASER — the last two lines of the home page's About paragraph fade out into transparency. */
+.about-text .about-teaser { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 3.6em), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 3.6em), transparent); }
 /* ABOUT PAGE INTRO (.about-section only; the home page's About grid is unchanged). The cards come first in the
    HTML so they can float. On mobile the grid keeps text first, cards after, with `order`. Above 768px the cards
    float top-right as a 2x2 block about half the width and the text wraps around them, then continues at full

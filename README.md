@@ -10,7 +10,7 @@ Live site: https://tahsin2155.github.io
 - **About** (`about.html`): background, education, a coding-journey timeline, and skills.
 - **Projects** (`projects/`): an index page plus one case-study page each for DayMark, MarkdStudio, Velin, Zipline and Handoff.
 - **404** (`404.html`): a custom not-found page.
-- **Sharing and SEO**: Open Graph and Twitter cards, JSON-LD (Person), canonical URLs, `sitemap.xml` and `robots.txt`.
+- **Sharing and SEO**: favicon image files (SVG, PNG sizes, ICO and an Apple touch icon), Open Graph and Twitter cards, JSON-LD (a Person on Home and About, a SoftwareApplication on each case study), canonical URLs, `sitemap.xml` and `robots.txt`.
 - **Accessibility**: skip link, `aria-current` on the active nav link, `prefers-reduced-motion` respected, and content stays visible when JavaScript is off.
 
 ## Structure
@@ -20,11 +20,13 @@ Live site: https://tahsin2155.github.io
 ├── index.html
 ├── about.html
 ├── 404.html
+├── favicon.ico        copy of the favicon for browsers that request /favicon.ico
 ├── projects/          project index and case-study pages
 ├── assets/
 │   ├── css/style.css
 │   ├── js/main.js
 │   └── img/           project icons, LinkedIn icon, social preview image
+│       └── favicons/  favicon.svg, PNG sizes, favicon.ico, Apple touch icon
 ├── content/           Markdown source of truth for every page (see Content below)
 │   └── projects/
 ├── tools/
@@ -48,7 +50,7 @@ Live site: https://tahsin2155.github.io
 
 ## Editing
 
-The pages are edited by hand. The nav, footer and `<head>` are repeated in every page, so a change to any of them has to be made in each file.
+The Markdown in `content/` is the source of truth for what each page says and how it behaves. Content is changed in the Markdown first, and then **one page's HTML** at a time is brought in line with it (see Content below). The HTML is not hand-edited for content. The nav, footer and `<head>` are repeated in every HTML file, so a change to any of them goes into `content/_site.md` (or the page's front matter) and then has to be synced into each page.
 
 ### Content
 
@@ -56,12 +58,15 @@ The pages are edited by hand. The nav, footer and `<head>` are repeated in every
 
 The workflow is: edit the Markdown, then ask an AI to update **one page's HTML** from it using the prompt in `tools/prompt.md`. A `CHANGE:` comment in the Markdown asks for a structural or functional change. Every HTML file has a `<!-- content last edited: ... -->` line that should match the Markdown's `last_edited` date, so you can see at a glance whether a page is behind. The full format is in `tools/content-format.md`.
 
+The sync is not only content: when a page's HTML is updated, also check that its date in `sitemap.xml` (see URLs below) matches the HTML's `content last edited` date.
+
 ### URLs
 
 Pages are linked without `.html` (`/about`, `/projects/daymark`). GitHub Pages serves `about.html` at `/about`, so the files keep their `.html` names. When you add or rename a page:
 
 - Link to it without `.html`.
 - Use the same extensionless URL in its canonical link, its `og:url` and `sitemap.xml`.
+- Set its `<lastmod>` in `sitemap.xml` to the date in the page's `<!-- content last edited: ... -->` comment, and update it whenever that comment changes. `robots.txt` allows everything and points at the sitemap, so it only changes if the site's URL changes.
 - Keep paths relative and keep pages as files (`about.html`, not `about/index.html`), so `assets/` and `../assets/` keep resolving at each depth.
 - The one exception is `404.html`. GitHub Pages serves it at whatever URL was missed (`/about/`, `/a/b/c`), so a relative path would break there. It uses root paths (`/assets/css/style.css`, `/about`, `/`) instead.
 
@@ -84,9 +89,9 @@ Fonts, icons, GitHub stats and the contact form need an internet connection.
 - It writes straight into the repo root (its docstring says `./site`, but the code writes to the root). Running it overwrites `index.html`, `about.html`, `projects/*.html`, `404.html`, `sitemap.xml` and `robots.txt`, which reverts any hand edits.
 - There have been many hand edits to the pages since it was last updated, so its output no longer matches the site. It also still writes `.html` links instead of the extensionless URLs the site now uses.
 
-Edit the HTML files directly. The script is kept only for reference.
+Update pages through the Markdown workflow described under Content, not by running the script. It is kept only for reference.
 
 ## Notes
 
 - The GitHub stats use the unauthenticated GitHub API, which is limited to 60 requests per hour per IP. Results are cached in `sessionStorage` for 10 minutes, and the stats show a dash if the request fails.
-- The DayMark, MarkdStudio, Velin and Zipline icons are local files in `assets/img/`. The skill and social icons still load from external hosts.
+- The DayMark, MarkdStudio, Velin and Zipline icons are local files in `assets/img/`. Handoff uses a decorative Lucide icon instead of an image. The skill and social icons still load from external hosts.

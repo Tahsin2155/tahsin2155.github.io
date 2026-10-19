@@ -4,10 +4,10 @@ route: "/about"
 html: "about.html"
 purpose: 'Personal portfolio "About Me" page.'
 title: "About — Tahsin Ali Abtahi"
-description: "About Tahsin Ali Abtahi — 12th standard student, self-taught Python developer, hackathon team lead. My coding journey from Minecraft redstone to shipping web apps."
+description: "About Tahsin Ali Abtahi — 12th standard student, self-taught programmer, hackathon team lead. My coding journey from Minecraft redstone to shipping web apps."
 canonical: "https://tahsin2155.github.io/about"
 nav_active: "About"
-last_edited: 2026-10-19
+last_edited: 2026-10-20
 ---
 
 # Header
@@ -220,13 +220,13 @@ TECHNICAL NOTES
 (Adds to the site-wide notes in _site.md.)
 
 HEAD & METADATA
-- JSON-LD describes Tahsin as a schema.org Person with jobTitle, description, sameAs profiles, image and knowsAbout values.
+- JSON-LD describes Tahsin as a schema.org Person with jobTitle "Student and Self-Taught Programmer", a description matching the page (self-taught programmer and 12th standard Science stream student), and sameAs profiles, image and knowsAbout values.
 
 LAYOUT (introduction and quick facts)
 - In the HTML the four fact cards come before the About Me paragraphs, so screen readers read the cards first. On desktop (wider than 768px) the cards float to the top-right as a 2x2 block about half the section width, level with the top of the text; the paragraphs wrap around them and continue at full width below them (no max-width cap).
 - On mobile (768px and below) the layout is one column with the text first and the four cards after it, using CSS order.
 - This applies only to the About page's .about-section; the home page's About grid is unchanged.
-- The Achievement card's hover text, "AI Vidyasetu 1.0", is a native title attribute on the card's value text, so it appears on mouse hover only (not on touch or keyboard focus).
+- The Achievement fact card shows the hover text "AI Vidyasetu 1.0" anywhere over the whole card, using a native title attribute on the card itself.
 
 BEHAVIOR (timeline)
 - The timeline contains eleven entries and has data-visible="3". JavaScript initially shows only the newest three and sets the button to "Show full timeline" with "+8 earlier" (the "+{{total entries - 3}} earlier" count).

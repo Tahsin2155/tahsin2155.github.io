@@ -7,7 +7,7 @@ title: "Zipline — Tahsin Ali Abtahi"
 description: "A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite."
 canonical: "https://tahsin2155.github.io/projects/zipline"
 nav_active: "Projects"
-last_edited: 2026-10-18
+last_edited: 2026-10-20
 ---
 
 # Header
@@ -132,7 +132,7 @@ SIDEBAR: Project metadata and quick links.
 Live on PythonAnywhere (private)
 
 **BUILT WITH**  
-Python, Flask, SQLite, Jinja, Bootstrap, Werkzeug
+Python, Flask, SQLite, Self-Hosted
 
 **WHEN**  
 August 2026

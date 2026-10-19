@@ -92,7 +92,6 @@ Zonal-level, Hackathon [hover: AI Vidyasetu 1.0]
 ---
 
 # Projects
-<!-- only 3 main projects to show on the homescreen, rest stay only on the projects page. See the CHANGE note right below for the exact implementation instruction. -->
 
 <!-- Section eyebrow -->
 `// THINGS I'VE SHIPPED`
@@ -204,9 +203,13 @@ Always down to talk to people who build stuff, mentors, or anyone into the same 
 TECHNICAL NOTES
 (Adds to the site-wide notes in _site.md.)
 
+HEAD & METADATA
+- The JSON-LD block describes Tahsin as a schema.org Person with jobTitle "Student and Self-Taught Programmer" and a description that matches the page: a self-taught programmer and 12th standard Science stream student who builds web apps and tools and learns by shipping side projects.
+
 BEHAVIOR
+- The About Me paragraph fades out at its end: the last two lines (about 3.6em) fade into transparency with a CSS mask, ahead of the "Wanna know more about me? →" link. The full text stays in the page for screen readers.
 - The initial role text is "Self-Taught Programmer". JavaScript rotates it through "Hackathon Team Lead" and "Full Time Student, Part Time Builder" with a typing effect; prefers-reduced-motion disables the typing and keeps "Self-Taught Programmer".
-- The Achievement fact card's hover text, "AI Vidyasetu 1.0", is a native title attribute on the card's value text, so it appears on mouse hover only (not on touch or keyboard focus).
+- The Achievement fact card shows the hover text "AI Vidyasetu 1.0" anywhere over the whole card, using a native title attribute on the card itself.
 - GitHub stats are loaded from the unauthenticated GitHub API for Tahsin2155: the user endpoint, plus a second endpoint for up to 100 repositories. Public repository and follower counts come from the user response. Stars are summed across the repositories, and "Recently Worked" is the repository with the newest pushed_at timestamp.
 - On screens 1200px wide and up, the four GitHub stat cards sit in one row. The first three share the space equally and the Recently Worked card is as wide as its repository name needs (names wrap after about 22 characters), so when that name needs more room the card grows and the other three shrink. Below 1200px the cards use the auto-fit grid (two columns on small screens) and a long repository name wraps inside its card instead of overflowing.
 
@@ -217,7 +220,7 @@ PROJECT CARDS
 - Velin has Read the case study, Live app and GitHub repo links; Handoff and Zipline have Read the case study and GitHub repo links.
 
 DATA & STORAGE
-- GitHub stats are cached in sessionStorage under gh-stats-cache for 10 minutes. Malformed cache data, storage failures, non-OK responses and fetch failures display an em dash for every value.
+- GitHub stats are cached in sessionStorage under gh-stats-cache for 10 minutes. If the cache is malformed or sessionStorage is unavailable, the stats are fetched again instead. If either GitHub request returns a non-OK response or fails, every value displays an em dash.
 
 ASSETS & ICONS
 - Image labels: Velin icon. Handoff and Zipline use decorative Lucide icons with aria-hidden="true".

@@ -1,7 +1,7 @@
 ---
 file: _site.md
 purpose: "Content and technical notes shared by every page: brand, navigation, contact section, footer. Pages pull these in with INCLUDE markers."
-last_edited: 2026-07-01
+last_edited: 2026-10-20
 ---
 
 <!--
@@ -109,6 +109,12 @@ SHARED FILES
 HEAD & METADATA
 - Open Graph and Twitter cards use the page's own title and description plus the shared 1200x630
   assets/img/og-image.png. The Twitter card type is summary_large_image.
+- The favicon is a white "t" in DM Mono (medium weight) on a #2563eb rounded square, as image files in
+  assets/img/favicons/: favicon.svg (the letter is drawn as a path, so it does not depend on the font loading),
+  favicon-16x16.png, favicon-32x32.png, favicon.ico (16, 32 and 48px) and apple-touch-icon.png (180px, a full
+  square with no transparency). A copy of favicon.ico also sits at the site root for browsers that ask for
+  /favicon.ico. Every page links the files; the 404 page uses root paths (/assets/img/favicons/...) and the other pages
+  use paths relative to their depth.
 
 NAVIGATION & ACCESSIBILITY
 - Every page has a skip link and a labelled main navigation, and keyboard-visible focus outlines.

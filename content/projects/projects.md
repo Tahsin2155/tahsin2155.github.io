@@ -141,6 +141,7 @@ HEAD & METADATA
 PROJECT CARDS
 - All five cards are rendered directly in the HTML, in this order (latest to oldest): Handoff, Zipline, Velin, MarkdStudio, and DayMark. This order applies to this page only; the home page keeps its own. Unlike the home page, JavaScript does not fold this grid.
 - Every card has the project-card, reveal and project-featured classes.
+- The page title is the only h1. Each card title is an h2, so the heading levels never skip.
 - The whole card is clickable. The "Read the case study →" link (class project-case-link) is stretched over the card with a ::after overlay, so a click anywhere on the card opens that project's case study. The Live app and GitHub repo links are raised above the overlay and still open their own destinations in a new tab. Each card keeps a single case-study link for keyboard and screen-reader users. Keyboard focus shows an outline around the card, and the existing hover lift is unchanged.
 - Project images are lazy-loaded with fixed 40x40 dimensions and descriptive alt text. Handoff uses a decorative Lucide icon with aria-hidden="true".
 - External project links open in a new tab with rel="noopener noreferrer".
