@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!-- content last edited: 2026-07-01 -->
+<!-- content last edited: 2026-10-18 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Zipline — Tahsin Ali Abtahi</title>
-<meta name="description" content="A personal, self-hosted file transfer app with login, per-user storage, nested folders, search, previews and a notes scratchpad, built with Flask and SQLite."/>
+<meta name="description" content="A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite."/>
 <meta property="og:title" content="Zipline — Tahsin Ali Abtahi"/>
-<meta property="og:description" content="A personal, self-hosted file transfer app with login, per-user storage, nested folders, search, previews and a notes scratchpad, built with Flask and SQLite."/>
+<meta property="og:description" content="A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite."/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://tahsin2155.github.io/projects/zipline"/>
 <meta property="og:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
@@ -15,7 +15,7 @@
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Zipline — Tahsin Ali Abtahi"/>
-<meta name="twitter:description" content="A personal, self-hosted file transfer app with login, per-user storage, nested folders, search, previews and a notes scratchpad, built with Flask and SQLite."/>
+<meta name="twitter:description" content="A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite."/>
 <meta name="twitter:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
 <link rel="canonical" href="https://tahsin2155.github.io/projects/zipline"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -29,7 +29,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Zipline",
-  "description": "A personal, self-hosted file transfer app with login, per-user storage, nested folders, search, previews and a notes scratchpad, built with Flask and SQLite.",
+  "description": "A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite.",
   "url": "https://github.com/Tahsin2155/zipline",
   "applicationCategory": "WebApplication",
   "author": { "@type": "Person", "name": "Tahsin Ali Abtahi", "url": "https://tahsin2155.github.io/" }
@@ -69,7 +69,7 @@
     <div class="case-icon"><img loading="lazy" src="../assets/img/zipline.png" alt="Zipline icon" width="40" height="40"></div>
     <h1 class="page-title">Zipline</h1>
   </div>
-  <p class="page-lead">A personal, self-hosted file transfer app with login, per-user storage, nested folders, search, previews and a notes scratchpad, built with Flask and SQLite.</p>
+  <p class="page-lead">A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite.</p>
 </header>
 
 <section>
@@ -77,24 +77,57 @@
     <article class="case-body">
       <h2>What it is</h2>
       <p>Zipline is a personal file transfer app that I run myself. It started as a way to move files between my own devices, and grew into a small private drive: you log in, upload files, organise them into folders, and download them from another device.</p>
-      <p>It has no external services. Everything runs on Flask with SQLite databases. It is self-hosted, so anyone can run their own copy for themselves and the people they choose.</p>
+      <p>The server needs no external services: everything runs on Flask with SQLite. It is self-hosted, so anyone can run their own copy for themselves and the people they choose, for noncommercial use.</p>
+      <h2>Why I built it</h2>
+      <p>I needed an easy way to share files between two computers over the internet. If I had a file on my computer and needed it on my school's computer, and vice versa, there was no simple way to get it there. That's where the idea came from.</p>
       <h2>What it can do</h2>
-      <ul><li><strong>Accounts:</strong> a login for each user, with separate storage for each.</li><li><strong>Folders:</strong> nested folders you can create, rename and delete, with breadcrumbs, and files can be moved between them.</li><li><strong>Search:</strong> instant filename search across all folders.</li><li><strong>Previews:</strong> images and PDFs open inline, and text or code files show in a pop-up, with a download link if the file is large.</li><li><strong>Scratchpad:</strong> a notes page with one autosaving text box per user and a copy button, not tied to any file.</li></ul>
+      <ul>
+        <li><strong>Accounts:</strong> a login for each user, with separate storage for each. There's no sign-up page. Whoever runs the app creates users with a command-line script.</li>
+        <li><strong>Folders:</strong> nested folders you can create, rename and delete, with breadcrumbs, and files can be moved between them.</li>
+        <li><strong>Search:</strong> instant filename search across all folders.</li>
+        <li><strong>Previews:</strong> images and PDFs open inline, and text or code files show in a pop-up, with a download link if the file is large. There's a fullscreen preview too.</li>
+        <li><strong>Notes:</strong> a scratchpad page where you can keep multiple notes, each with its own title. They autosave, and there's a copy button in the editor.</li>
+        <li><strong>Auto-delete:</strong> files are deleted after 5 days by default (you can change it), by a cleanup script you schedule.</li>
+        <li><strong>Small things:</strong> inline delete confirmations instead of pop-ups, and app icons with a web manifest.</li>
+      </ul>
+      <h2>How it's built</h2>
+      <p>Zipline is a Flask app with Jinja templates, and Bootstrap for the front end, loaded from a CDN. The code is split into Flask blueprints (login, files and notes), created by an app factory. Data lives in SQLite, uploaded files sit on disk, and users and their login-lockout counters are stored in a <code>users.json</code> file. Passwords are hashed with Werkzeug.</p>
+      <p><strong>About AI:</strong> there's no clean split. The first prototype was mine, and the UI is AI's. I did the feature planning and worked out how to carry things out, and after planning, AI did the heavy lifting of writing the code, though I also made a lot of small changes in the code myself.</p>
       <h2>How it grew</h2>
-      <p>The first version was a single file. The current version splits the app into separate parts for login, files and notes (Flask blueprints), keeps its settings in one place, and gives every user their own SQLite database and upload folder.</p>
+      <p>I was learning Flask and got curious about moving a file with a form's file upload and a POST request. I prototyped it myself, and it was really glitchy, full of bugs and full of security problems. At that point I handed it to AI to work on.</p>
+      <p>From there it kept growing. I came up with ideas, and AI and I both made changes, finalised them and pushed them. The first version was simple, with no app factory. Now the app is split into separate parts for login, files and notes (Flask blueprints), keeps its settings in one place, and has folders and a scratchpad.</p>
       <h2>Security choices</h2>
       <p>Because it holds private files, I added protections as I went:</p>
-      <ul><li>Login lockout after repeated failed attempts.</li><li>CSRF protection on forms.</li><li>A blocklist of dangerous file extensions.</li><li>A storage quota for each user.</li><li>Older plain-text passwords are converted to hashes automatically the first time that user logs in.</li></ul>
+      <ul>
+        <li>Passwords are stored as hashes.</li>
+        <li>Login lockout after repeated failed attempts.</li>
+        <li>CSRF protection on forms.</li>
+        <li>A blocklist of dangerous file extensions.</li>
+        <li>A storage quota for each user.</li>
+        <li>Older plain-text passwords are converted to hashes automatically the first time that user logs in.</li>
+      </ul>
       <p>The extension list is a blocklist, not an allowlist, because the app is meant to move any kind of file for personal use.</p>
       <h2>Deployment</h2>
       <p>My own copy is live on PythonAnywhere, and the project is set up for that platform. PythonAnywhere can't run a background cleanup loop inside a web app, so expired-file cleanup is a separate script that runs once a day on a schedule, instead of a thread inside Flask.</p>
-      <p>My copy is private, so there is no public demo, but the source is on GitHub for anyone who wants to host their own.</p>
+      <p>My copy is private, so there is no public demo, but the source is on GitHub for anyone who wants to host their own, and there's a self-hosting guide in the repo. The licence is PolyForm Noncommercial.</p>
 
-      <p class="case-note"><strong>Draft content.</strong> This write-up was drafted from the project's public README on GitHub. Replace it with your own notes, screenshots, and details.</p>
+      <h2>What I learned</h2>
+      <ul>
+        <li><strong>Flask:</strong> a lot about how it works, including blueprints and the app factory.</li>
+        <li><strong>Security:</strong> authentication and password hashing.</li>
+        <li><strong>Databases:</strong> a small bit of SQL and database management.</li>
+      </ul>
+      <h2>Limits and next steps</h2>
+      <ul>
+        <li><strong>Files are deleted after 5 days by default.</strong> It's for moving files, not for keeping them.</li>
+        <li><strong>Size limits:</strong> 100 MB per file and 100 MB per user by default, both adjustable.</li>
+        <li><strong>File previews need a security fix.</strong></li>
+      </ul>
+      <p>Next, I want to fix the preview security, and after that add folder download as a zip.</p>
 
       <div class="case-nav">
-        <a href="velin"><small>Previous</small>← Velin</a>
-        <a class="next" href="handoff"><small>Next</small>Handoff →</a>
+        <a href="handoff"><small>Previous</small>← Handoff</a>
+        <a class="next" href="velin"><small>Next</small>Velin →</a>
       </div>
     </article>
 

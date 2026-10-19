@@ -38,20 +38,6 @@ The left side contains descriptive paragraphs.
 The right side contains four fact cards.
 -->
 
-<!--
-CHANGE: Change the layout of this section on desktop so the text wraps around the four fact cards. Mobile stays exactly as it is now.
-
-Desktop (wider than 768px, the breakpoint the About grid already uses):
-- The four fact cards sit in the top-right corner as a 2x2 grid, taking up roughly half the section width. Their top edge lines up with the top of the first line of text. Do not vertically centre them against the text any more.
-- The "About Me" paragraphs start at the top-left and run in the left half, beside the cards.
-- Where the text gets below the bottom of the cards, the remaining lines continue at full width, all the way to the right edge of the section. So the cards are a block the text flows around, not a separate column. The lines under the cards must not stop at the old half-width column (drop the paragraphs' max-width cap here so they can use the full width).
-- Keep the paragraph spacing, line height, colors, card styling and hover effect, and the .reveal animation.
-
-Mobile (768px and below): unchanged. One column, the text first and the four fact cards after it, exactly as the page works today.
-
-For the text to flow around the cards, the cards and the paragraphs have to sit in the same container instead of two separate grid columns, for example by floating the cards to the right (with a small gap on their left and bottom). A float starts at the top only if it comes before the paragraphs in the HTML. If you move the cards ahead of the text, keep text-then-cards as the order on mobile (for example with CSS order in a one-column flex layout) and tell me if the reading order for screen readers changes. Check the layout between 769px and about 1000px, where the text beside the cards gets narrow, and report if it looks too cramped there.
--->
-
 ## About Me
 
 I'm 17, still in school, figuring out my life (with a fear of AI replacing me). I spend most of my free time on my computer, 
@@ -236,9 +222,15 @@ TECHNICAL NOTES
 HEAD & METADATA
 - JSON-LD describes Tahsin as a schema.org Person with jobTitle, description, sameAs profiles, image and knowsAbout values.
 
+LAYOUT (introduction and quick facts)
+- In the HTML the four fact cards come before the About Me paragraphs, so screen readers read the cards first. On desktop (wider than 768px) the cards float to the top-right as a 2x2 block about half the section width, level with the top of the text; the paragraphs wrap around them and continue at full width below them (no max-width cap).
+- On mobile (768px and below) the layout is one column with the text first and the four cards after it, using CSS order.
+- This applies only to the About page's .about-section; the home page's About grid is unchanged.
+- The Achievement card's hover text, "AI Vidyasetu 1.0", is a native title attribute on the card's value text, so it appears on mouse hover only (not on touch or keyboard focus).
+
 BEHAVIOR (timeline)
-- The timeline contains ten entries and has data-visible="3". JavaScript initially shows only the newest three and sets the button to "Show full timeline" with "+7 earlier" (the "+{{total entries - 3}} earlier" count).
-- The toggle is hidden until JavaScript confirms folding is needed, then it exposes the seven older entries and updates aria-expanded and the count.
+- The timeline contains eleven entries and has data-visible="3". JavaScript initially shows only the newest three and sets the button to "Show full timeline" with "+8 earlier" (the "+{{total entries - 3}} earlier" count).
+- The toggle is hidden until JavaScript confirms folding is needed, then it exposes the eight older entries and updates aria-expanded and the count.
 - Expanding changes the label to "Fold the timeline". Without JavaScript, all entries remain visible.
 - When collapsing from lower on the page, JavaScript may scroll the timeline back into view.
 

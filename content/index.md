@@ -94,18 +94,6 @@ Zonal-level, Hackathon [hover: AI Vidyasetu 1.0]
 # Projects
 <!-- only 3 main projects to show on the homescreen, rest stay only on the projects page. See the CHANGE note right below for the exact implementation instruction. -->
 
-<!--
-CHANGE: The Home project grid now shows only 3 cards — Handoff, Zipline, Velin, in that order — instead of all 5. Remove the "keep all five cards in HTML, fold after first CSS grid row" JS behavior entirely; the DOM should only contain these 3 cards. The "Rest of the mess →" link leads to /projects/.
--->
-
-<!--
-CHANGE: Make the whole project card clickable. Clicking anywhere on a card opens that project's case study, the same page the "Read the case study →" link opens. The "Read the case study →" link stays exactly as it is. The "Live app →" and "GitHub repo →" links keep opening their own destinations in a new tab and must not trigger the case-study link. Do not put links inside a link: stretch the case-study link over the whole card (for example with a ::after overlay on that link, position: relative on the card, and the other links raised above the overlay), so there is still one case-study link per card for keyboard and screen-reader users. Keep a visible keyboard focus outline on the card and keep the existing hover lift. Apply it to all three cards here, and use the same method as on the Projects page.
--->
-
-<!--
-CHANGE: Every project card here must have the project-featured class (the highlight), with no exceptions, in addition to project-card and reveal.
--->
-
 <!-- Section eyebrow -->
 `// THINGS I'VE SHIPPED`
 
@@ -218,7 +206,15 @@ TECHNICAL NOTES
 
 BEHAVIOR
 - The initial role text is "Self-Taught Programmer". JavaScript rotates it through "Hackathon Team Lead" and "Full Time Student, Part Time Builder" with a typing effect; prefers-reduced-motion disables the typing and keeps "Self-Taught Programmer".
+- The Achievement fact card's hover text, "AI Vidyasetu 1.0", is a native title attribute on the card's value text, so it appears on mouse hover only (not on touch or keyboard focus).
 - GitHub stats are loaded from the unauthenticated GitHub API for Tahsin2155: the user endpoint, plus a second endpoint for up to 100 repositories. Public repository and follower counts come from the user response. Stars are summed across the repositories, and "Recently Worked" is the repository with the newest pushed_at timestamp.
+- On screens 1200px wide and up, the four GitHub stat cards sit in one row. The first three share the space equally and the Recently Worked card is as wide as its repository name needs (names wrap after about 22 characters), so when that name needs more room the card grows and the other three shrink. Below 1200px the cards use the auto-fit grid (two columns on small screens) and a long repository name wraps inside its card instead of overflowing.
+
+PROJECT CARDS
+- The home page has exactly three project cards in the DOM, in this order: Handoff, Zipline, Velin. There is no fold or collapse script; the "Rest of the mess →" link leads to /projects/.
+- Every card has the project-card, reveal and project-featured classes.
+- The whole card is clickable. The "Read the case study →" link (class project-case-link) is stretched over the card with a ::after overlay; the Live app and GitHub repo links are raised above the overlay and still open their own destinations in a new tab. Each card keeps a single case-study link for keyboard and screen-reader users. Keyboard focus shows an outline around the card, and the existing hover lift is unchanged.
+- Velin has Read the case study, Live app and GitHub repo links; Handoff and Zipline have Read the case study and GitHub repo links.
 
 DATA & STORAGE
 - GitHub stats are cached in sessionStorage under gh-stats-cache for 10 minutes. Malformed cache data, storage failures, non-OK responses and fetch failures display an em dash for every value.

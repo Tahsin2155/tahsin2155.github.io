@@ -39,10 +39,6 @@ The server needs no external services: everything runs on Flask with SQLite. It 
 
 ---
 
-<!--
-CHANGE: Add a new section "Why I built it" after "What it is". It is plain paragraphs. Use the same section styling as the other sections.
--->
-
 # Why I built it
 
 I needed an easy way to share files between two computers over the internet. If I had a file on my computer and needed it on my school's computer, and vice versa, there was no simple way to get it there. That's where the idea came from.
@@ -62,10 +58,6 @@ I needed an easy way to share files between two computers over the internet. If 
 
 
 ---
-
-<!--
-CHANGE: Add a new section "How it's built" after "What it can do". It is plain paragraphs, no bullets. The paragraph that starts with the bold label "About AI:" is a normal paragraph with a bold lead-in. Use the same section styling as the other sections.
--->
 
 # How it's built
 
@@ -110,10 +102,6 @@ My copy is private, so there is no public demo, but the source is on GitHub for 
 
 ---
 
-<!--
-CHANGE: Add a new section "What I learned" after "Deployment". It is a bullet list where each item starts with a bold label. Use the same section styling as the other sections.
--->
-
 # What I learned
 
 - **Flask:** a lot about how it works, including blueprints and the app factory.
@@ -122,10 +110,6 @@ CHANGE: Add a new section "What I learned" after "Deployment". It is a bullet li
 
 
 ---
-
-<!--
-CHANGE: Add a new section "Limits and next steps" after "What I learned". It is a bullet list where each item starts with a bold label, followed by one closing line of plain text. Use the same section styling as the other sections.
--->
 
 # Limits and next steps
 
@@ -166,18 +150,18 @@ August 2026
 
 <!--
 PROJECT NAVIGATION:
-Previous project: Velin
-Next project: Handoff
+Previous project: Handoff
+Next project: Velin
 -->
 
 ### Previous
 
-[← Velin](velin)
+[← Handoff](handoff)
 
 
 ### Next
 
-[Handoff →](handoff)
+[Velin →](velin)
 
 
 ---

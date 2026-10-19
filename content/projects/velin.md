@@ -30,10 +30,6 @@ A customizable new-tab page with a clock, Pomodoro timer, to-do list, notes and 
 
 ---
 
-<!--
-CHANGE: Add a new section "What it can do" after "Why I built it". It is a bullet list where each item starts with a bold label. Use the same section styling as the other sections.
--->
-
 # What it is
 
 Velin is a custom new-tab page. Instead of the browser's default blank screen, you get a canvas where you place widgets (a clock, a Pomodoro timer, a to-do list, notes and bookmarks) and free-floating text, over a background you choose.
@@ -60,10 +56,6 @@ It's my new tab now, with my preferred layout and widgets.
 - **Backup:** export your whole setup to a JSON file and import it again.
 
 
-<!--
-CHANGE: "How it's built" is now short paragraphs instead of a bullet list. The paragraph that starts with the bold label "About AI:" is a normal paragraph with a bold lead-in.
--->
-
 # How it's built
 
 Velin is a static site with no backend: plain HTML, CSS and JavaScript in four files, with no framework and no build step. It's hosted on Netlify.
@@ -72,10 +64,6 @@ Everything is saved in your browser's IndexedDB. Each widget, bookmark, note and
 
 **About AI:** Velin is entirely vibe coded. AI wrote the code, including the fixes. The thinking was mine: I planned out what it should do, and I found the glitches, reliability problems and real-world issues by using and testing it myself, then decided how they should be fixed.
 
-
-<!--
-CHANGE: Add a new section "How it grew" after "How it's built". It is plain paragraphs, no bullets. Use the same section styling as the other sections.
--->
 
 # How it grew
 
@@ -89,14 +77,6 @@ It took me 1–2 hours to work out why. One save() function wrote every widget's
 
 The fix was splitting save() into per-key functions, so widgets can't overwrite each other, plus a _saveGuard flag that blocks saving until the load is done. Figuring out what was happening took far longer than fixing it.
 
-
-<!--
-CHANGE: Remove the "What I learned" section from this page. Velin no longer has one.
--->
-
-<!--
-CHANGE: Add a new section "Limits and next steps" after "How it grew". It is a bullet list where each item starts with a bold label, followed by one closing paragraph of plain text. Use the same section styling as the other sections.
--->
 
 # Limits and next steps
 
@@ -129,10 +109,6 @@ March 2026
 
 ---
 
-<!--
-CHANGE: Add a "GitHub repo →" link under the live app link, in the same style as the GitHub link on the other case-study pages.
--->
-
 <!-- External project links -->
 [Open live app →](https://newvelintab.netlify.app)
 
@@ -143,18 +119,18 @@ CHANGE: Add a "GitHub repo →" link under the live app link, in the same style 
 
 <!--
 PROJECT NAVIGATION:
-Previous project: MarkdStudio
-Next project: Zipline
+Previous project: Zipline
+Next project: MarkdStudio
 -->
 
 ### Previous
 
-[← MarkdStudio](markdstudio)
+[← Zipline](zipline)
 
 
 ### Next
 
-[Zipline →](zipline)
+[MarkdStudio →](markdstudio)
 
 
 ---
@@ -182,5 +158,5 @@ HEAD & METADATA
 - JSON-LD includes the live URL https://newvelintab.netlify.app.
 
 LINKS
-- The page has no GitHub repository link in its HTML.
+- The page links to the live app and the GitHub repository.
 -->

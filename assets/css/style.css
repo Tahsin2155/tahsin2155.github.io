@@ -224,6 +224,17 @@ section { padding: 6rem 6%; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .about-text p { color: var(--muted); line-height: 1.85; font-size: 1rem; font-weight: 300; margin-bottom: 1rem; max-width: 62ch; }
 .about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+/* ABOUT PAGE INTRO (.about-section only; the home page's About grid is unchanged). The cards come first in the
+   HTML so they can float. On mobile the grid keeps text first, cards after, with `order`. Above 768px the cards
+   float top-right as a 2x2 block about half the width and the text wraps around them, then continues at full
+   width under them (no max-width cap). */
+.about-section .about-grid .about-text { order: 1; }
+.about-section .about-grid .about-facts { order: 2; }
+@media (min-width: 769px) {
+  .about-section .about-grid { display: flow-root; }
+  .about-section .about-grid .about-facts { float: right; width: 50%; margin: 0 0 1.5rem 2.5rem; }
+  .about-section .about-grid .about-text p { max-width: none; }
+}
 .fact-card { background: var(--bg); border-radius: var(--radius); padding: 1.3rem; border: 1px solid var(--border); transition: transform 0.2s; }
 .fact-card:hover { transform: translateY(-3px); }
 .fact-emoji { font-size: 1.5rem; margin-bottom: 0.4rem; }
@@ -307,7 +318,14 @@ section { padding: 6rem 6%; }
 .gh-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
 .gh-card .gh-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
 .gh-card .gh-icon svg { width: 1.8rem; height: 1.8rem; stroke: var(--ink); display: block; margin: 0 auto; }
-.gh-card .gh-value { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
+.gh-card .gh-value { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); overflow-wrap: anywhere; }
+/* Wide screens: one row. The first three cards share the space equally; the Recently Worked card is at least as
+   wide as its repository name (capped at 22ch, longer names wrap), so when it needs more room it grows and
+   the other three shrink. Below 1200px the auto-fit grid above (and the 2-column rule) applies. */
+#gh-latestrepo { max-width: 22ch; margin-inline: auto; }
+@media (min-width: 1200px) {
+  .github-stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(max-content, 1fr); }
+}
 .gh-card .gh-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; font-family: 'DM Mono', monospace; letter-spacing: 0.06em; }
 .gh-card .gh-loading { font-size: 1rem; color: var(--muted); }
 
@@ -356,15 +374,13 @@ section { padding: 6rem 6%; }
 .project-link:hover { gap: 0.7rem; }
 .project-featured { border-color: #bfdbfe; background: linear-gradient(135deg, #eff6ff 0%, #fff 60%); }
 
-/* HOME PROJECTS FOLD — JS adds .is-collapsed and hides every card past the first row;
-   without JS all cards show. The "See all projects" link below leads to the rest. */
-.projects-grid .project-card.is-folded { display: none; }
-.projects-grid.is-collapsed { position: relative; }
-.projects-grid.is-collapsed::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 5rem;
-  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--surface) 100%);
-  pointer-events: none;
-}
+/* WHOLE-CARD LINK — the case-study link is stretched over the card with ::after, so a click anywhere on
+   the card opens the case study while there is still only one case-study link per card. The card is
+   already position: relative. The other links sit above the overlay so they keep their own targets. */
+.project-card .project-case-link::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: var(--radius); }
+.project-card .project-links a:not(.project-case-link) { position: relative; z-index: 2; }
+.project-card .project-case-link:focus-visible { outline: none; }
+.project-card .project-case-link:focus-visible::after { outline: 2.5px solid var(--accent); outline-offset: -3px; }
 
 /* CASE STUDY */
 .case-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 4rem; align-items: start; }

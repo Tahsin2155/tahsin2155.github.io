@@ -31,10 +31,6 @@ A habit tracker and daily journal with a to-do list and monthly analytics, built
 
 ---
 
-<!--
-CHANGE: Add a new section "What it can do" after "Why I built it". It is a bullet list where each item starts with a bold label. Use the same section styling as the other sections.
--->
-
 # What it is
 
 DayMark is a habit tracker and daily journal I built to keep track of my days in one place. You add your habits for the month and tick them off in a grid, with habits down the side and days across the top. There's also a daily journal, a to-do list for each day, and an analytics tab that charts how the month is going.
@@ -62,10 +58,6 @@ I also wanted it to be just mine: no social feed, no points or streak to chase. 
 - **Saving:** it autosaves about once a minute, when you log out and when you switch months. There's also a Save Changes button.
 
 
-<!--
-CHANGE: "How it's built" is now short paragraphs instead of a bullet list. The paragraph that starts with the bold label "About AI:" is a normal paragraph with a bold lead-in.
--->
-
 # How it's built
 
 DayMark is a Streamlit app written in Python. Streamlit handles the pages and the widgets (the habit grid is its editable table), and the charts are made with Plotly and pandas.
@@ -74,7 +66,7 @@ Accounts and storage run on Firebase. Firebase Auth handles login with email ver
 
 While you use it, the month's data sits in Streamlit's session state. It's written to Firestore when you hit save, log out, switch months, or about once a minute.
 
-**About AI:** AI wrote the main Firebase and login code, and I integrated it into the app. The rest of the app's logic, how the tabs, grid, journal, tasks and analytics work, is mine. I asked AI for help in a few other places, but not much.
+**About AI:** AI wrote the main Firebase and login code, and I integrated it into the app. The rest of the app's code, how the tabs, grid, journal, tasks and analytics work, is mine. I asked AI for help in a few other places, but not much.
 
 
 # What I learned
@@ -84,10 +76,6 @@ While you use it, the month's data sits in Streamlit's session state. It's writt
 - **Shipping something public:** it was my first public app, so I picked up a lot of small things I would never have run into building only for myself.
 - **A problem I fixed:** at first there was no save button. Streamlit reruns the script on every click, and every rerun hit the database, so I used up my database limit while I was still building it. I changed it so edits stay in memory and only get written when you save: the button, an autosave about once a minute, logging out, or switching months. It also skips the write if nothing changed. Database hits dropped way down, and I worked that one out myself.
 
-
-<!--
-CHANGE: Add a new section "Limits and next steps" after "What I learned". It is a bullet list where each item starts with a bold label, followed by one closing line of plain text. Use the same section styling as the other sections.
--->
 
 # Limits and next steps
 
@@ -129,12 +117,12 @@ December 2025 – January 2026
 
 <!--
 PROJECT NAVIGATION:
-The next project in the case-study sequence is MarkdStudio.
+The Previous project in the case-study sequence is MarkdStudio.
 -->
 
-### Next
+### Previous
 
-[MarkdStudio →](markdstudio)
+[← MarkdStudio](markdstudio)
 
 
 ---
@@ -162,5 +150,5 @@ HEAD & METADATA
 - JSON-LD includes the live URL https://daymark.streamlit.app.
 
 PROJECT NAVIGATION
-- The previous-project navigation is empty.
+- The previous-project link points to MarkdStudio.
 -->

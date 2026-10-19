@@ -30,10 +30,6 @@ A browser-based Markdown editor with live preview and tabs for multiple document
 
 ---
 
-<!--
-CHANGE: Add a new section "What it can do" after "Why I built it". It is a bullet list where each item starts with a bold label. Use the same section styling as the other sections.
--->
-
 # What it is
 
 MarkdStudio is a Markdown editor that runs entirely in your browser. You write on one side and see the rendered result live on the other, and you can keep several documents open at once in tabs, like browser tabs.
@@ -62,10 +58,6 @@ A few extras were on my wish list too: editing a file on my disk straight from t
 - **Export:** HTML, PDF (margin, orientation and paper size), print, an embeddable HTML snippet, or a plain Markdown file.
 
 
-<!--
-CHANGE: "How it's built" is now short paragraphs instead of a bullet list. The paragraph that starts with the bold label "About AI:" is a normal paragraph with a bold lead-in.
--->
-
 # How it's built
 
 MarkdStudio is a static site with no backend: plain HTML, CSS and JavaScript, hosted on Netlify. The editor is CodeMirror 5, and the rendering uses marked.js, highlight.js, KaTeX, Mermaid and DOMPurify. PDF export uses html2pdf.js. All of those load from CDNs.
@@ -81,10 +73,6 @@ Your documents are saved in your browser's IndexedDB, and your settings in local
 - **Browser storage:** how localStorage and IndexedDB work.
 - **SEO and launching:** a lot about SEO, getting indexed by search engines, optimizing a site, and Google Analytics.
 
-
-<!--
-CHANGE: Add a new section "Limits and next steps" after "What I learned". It is a bullet list where each item starts with a bold label, followed by one closing line of plain text. Use the same section styling as the other sections.
--->
 
 # Limits and next steps
 
@@ -128,18 +116,18 @@ March 2026
 
 <!--
 PROJECT NAVIGATION:
-Previous project: DayMark
-Next project: Velin
+Previous project: Velin
+Next project: DayMark
 -->
 
 ### Previous
 
-[← DayMark](daymark)
+[← Velin](velin)
 
 
 ### Next
 
-[Velin →](velin)
+[DayMark →](daymark)
 
 
 ---

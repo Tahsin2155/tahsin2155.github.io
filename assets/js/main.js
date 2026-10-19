@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 (function () {
   const el = document.getElementById('typedText');
   if (!el) return;
-  const phrases = ['Python Developer', 'Aspiring Engineer', 'Hackathon Team Lead'];
+  const phrases = ['Self-Taught Programmer', 'Hackathon Team Lead', 'Full Time Student, Part Time Builder'];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) { el.textContent = phrases[0]; return; }
   let pi = 0, ci = 0, deleting = false;
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     list.classList.toggle('is-collapsed', !expanded);
     btn.setAttribute('aria-expanded', String(expanded));
-    label.textContent = expanded ? 'Hide full timeline' : 'Show full timeline';
+    label.textContent = expanded ? 'Fold the timeline' : 'Show full timeline';
     count.textContent = expanded ? '' : '+' + hiddenCount + ' earlier';
     // when collapsing from far down the page, bring the timeline back into view
     if (!expanded && moveFocus) {
@@ -220,31 +220,4 @@ document.addEventListener('DOMContentLoaded', () => {
   btn.hidden = false;
   setExpanded(false, false);
   btn.addEventListener('click', () => setExpanded(btn.getAttribute('aria-expanded') !== 'true', true));
-})();
-
-// Home page projects: show only the first row of cards, faded out at the bottom, because the
-// "See all projects" link right below leads to the rest. Cards per row follow the CSS grid,
-// so the count is re-read on resize. Without JS every card stays visible.
-(function () {
-  const grid = document.querySelector('#projects .projects-grid');
-  if (!grid) return;
-  const cards = Array.from(grid.querySelectorAll('.project-card'));
-
-  function fold() {
-    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-    cards.forEach((el, i) => {
-      const hide = i >= cols;
-      // a card revealed by a wider layout should not wait for a scroll observer
-      if (!hide && el.classList.contains('is-folded')) el.classList.add('visible');
-      el.classList.toggle('is-folded', hide);
-    });
-    grid.classList.toggle('is-collapsed', cards.length > cols);
-  }
-
-  let frame;
-  fold();
-  window.addEventListener('resize', () => {
-    cancelAnimationFrame(frame);
-    frame = requestAnimationFrame(fold);
-  });
 })();

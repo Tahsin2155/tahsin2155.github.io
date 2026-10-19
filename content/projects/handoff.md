@@ -30,10 +30,6 @@ A prototype agent that operates a Windows PC from a plain-language task, using a
 
 ---
 
-<!--
-CHANGE: Add a new section "Why I built it" after "What it is". It is plain paragraphs. Use the same section styling as the other sections.
--->
-
 # What it is
 
 Handoff is an agent that operates a Windows PC. You type a task, like "open the browser and search for the latest Python release", and it looks at the screen, picks the next action, and moves the mouse and keyboard to do it, the way a person would.
@@ -64,20 +60,12 @@ I split the code into three jobs so I can change one without rewriting the other
 `main.py` ties them together and keeps the conversation going between turns.
 
 
-<!--
-CHANGE: Add a new section "How it's built" after "How it's organised". It is plain paragraphs, no bullets. The paragraph that starts with the bold label "About AI:" is a normal paragraph with a bold lead-in. Use the same section styling as the other sections.
--->
-
 # How it's built
 
 Handoff is written in Python. It uses Google's `google-genai` SDK to talk to a Gemini computer-use model through the Interactions API, and `PyAutoGUI` to move the mouse and type. The code currently uses `gemini-3.5-flash-lite`, and the API key goes in a `.env` file. Each turn it passes the previous interaction ID, so the model keeps the context of the task.
 
 **About AI:** I wrote all of the app's code myself: about 930 lines of Python, from the execution layer to the Gemini API calls. The AI in this project is the Gemini model Handoff controls the PC with.
 
-
-<!--
-CHANGE: Add a new section "How it grew" after "How it's built". It is paragraphs with one bullet list in the middle, where each bullet starts with a bold label. Use the same section styling as the other sections.
--->
 
 # How it grew
 
@@ -102,10 +90,6 @@ It also plays different beeps for errors, finished steps and confirmation reques
 
 Every run writes a Markdown log of the task and the model's replies, which helps me tell whether a failure came from the model or from my code.
 
-
-<!--
-CHANGE: Add a new section "What I learned" after "Safety and debugging". It is a bullet list where each item starts with a bold label. Use the same section styling as the other sections.
--->
 
 # What I learned
 
@@ -152,12 +136,12 @@ September 2026
 
 <!--
 PROJECT NAVIGATION:
-Previous project: Zipline
+Next project: Zipline
 -->
 
-### Previous
+### Next
 
-[← Zipline](zipline)
+[Zipline →](zipline)
 
 
 ---
@@ -185,5 +169,5 @@ HEAD & METADATA
 - JSON-LD includes the repository URL https://github.com/Tahsin2155/handoff.
 
 PROJECT NAVIGATION
-- There is no next-project link.
+- The next-project link points to Zipline.
 -->

@@ -33,18 +33,6 @@ Live apps I've built and deployed. Each one has a short write-up covering what i
 # Project List
 
 
-<!--
-CHANGE: Reorder the five project cards from latest to oldest: Handoff, Zipline, Velin, MarkdStudio, DayMark. Move the existing cards; do not recreate them. This order applies to this page only; the home page keeps its own order.
--->
-
-<!--
-CHANGE: Make the whole project card clickable. Clicking anywhere on a card opens that project's case study, the same page the "Read the case study →" link opens. The "Read the case study →" link stays exactly as it is. The "Live app →" and "GitHub repo →" links keep opening their own destinations in a new tab and must not trigger the case-study link. Do not put links inside a link: stretch the case-study link over the whole card (for example with a ::after overlay on that link, position: relative on the card, and the other links raised above the overlay), so there is still one case-study link per card for keyboard and screen-reader users. Keep a visible keyboard focus outline on the card and keep the existing hover lift. Apply it to every card on this page.
--->
-
-<!--
-CHANGE: Every project card on this page must have the project-featured class (the highlight), with no exceptions, in addition to project-card and reveal.
--->
-
 
 <!--
 PROJECT CARD: Handoff
@@ -151,9 +139,11 @@ HEAD & METADATA
 - This page has no JSON-LD block.
 
 PROJECT CARDS
-- All five cards are rendered directly in the HTML: DayMark, MarkdStudio, Velin, Zipline, and Handoff. Unlike the home page, JavaScript does not fold this grid.
+- All five cards are rendered directly in the HTML, in this order (latest to oldest): Handoff, Zipline, Velin, MarkdStudio, and DayMark. This order applies to this page only; the home page keeps its own. Unlike the home page, JavaScript does not fold this grid.
+- Every card has the project-card, reveal and project-featured classes.
+- The whole card is clickable. The "Read the case study →" link (class project-case-link) is stretched over the card with a ::after overlay, so a click anywhere on the card opens that project's case study. The Live app and GitHub repo links are raised above the overlay and still open their own destinations in a new tab. Each card keeps a single case-study link for keyboard and screen-reader users. Keyboard focus shows an outline around the card, and the existing hover lift is unchanged.
 - Project images are lazy-loaded with fixed 40x40 dimensions and descriptive alt text. Handoff uses a decorative Lucide icon with aria-hidden="true".
 - External project links open in a new tab with rel="noopener noreferrer".
-- Velin has no GitHub link in this page's HTML.
-- The case-study routes (daymark, markdstudio, velin, zipline, handoff) are relative to /projects/.
+- Velin has Read the case study, Live app and GitHub repo links.
+- The case-study routes (handoff, zipline, velin, markdstudio, daymark) are relative to /projects/.
 -->

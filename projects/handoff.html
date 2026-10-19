@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- content last edited: 2026-07-01 -->
+<!-- content last edited: 2026-10-19 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -76,27 +76,54 @@
   <div class="case-layout">
     <article class="case-body">
       <h2>What it is</h2>
-      <p>Handoff is a prototype desktop automation agent. You type a task such as "open the browser and search for the latest Python release", and Handoff carries it out by looking at the screen and using the mouse and keyboard, the way a person would.</p>
-      <p>It is an early prototype and runs on <strong>Windows only</strong> for now. It is not a finished product, and there is no live demo.</p>
+      <p>Handoff is an agent that operates a Windows PC. You type a task, like "open the browser and search for the latest Python release", and it looks at the screen, picks the next action, and moves the mouse and keyboard to do it, the way a person would.</p>
+      <p>It's an early prototype. It only runs on Windows for now, and there's no live demo.</p>
+      <h2>Why I built it</h2>
+      <p>I already had a plan to build something that lets AI use my PC. It would help me figure things out when I'm stuck, and it could even do some of my work while I'm busy with something else.</p>
       <h2>How it works</h2>
-      <p>Handoff runs a repeating loop: <strong>see, decide, act, see again</strong>.</p>
-      <ul><li>It captures a screenshot of the screen.</li><li>It sends the screenshot and the task to a Gemini model that supports computer use, through the Interactions API.</li><li>The model replies with the next action, such as a click, a scroll, or some typing.</li><li>Handoff carries out that action with PyAutoGUI, then captures a new screenshot and repeats until the model says the task is finished.</li></ul>
-      <p>The model returns coordinates on a normalized 0 to 999 scale. Handoff converts those to real pixels using the current screen size, so the same output works at any resolution.</p>
+      <p>It runs in a loop: see, decide, act, see again. It takes a screenshot and sends it to a Gemini computer-use model along with the task. The model replies with the next action: a click, a scroll, some typing. Handoff carries that out with PyAutoGUI, takes a new screenshot, and sends it back. That repeats until the model says it's done, and then Handoff asks if I want to give it another instruction.</p>
+      <p>The model gives coordinates on a 0–999 scale instead of real pixels, so Handoff converts them using the screen size. That way the same output works at any resolution.</p>
       <h2>How it's organised</h2>
-      <p>The code is split into three responsibilities, so each part can be changed without rewriting the others:</p>
-      <ul><li><strong>Vision:</strong> screen capture and image encoding.</li><li><strong>Reasoning:</strong> the Gemini computer-use model.</li><li><strong>Execution:</strong> <code>hands.py</code>, which maps the model's function calls to mouse and keyboard actions through a single dispatch table.</li></ul>
-      <p><code>main.py</code> ties these together and keeps the conversation state between turns.</p>
+      <p>I split the code into three jobs so I can change one without rewriting the others:</p>
+      <ul>
+        <li><strong>Vision:</strong> capturing the screen and encoding the image.</li>
+        <li><strong>Reasoning:</strong> the Gemini computer-use model.</li>
+        <li><strong>Execution:</strong> <code>hands.py</code>, which turns the model's function calls into mouse and keyboard actions through one dispatch table.</li>
+      </ul>
+      <p><code>main.py</code> ties them together and keeps the conversation going between turns.</p>
+      <h2>How it's built</h2>
+      <p>Handoff is written in Python. It uses Google's <code>google-genai</code> SDK to talk to a Gemini computer-use model through the Interactions API, and <code>PyAutoGUI</code> to move the mouse and type. The code currently uses <code>gemini-3.5-flash-lite</code>, and the API key goes in a <code>.env</code> file. Each turn it passes the previous interaction ID, so the model keeps the context of the task.</p>
+      <p><strong>About AI:</strong> I wrote all of the app's code myself: about 930 lines of Python, from the execution layer to the Gemini API calls. The AI in this project is the Gemini model Handoff controls the PC with.</p>
+      <h2>How it grew</h2>
+      <p>I started with a plain idea: let an AI see my screen and decide what to do. The obvious way is to take a screenshot, ask a general-purpose model where to click, and click there with PyAutoGUI. But general models are bad at working out exact coordinates from an image, so I looked for something better.</p>
+      <p>I tried a few ideas and dropped them:</p>
+      <ul>
+        <li><strong>Windows Voice Access:</strong> I planned to feed it synthetic speech so voice commands could drive the PC with no coordinates. Speech recognition added one more thing that could go wrong, so I dropped it.</li>
+        <li><strong>UI Automation:</strong> I looked at controlling apps through their element trees. It works well for native Windows apps but is patchy or empty for Electron apps, canvas apps and games, and I wanted something that works everywhere.</li>
+        <li><strong>OmniParser:</strong> I planned a vision layer with it. It needs a lot of memory and ideally a GPU, and my laptop has neither. I tried it on Google Colab and it crashed, because I had left Colab on the default CPU runtime.</li>
+      </ul>
+      <p>Then I found that Google's free-tier Gemini models include a computer-use capability. It takes a screenshot and a task and gives back the actions directly, so it replaces the detection and reasoning steps I'd planned as separate pieces. I dropped OmniParser and UI Automation and built the whole thing around that one model. I used Google's SDK directly rather than a model router, because computer-use output formats differ between providers, such as Gemini's 0–999 coordinates.</p>
+      <p>Once I'd learned the pieces I needed (the SDK and the computer-use tool, the coordinate maths, PyAutoGUI, the agent loop), it worked end to end, and I named it Handoff after the <code>hands.py</code> module that does the actions.</p>
       <h2>Safety and debugging</h2>
-      <p>Handoff does not run every action blindly. When the model flags an action as needing confirmation, Handoff plays an alert sound and waits: <strong>Shift</strong> approves and <strong>Ctrl</strong> denies. Actions marked as blocked are rejected automatically.</p>
-      <p>The repository is clear that this is a simple prototype safety mechanism and <strong>not a complete security boundary</strong>.</p>
-      <p>Every run also writes a Markdown log of the task and the model's responses, which makes it easier to tell whether a failure came from the model or from my code.</p>
+      <p>Not every action just runs. When the model flags one as needing confirmation, Handoff beeps and waits: <code>Shift</code> approves, <code>Ctrl</code> denies. Actions the model marks as blocked get rejected. It's a simple safety check for a prototype, not a real security boundary.</p>
+      <p>It also plays different beeps for errors, finished steps and confirmation requests, so I notice even when I'm not looking at the terminal.</p>
+      <p>Every run writes a Markdown log of the task and the model's replies, which helps me tell whether a failure came from the model or from my code.</p>
+      <h2>What I learned</h2>
+      <ul>
+        <li><strong>The Gemini Python SDK and the Interactions API:</strong> how to send a computer-use model screenshots and keep the context going across turns.</li>
+        <li><strong>Building the logic myself:</strong> I wrote a lot of logic while figuring out how it would all work.</li>
+      </ul>
       <h2>Limits and next steps</h2>
-      <ul><li>It only works on Windows, because it uses the <code>winsound</code> module for alerts.</li><li>It works through the graphical interface, so results depend on screen layout, timing, and how accurate the model is.</li><li>Planned work includes cross-platform support, sturdier safety checks, better error recovery, and more reliable long tasks.</li></ul>
-
-      <p class="case-note"><strong>Draft content.</strong> This write-up was drafted from the project's public README on GitHub. Replace it with your own notes, screenshots, and details.</p>
+      <ul>
+        <li><strong>It's hit or miss.</strong> The model decides what to do, so how well a task goes depends on how accurate the AI model is. The part I wrote works well: the mouse coordinates are right, and the actions and interactions with the computer are accurate.</li>
+        <li><strong>Windows only,</strong> because it uses the <code>winsound</code> module for alerts.</li>
+        <li><strong>It works through the screen,</strong> so results also depend on screen layout and timing.</li>
+      </ul>
+      <p><strong>Next:</strong> I want to add cross-platform support, sturdier safety checks and better error recovery.</p>
 
       <div class="case-nav">
-        <a href="zipline"><small>Previous</small>← Zipline</a>
+        <span></span>
+        <a class="next" href="zipline"><small>Next</small>Zipline →</a>
       </div>
     </article>
 

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!-- content last edited: 2026-07-01 -->
+<!-- content last edited: 2026-10-18 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>MarkdStudio — Tahsin Ali Abtahi</title>
-<meta name="description" content="A markdown editor and writing app focused on clean writing flow and simple formatting."/>
+<meta name="description" content="A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device."/>
 <meta property="og:title" content="MarkdStudio — Tahsin Ali Abtahi"/>
-<meta property="og:description" content="A markdown editor and writing app focused on clean writing flow and simple formatting."/>
+<meta property="og:description" content="A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device."/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://tahsin2155.github.io/projects/markdstudio"/>
 <meta property="og:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
@@ -15,7 +15,7 @@
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="MarkdStudio — Tahsin Ali Abtahi"/>
-<meta name="twitter:description" content="A markdown editor and writing app focused on clean writing flow and simple formatting."/>
+<meta name="twitter:description" content="A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device."/>
 <meta name="twitter:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
 <link rel="canonical" href="https://tahsin2155.github.io/projects/markdstudio"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -29,7 +29,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "MarkdStudio",
-  "description": "A markdown editor and writing app focused on clean writing flow and simple formatting.",
+  "description": "A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device.",
   "url": "https://markdstudio.netlify.app",
   "applicationCategory": "WebApplication",
   "author": { "@type": "Person", "name": "Tahsin Ali Abtahi", "url": "https://tahsin2155.github.io/" }
@@ -69,37 +69,61 @@
     <div class="case-icon"><img loading="lazy" src="../assets/img/markdstudio.png" alt="MarkdStudio icon" width="40" height="40"></div>
     <h1 class="page-title">MarkdStudio</h1>
   </div>
-  <p class="page-lead">A markdown editor and writing app focused on clean writing flow and simple formatting.</p>
+  <p class="page-lead">A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device.</p>
 </header>
 
 <section>
   <div class="case-layout">
     <article class="case-body">
       <h2>What it is</h2>
-      <p>MarkdStudio is a markdown editor and writing app. It is built around a clean writing flow and simple formatting, so drafting and editing feel quick.</p>
-      <p>It is live at <strong>markdstudio.netlify.app</strong>.</p>
+      <p>MarkdStudio is a Markdown editor that runs entirely in your browser. You write on one side and see the rendered result live on the other, and you can keep several documents open at once in tabs, like browser tabs.</p>
+      <p>There's no account and no server. Your documents are stored on your own device, in the browser.</p>
       <h2>Why I built it</h2>
-      <p>I wanted a writing tool that stays out of the way. Many editors do a lot more than I need, so I built one around the things I actually use when I write and format notes.</p>
+      <p>I wanted a Markdown editor that was fast, rendered live and was simple to start, with my data stored only on my device and no account to create.</p>
+      <p>The thing I cared about most was tabs. I wanted several documents open at once, browser-tab style, with an easy way to start a new one or delete one. Most of the features I wanted already existed in other editors, but I couldn't find one that had them all together, and none had the tab system. (Maybe one does and I just never found it.)</p>
+      <p>A few extras were on my wish list too: editing a file on my disk straight from the browser without installing an app, and different themes and styles.</p>
+      <h2>What it can do</h2>
+      <ul>
+        <li><strong>Tabs:</strong> keep several documents open at once, with an unsaved-changes indicator on each tab, and start a new one or close one easily.</li>
+        <li><strong>Four modes:</strong> Split, Write, Preview and Inline, where you edit right inside the rendered text.</li>
+        <li><strong>Code editor:</strong> syntax highlighting, line numbers, bracket matching, multi-cursor, and find/replace with regex.</li>
+        <li><strong>Rich Markdown:</strong> Mermaid diagrams, KaTeX math, callouts, footnotes, task lists, tables, emoji shortcodes and highlighted code blocks.</li>
+        <li><strong>Table of contents:</strong> it builds from your headings and tracks where you are.</li>
+        <li><strong>Edit files on your disk:</strong> open and save real files straight from the browser, in browsers that support it.</li>
+        <li><strong>Preview styles:</strong> five to pick from (GitHub, Documentation, Blog, Minimal and Academic), plus light and dark.</li>
+        <li><strong>Export:</strong> HTML, PDF (margin, orientation and paper size), print, an embeddable HTML snippet, or a plain Markdown file.</li>
+      </ul>
       <h2>How it's built</h2>
-      <ul><li><strong>Front end:</strong> a web app hosted on Netlify</li><li><strong>Source:</strong> public on GitHub</li></ul>
-      <p>Add the specific technical details here: how the preview renders, how documents are saved, and anything else you want to explain.</p>
+      <p>MarkdStudio is a static site with no backend: plain HTML, CSS and JavaScript, hosted on Netlify. The editor is CodeMirror 5, and the rendering uses marked.js, highlight.js, KaTeX, Mermaid and DOMPurify. PDF export uses html2pdf.js. All of those load from CDNs.</p>
+      <p>Your documents are saved in your browser's IndexedDB, and your settings in localStorage, so your documents never leave your device.</p>
+      <p><strong>About AI:</strong> MarkdStudio is entirely vibe coded. AI wrote all of the code. The idea and the list of features I wanted came from me, and I use it regularly.</p>
       <h2>What I learned</h2>
-      <p>Working on an editor showed me how many small details (cursor behaviour, keyboard shortcuts, live preview) decide whether a writing tool feels good to use.</p>
-
-      <p class="case-note"><strong>Draft content.</strong> This write-up was drafted from the project descriptions on the old site. Replace it with your own notes, screenshots, and details.</p>
+      <ul>
+        <li><strong>Working with AI:</strong> how to use it efficiently to get the best output, how to manage its work, and how to approach a problem even when AI is writing the code.</li>
+        <li><strong>Browser storage:</strong> how localStorage and IndexedDB work.</li>
+        <li><strong>SEO and launching:</strong> a lot about SEO, getting indexed by search engines, optimizing a site, and Google Analytics.</li>
+      </ul>
+      <h2>Limits and next steps</h2>
+      <ul>
+        <li><strong>Deleted documents are gone for good.</strong> There's no trash or undo.</li>
+        <li><strong>Your documents only live in your browser.</strong> If the browser clears its data, they're lost.</li>
+        <li><strong>The Inline mode isn't good.</strong></li>
+        <li><strong>Print and PDF export are still a bit glitchy.</strong> Print works a little better than PDF download.</li>
+      </ul>
+      <p>My next step, maybe, is a v2 built a better way, with a better Markdown engine and rendering that looks more like GitHub's.</p>
 
       <div class="case-nav">
-        <a href="daymark"><small>Previous</small>← DayMark</a>
-        <a class="next" href="velin"><small>Next</small>Velin →</a>
+        <a href="velin"><small>Previous</small>← Velin</a>
+        <a class="next" href="daymark"><small>Next</small>DayMark →</a>
       </div>
     </article>
 
     <aside class="case-aside" aria-label="Project details">
       <dl>
         <div><dt>Status</dt><dd>Live</dd></div>
-        <div><dt>Built with</dt><dd>HTML, CSS, JavaScript</dd></div>
-        <div><dt>When</dt><dd>11th–12th standard</dd></div>
-        <div><dt>Topics</dt><dd><div class="project-tags"><span class="project-tag">Markdown</span><span class="project-tag">Editor</span><span class="project-tag">Writing</span></div></dd></div>
+        <div><dt>Built with</dt><dd>HTML, CSS, JavaScript, CodeMirror 5, marked.js, highlight.js, KaTeX, Mermaid, DOMPurify, html2pdf.js, IndexedDB, Netlify</dd></div>
+        <div><dt>When</dt><dd>March 2026</dd></div>
+        <div><dt>Topics</dt><dd><div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">Markdown</span><span class="project-tag">Editor</span><span class="project-tag">Vibe Coded</span></div></dd></div>
       </dl>
       <div class="project-links">
         <a href="https://markdstudio.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">Open live app →</a>
