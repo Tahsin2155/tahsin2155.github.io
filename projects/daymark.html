@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- content last edited: 2026-10-20 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DayMark — Tahsin Ali Abtahi</title>
+<meta name="description" content="A habit tracker and daily journal with a to-do list and monthly analytics, built with Streamlit and Firebase."/>
+<meta property="og:title" content="DayMark — Tahsin Ali Abtahi"/>
+<meta property="og:description" content="A habit tracker and daily journal with a to-do list and monthly analytics, built with Streamlit and Firebase."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://tahsin2155.github.io/projects/daymark"/>
+<meta property="og:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="DayMark — Tahsin Ali Abtahi"/>
+<meta name="twitter:description" content="A habit tracker and daily journal with a to-do list and monthly analytics, built with Streamlit and Firebase."/>
+<meta name="twitter:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
+<link rel="canonical" href="https://tahsin2155.github.io/projects/daymark"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.simpleicons.org"/>
+<link rel="icon" href="../assets/img/favicons/favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/img/favicons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../assets/img/favicons/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="../assets/img/favicons/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/css/style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "DayMark",
+  "description": "A habit tracker and daily journal with a to-do list and monthly analytics, built with Streamlit and Firebase.",
+  "url": "https://daymark.streamlit.app",
+  "applicationCategory": "WebApplication",
+  "author": { "@type": "Person", "name": "Tahsin Ali Abtahi", "url": "https://tahsin2155.github.io/" }
+}
+</script>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main">
+  <a class="nav-logo" href="../">tahsin2155.github.io</a>
+  <div class="nav-links">
+    <a href="../">Home</a>
+    <a href="../about">About</a>
+    <a href="../projects/" aria-current="page">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../">Home</a>
+  <a href="../about">About</a>
+  <a href="../projects/" aria-current="page">Projects</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="main">
+<header class="page-header">
+  <div class="hero-grid-bg"></div>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><a href="./">Projects</a><span aria-hidden="true">/</span>DayMark</nav>
+  <div class="case-heading">
+    <div class="case-icon"><img loading="lazy" src="../assets/img/daymark.png" alt="DayMark logo" width="40" height="40"></div>
+    <h1 class="page-title">DayMark</h1>
+  </div>
+  <p class="page-lead">A habit tracker and daily journal with a to-do list and monthly analytics, built with Streamlit and Firebase.</p>
+</header>
+
+<section>
+  <div class="case-layout">
+    <article class="case-body">
+      <h2>What it is</h2>
+      <p>DayMark is a habit tracker and daily journal I built to keep track of my days in one place. You add your habits for the month and tick them off in a grid, with habits down the side and days across the top. There's also a daily journal, a to-do list for each day, and an analytics tab that charts how the month is going.</p>
+      <p>It's a Streamlit app with Firebase behind it for accounts and storage. It was the first web app I deployed publicly, and I put it live on 1 January 2026.</p>
+      <h2>Why I built it</h2>
+      <p>I was already tracking my habits in a physical habit tracker. It worked, but I had to carry it around, and I wanted something I could open from anywhere without thinking about it. A digital one is easier to access, easier to fill in, and easier to change when I want to.</p>
+      <p>I kept its layout on purpose: habits down the side, days across the top. I didn't go for a modern habit-app style, because I like watching the grid fill up little by little, day by day. It feels good to see what you've done.</p>
+      <p>I also wanted it to be just mine: no social feed, no points or streak to chase. So I built my own, and then put it online for anyone else who wants the same thing.</p>
+      <h2>What it can do</h2>
+      <ul>
+        <li><strong>Habits:</strong> a monthly grid with habits as rows and days as columns. You can add or delete habits whenever you want and tick off each day.</li>
+        <li><strong>Analytics:</strong> three charts for the month you're viewing: a daily score line, a trend chart for the habits you pick, and a bar chart of which habits you stick to most.</li>
+        <li><strong>Journal:</strong> one entry per day, with a bar showing how many habits you finished that day. You can set a default prompt in Settings that fills in empty days.</li>
+        <li><strong>Tasks:</strong> one-off to-dos for a specific day, with a progress bar.</li>
+        <li><strong>Any past day:</strong> a date picker lets you go back to any day since you made your account, but not forward.</li>
+        <li><strong>Accounts:</strong> email and password login with email verification, and each user's data is stored separately.</li>
+        <li><strong>Saving:</strong> it autosaves about once a minute, when you log out and when you switch months. There's also a Save Changes button.</li>
+      </ul>
+      <h2>How it's built</h2>
+      <p>DayMark is a Streamlit app written in Python. Streamlit handles the pages and the widgets (the habit grid is its editable table), and the charts are made with Plotly and pandas.</p>
+      <p>Accounts and storage run on Firebase. Firebase Auth handles login with email verification, and Cloud Firestore stores the data per user and per month. It's hosted on Streamlit Cloud.</p>
+      <p>While you use it, the month's data sits in Streamlit's session state. It's written to Firestore when you hit save, log out, switch months, or about once a minute.</p>
+      <p><strong>About AI:</strong> AI wrote the main Firebase and login code, and I integrated it into the app. The rest of the app's code, how the tabs, grid, journal, tasks and analytics work, is mine. I asked AI for help in a few other places, but not much.</p>
+      <h2>What I learned</h2>
+      <ul>
+        <li><strong>More Streamlit:</strong> the hackathon introduced me to it, but DayMark is where I learned it properly by building a whole app with it.</li>
+        <li><strong>A real database and logins:</strong> this was my first time working with an actual database and user authentication. AI wrote the main code for that part, so what I really learned was how to plug it into the app and how the pieces fit together.</li>
+        <li><strong>Shipping something public:</strong> it was my first public app, so I picked up a lot of small things I would never have run into building only for myself.</li>
+        <li><strong>A problem I fixed:</strong> at first there was no save button. Streamlit reruns the script on every click, and every rerun hit the database, so I used up my database limit while I was still building it. I changed it so edits stay in memory and only get written when you save: the button, an autosave about once a minute, logging out, or switching months. It also skips the write if nothing changed. Database hits dropped way down, and I worked that one out myself.</li>
+      </ul>
+      <h2>Limits and next steps</h2>
+      <ul>
+        <li><strong>Habits start empty every month:</strong> each month is stored separately, so you have to re-add your habits at the start of a new month.</li>
+        <li><strong>No export or backup:</strong> your data only lives in the app's database, and there's no way to download it.</li>
+      </ul>
+      <p>I'm not planning to work on DayMark for now.</p>
+
+      <div class="case-nav">
+        <a class="previous" href="markdstudio"><small>Previous</small>← MarkdStudio</a>
+        <span></span>
+      </div>
+    </article>
+
+    <aside class="case-aside" aria-label="Project details">
+      <dl>
+        <div><dt>Status</dt><dd>Live</dd></div>
+        <div><dt>Built with</dt><dd>Python, Streamlit, Firebase Auth, Cloud Firestore, Plotly, pandas</dd></div>
+        <div><dt>When</dt><dd>December 2025 – January 2026</dd></div>
+        <div><dt>Topics</dt><dd><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Streamlit</span><span class="project-tag">Firebase</span><span class="project-tag">Habit Tracker</span></div></dd></div>
+      </dl>
+      <div class="project-links">
+        <a href="https://daymark.streamlit.app" target="_blank" rel="noopener noreferrer" class="project-link">Open live app →</a>
+        <a href="https://github.com/Tahsin2155/DayMark" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="reveal">
+    <p class="section-label">// let's connect</p>
+    <h2 class="section-title">Get in Touch</h2>
+  </div>
+  <p class="contact-sub reveal">I'd love to connect with mentors, fellow builders, or anyone curious about the same things I am — always up for a good conversation or a collaboration on something interesting. (Still in high school, so I'm not looking for internships or paid work right now — just good people and good ideas.)</p>
+  <form class="contact-form reveal" action="https://formspree.io/f/xwlpvooz" method="POST">
+    <div class="contact-field"><label for="contact-name">Name</label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
+    <div class="contact-field"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+    <div class="contact-field contact-field-full"><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" type="text" placeholder="What would you like to talk about?" required></div>
+    <div class="contact-field contact-field-full"><label for="contact-message">Message</label><textarea id="contact-message" name="message" placeholder="Write your message..." required></textarea></div>
+    <input type="hidden" name="_subject" value="New message from tahsin2155.github.io">
+    <button class="btn btn-primary contact-submit" type="submit">Send message</button>
+  </form>
+  <div class="contact-links reveal">
+    <a href="https://www.linkedin.com/in/tahsinaliabtahi/" target="_blank" rel="noopener noreferrer" class="contact-link linkedin"><img loading="lazy" src="../assets/img/InBug-White.png" alt="" width="16" height="16"> LinkedIn</a>
+    <a href="https://www.instagram.com/tahsin_2155" target="_blank" rel="noopener noreferrer" class="contact-link instagram"><img loading="lazy" src="https://cdn.simpleicons.org/instagram/ffffff" alt="" width="16" height="16"> @tahsin_2155</a>
+    <a href="https://github.com/Tahsin2155" target="_blank" rel="noopener noreferrer" class="contact-link github-link"><img loading="lazy" src="https://cdn.simpleicons.org/github/ffffff" alt="" width="16" height="16"> Tahsin2155</a>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Tahsin Ali Abtahi</footer>
+
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

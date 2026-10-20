@@ -1,36 +1,42 @@
 <!DOCTYPE html>
+<!-- content last edited: 2026-10-19 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Tahsin Ali Abtahi — Portfolio</title>
-<meta name="description" content="Tahsin Ali Abtahi — Python developer and aspiring engineer. Building DayMark, MarkD Studio, and other projects while learning to ship real software."/>
-<meta property="og:title" content="Tahsin Ali Abtahi — Portfolio"/>
-<meta property="og:description" content="Python developer and aspiring engineer. Building DayMark, MarkD Studio, and other projects while learning to ship real software."/>
+<title>Tahsin Ali Abtahi</title>
+<meta name="description" content="Tahsin Ali Abtahi — self-taught programmer, still in school, building things and breaking them first. DayMark, Zipline, Velin, Handoff, and whatever's next."/>
+<meta property="og:title" content="Tahsin Ali Abtahi"/>
+<meta property="og:description" content="Tahsin Ali Abtahi — self-taught programmer, still in school, building things and breaking them first. DayMark, Zipline, Velin, Handoff, and whatever's next."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://tahsin2155.github.io/"/>
-<meta property="og:image" content="https://tahsin2155.github.io/og-image.png"/>
+<meta property="og:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Tahsin Ali Abtahi — Portfolio"/>
-<meta name="twitter:description" content="Python developer and aspiring engineer. Building DayMark, MarkD Studio, and other projects while learning to ship real software."/>
-<meta name="twitter:image" content="https://tahsin2155.github.io/og-image.png"/>
+<meta name="twitter:title" content="Tahsin Ali Abtahi"/>
+<meta name="twitter:description" content="Tahsin Ali Abtahi — self-taught programmer, still in school, building things and breaking them first. DayMark, Zipline, Velin, Handoff, and whatever's next."/>
+<meta name="twitter:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
 <link rel="canonical" href="https://tahsin2155.github.io/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preconnect" href="https://cdn.simpleicons.org"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%232563eb'/><text x='50' y='78' text-anchor='middle' font-family='Sora,system-ui,sans-serif' font-size='80' font-weight='600' fill='%23ffffff'>t</text></svg>">
+<link rel="icon" href="./assets/img/favicons/favicon.ico" sizes="48x48">
+<link rel="icon" href="./assets/img/favicons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="./assets/img/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="./assets/img/favicons/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="./assets/img/favicons/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Tahsin Ali Abtahi",
   "url": "https://tahsin2155.github.io/",
-  "image": "https://tahsin2155.github.io/og-image.png",
-  "jobTitle": "Student, Python Developer",
-  "description": "Python developer and aspiring engineer, currently a 12th standard Science stream student building practical apps and learning through side projects.",
+  "image": "https://tahsin2155.github.io/assets/img/og-image.png",
+  "jobTitle": "Student and Self-Taught Programmer",
+  "description": "Self-taught programmer and 12th standard Science stream student, building web apps and tools and learning by shipping side projects.",
   "sameAs": [
     "https://www.linkedin.com/in/tahsinaliabtahi/",
     "https://github.com/Tahsin2155",
@@ -39,377 +45,52 @@
   "knowsAbout": ["Python", "HTML", "CSS", "Streamlit", "Flask", "Git", "GitHub"]
 }
 </script>
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-
-:root {
-  --bg: #f6f4ef;
-  --surface: #ffffff;
-  --ink: #141414;
-  --muted: #6e6e6e;
-  --accent: #2563eb;
-  --accent2: #f97316;
-  --accent3: #10b981;
-  --border: #e2ddd6;
-  --radius: 16px;
-}
-
-html { scroll-behavior: smooth; }
-
-body { font-family: 'Sora', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
-
-/* CUSTOM CURSOR — only on devices with a fine pointer (mouse/trackpad), never hides the
-   native cursor over text so selection/inputs still work normally */
-#cursor, #cursor-ring { display: none; }
-
-@media (hover: hover) and (pointer: fine) {
-  #cursor {
-    display: block;
-    width: 12px; height: 12px;
-    background: #2563EB;
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transform: translate(-50%,-50%);
-    transition: width 0.2s, height 0.2s, background 0.2s;
-  }
-  #cursor-ring {
-    display: block;
-    width: 36px; height: 36px;
-    border: 1.5px solid #2563EB;
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9998;
-    transform: translate(-50%,-50%);
-    transition: all 0.12s ease;
-    opacity: 0.5;
-  }
-  body:has(a:hover) #cursor, body:has(button:hover) #cursor { width: 20px; height: 20px; background: var(--accent2); }
-  body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 52px; height: 52px; border-color: var(--accent2); opacity: 0.3; }
-}
-
-/* FOCUS STATES — visible outline for keyboard navigation, since the custom cursor
-   dot is not a substitute for a real focus indicator */
-a:focus-visible, button:focus-visible, .btn:focus-visible, .skill-chip:focus-visible {
-  outline: 2.5px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-#contact a:focus-visible { outline-color: #fff; }
-
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 6%;
-  background: rgba(246,244,239,0.88);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo { font-family: 'DM Mono', monospace; font-size: 0.95rem; color: var(--accent); letter-spacing: -0.02em; }
-.nav-links { display: flex; gap: 2rem; }
-.nav-links a { text-decoration: none; color: var(--muted); font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink); }
-
-/* HAMBURGER */
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
-.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-
-.mobile-menu {
-  display: none;
-  position: fixed; top: 62px; left: 0; right: 0;
-  background: rgba(246,244,239,0.97);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  flex-direction: column;
-  padding: 1.5rem 6%;
-  gap: 1.2rem;
-  z-index: 499;
-}
-.mobile-menu a { text-decoration: none; color: var(--ink); font-size: 1.1rem; font-weight: 600; }
-.mobile-menu.open { display: flex; }
-
-/* HERO */
-#hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 9rem 6% 5rem;
-  position: relative; overflow: hidden;
-}
-
-.hero-grid-bg {
-  position: absolute; inset: 0;
-  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 48px 48px;
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-.hero-blob {
-  position: absolute; right: -100px; top: 50%; transform: translateY(-50%);
-  width: clamp(280px,42vw,580px); height: clamp(280px,42vw,580px);
-  background: radial-gradient(circle at 40% 40%, #dbeafe 0%, #fef3c7 50%, transparent 70%);
-  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
-  animation: blobMorph 8s ease-in-out infinite;
-  pointer-events: none; opacity: 0.7;
-}
-@keyframes blobMorph {
-  0%,100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
-  33% { border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%; }
-  66% { border-radius: 70% 30% 50% 50% / 40% 50% 50% 60%; }
-}
-
-.hero-tag {
-  font-family: 'DM Mono', monospace; font-size: 0.78rem;
-  color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase;
-  margin-bottom: 1.2rem;
-  opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
-}
-
-h1.hero-name {
-  font-size: clamp(2.8rem, 7.5vw, 6.5rem); font-weight: 800;
-  line-height: 1.0; letter-spacing: -0.04em;
-  text-align: left;
-  width: 100%;
-  opacity: 0; animation: fadeUp 0.7s ease forwards 0.35s;
-}
-h1.hero-name .accent-word { color: var(--accent2); font-size: 0.78em; }
-
-.typing-wrapper {
-  margin-top: 1.4rem;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  color: var(--muted); font-weight: 300;
-  opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
-  min-height: 2em;
-}
-.typing-wrapper .typed-text { color: var(--accent); font-weight: 600; }
-.typing-cursor { display: inline-block; width: 2px; height: 1.1em; background: var(--accent); margin-left: 2px; vertical-align: middle; animation: blink 0.9s infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-.hero-sub {
-  margin-top: 1rem; max-width: 520px;
-  color: var(--muted); font-size: 1rem; font-weight: 300; line-height: 1.75;
-  opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s;
-}
-
-.hero-cta {
-  margin-top: 2.2rem; display: flex; gap: 1rem; flex-wrap: wrap;
-  opacity: 0; animation: fadeUp 0.7s ease forwards 0.75s;
-}
-
-.btn {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  padding: 0.75rem 1.7rem; border-radius: 100px;
-  font-size: 0.9rem; font-weight: 600; text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.13); }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-outline { border: 1.5px solid var(--border); color: var(--ink); }
-
-/* SECTION */
-section { padding: 6rem 6%; }
-.section-label { font-family: 'DM Mono', monospace; font-size: 0.73rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-.section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 2rem; }
-
-/* ABOUT */
-#about { background: var(--surface); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.about-text p { color: var(--muted); line-height: 1.85; font-size: 1rem; font-weight: 300; margin-bottom: 1rem; }
-.about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.fact-card { background: var(--bg); border-radius: var(--radius); padding: 1.3rem; border: 1px solid var(--border); transition: transform 0.2s; }
-.fact-card:hover { transform: translateY(-3px); }
-.fact-emoji { font-size: 1.5rem; margin-bottom: 0.4rem; }
-.fact-emoji svg { width: 1.5rem; height: 1.5rem; stroke: var(--ink); display: block; }
-.fact-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-family: 'DM Mono', monospace; }
-.fact-value { font-size: 0.88rem; font-weight: 600; margin-top: 0.2rem; }
-
-/* TIMELINE */
-#timeline { background: var(--bg); }
-.timeline { position: relative; margin-top: 2rem; padding-left: 2.5rem; }
-.timeline::before { content: ''; position: absolute; left: 0; top: 0.35rem; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent), var(--accent2), var(--accent3)); border-radius: 2px; }
-.tl-item { position: relative; margin-bottom: 2.5rem; }
-.tl-dot {
-  position: absolute; left: -2.5rem; top: 0.3rem;
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--accent); border: 3px solid var(--bg);
-  box-shadow: 0 0 0 2px var(--accent);
-  transform: translateX(-6px);
-}
-.tl-item[data-type="achievement"] .tl-dot { background: var(--accent2); box-shadow: 0 0 0 2px var(--accent2); }
-.tl-item[data-type="launch"] .tl-dot { background: var(--accent3); box-shadow: 0 0 0 2px var(--accent3); }
-.tl-year { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
-.tl-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
-.tl-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
-.tl-badge { display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.7rem; background: #fef3c7; color: #d97706; border-radius: 100px; font-size: 0.72rem; font-weight: 700; }
-
-/* SKILLS */
-#skills { background: var(--surface); }
-.skills-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
-.skill-chip {
-  display: flex; align-items: center; gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: var(--bg); border: 1px solid var(--border); border-radius: 100px;
-  font-size: 0.86rem; font-weight: 600;
-  transition: border-color 0.2s, transform 0.2s, background 0.2s;
-}
-.skill-chip svg { width: 1rem; height: 1rem; stroke: currentColor; display: block; flex-shrink: 0; }
-.skill-chip:hover { border-color: var(--accent); transform: translateY(-2px); background: #eff6ff; }
-
-/* GITHUB STATS */
-#github { background: var(--bg); }
-.github-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
-.gh-card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 1.5rem; text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.gh-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
-.gh-card .gh-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
-.gh-card .gh-icon svg { width: 1.8rem; height: 1.8rem; stroke: var(--ink); display: block; margin: 0 auto; }
-.gh-card .gh-value { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
-.gh-card .gh-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; font-family: 'DM Mono', monospace; letter-spacing: 0.06em; }
-.gh-card .gh-loading { font-size: 1rem; color: var(--muted); }
-
-.gh-profile-link {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  margin-top: 1.5rem; padding: 0.7rem 1.5rem;
-  background: var(--ink); color: #fff; border-radius: 100px;
-  font-size: 0.88rem; font-weight: 600; text-decoration: none;
-  transition: transform 0.2s;
-}
-.gh-profile-link:hover { transform: translateY(-2px); }
-
-/* PROJECTS */
-#projects { background: var(--surface); }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.4rem; margin-top: 1.5rem; }
-.project-card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 1.8rem; position: relative; overflow: hidden;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-}
-.project-card::after {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.3s ease;
-}
-.project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 48px rgba(0,0,0,0.09); border-color: transparent; }
-.project-card:hover::after { transform: scaleX(1); }
-.project-emoji { font-size: 2rem; margin-bottom: 1rem; }
-.project-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-.project-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
-.project-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 0.2rem 0.6rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--muted); }
-.project-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: gap 0.2s; }
-.project-link:hover { gap: 0.7rem; }
-.project-featured { border-color: #bfdbfe; background: linear-gradient(135deg, #eff6ff 0%, #fff 60%); }
-
-/* CONTACT */
-#contact { background: var(--ink); color: #fff; }
-#contact .section-label { color: var(--accent2); }
-#contact .section-title { color: #fff; }
-.contact-sub { color: rgba(255,255,255,0.45); font-size: 1rem; font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; line-height: 1.75; }
-.contact-links { display: flex; flex-wrap: wrap; gap: 1rem; }
-.contact-link {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 0.8rem 1.6rem; border-radius: 100px;
-  font-size: 0.9rem; font-weight: 600; text-decoration: none;
-  transition: transform 0.2s;
-}
-.contact-link:hover { transform: translateY(-2px); }
-.contact-link.email { background: var(--accent); color: #fff; }
-.contact-link.instagram { background: rgba(255,255,255,0.07); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
-.contact-link.github-link { background: rgba(255,255,255,0.07); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
-.contact-link.linkedin { background: rgba(255,255,255,0.07); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
-.contact-link.instagram:hover, .contact-link.github-link:hover, .contact-link.linkedin:hover { background: rgba(255,255,255,0.14); }
-
-footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: center; padding: 1.5rem; font-size: 0.78rem; font-family: 'DM Mono', monospace; border-top: 1px solid rgba(255,255,255,0.06); }
-
-/* ANIMATIONS */
-@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
-@keyframes fadeIn { from{opacity:0} to{opacity:1} }
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.reveal.visible { opacity: 1; transform: none; }
-
-/* REDUCED MOTION — respect user preference: kill decorative motion (blob morph, cursor
-   blink, scroll-reveal slide) and cut fades down to a near-instant opacity change */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .hero-blob { animation: none !important; }
-  .typing-cursor { animation: none !important; opacity: 1; }
-  .reveal { opacity: 1 !important; transform: none !important; }
-  h1.hero-name, .hero-sub, .hero-cta, .fact-card, nav { opacity: 1 !important; animation: none !important; }
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero-blob { display:none; }
-  .hero-grid-bg { opacity: 0.25; }
-  .about-grid { grid-template-columns:1fr; gap:2rem; }
-  .nav-links { display:none; }
-  .hamburger { display:flex; }
-  .github-stats-grid { grid-template-columns: 1fr 1fr; }
-  section { padding: 4rem 5%; }
-}
-</style>
 </head>
 <body>
 
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
-<!-- NAV -->
-<nav>
-  <span class="nav-logo">tahsin2155.github.io</span>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main">
+  <a class="nav-logo" href="./">tahsin2155.github.io</a>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#timeline">Journey</a>
-    <a href="#skills">Skills</a>
-    <a href="#github">GitHub</a>
-    <a href="#projects">Projects</a>
+    <a href="./" aria-current="page">Home</a>
+    <a href="about">About</a>
+    <a href="projects/">Projects</a>
     <a href="#contact">Contact</a>
   </div>
-  <div class="hamburger" id="hamburger">
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" type="button">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#timeline" onclick="closeMenu()">Journey</a>
-  <a href="#skills" onclick="closeMenu()">Skills</a>
-  <a href="#github" onclick="closeMenu()">GitHub</a>
-  <a href="#projects" onclick="closeMenu()">Projects</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="./" aria-current="page">Home</a>
+  <a href="about">About</a>
+  <a href="projects/">Projects</a>
+  <a href="#contact">Contact</a>
 </div>
 
+<main id="main">
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-blob"></div>
-  <p class="hero-tag">Hey there, I'm</p>
+  <p class="hero-tag">Me!? I'm</p>
   <h1 class="hero-name">Tahsin<br><span class="accent-word">Ali Abtahi</span></h1>
   <div class="typing-wrapper">
-    I'm a <span class="typed-text" id="typedText"></span><span class="typing-cursor"></span>
+    I'm a <span class="typed-text" id="typedText">Self-Taught Programmer</span><span class="typing-cursor"></span>
   </div>
   <p class="hero-sub">
-    I build, break, and rebuild things until they work better than before.
+    Still figuring out how most of this works. Building anyway - even if bad at first.
   </p>
   <div class="hero-cta">
-    <a href="#projects" class="btn btn-primary">See My Work</a>
-    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    <a href="projects/" class="btn btn-primary">See my work</a>
+    <a href="about" class="btn btn-outline">About me</a>
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT (short) -->
 <section id="about">
   <div class="reveal">
     <p class="section-label">// who am i</p>
@@ -417,82 +98,76 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm a 12th standard Science stream student at <strong>PM SHRI KV 210 CoBRA CRPF Dalgaon</strong>, studying PCMCs — Physics, Chemistry, Mathematics & Computer Science.</p>
-      <p>What started as curiosity around logic and systems turned into a real interest in programming. These days I build practical apps, experiment with Python, and keep learning through side projects.</p>
-      <p>I'm a hackathon participant and team leader, and I seriously believe the fastest way to learn is to build things, test them, and improve them as I go.</p>
+      <p class="about-teaser">I'm 17, still in school, figuring out my life. I spend most of my free time on my computer, doing <em>crawzy</em> shit. "Self-taught programmer" wasn't planned - it just sort of happened... Programming makes me feel like a god of this virtual world; I can make them do whatever I want. I build things really badly, at first ;), then less badly, and I keep improving and learning (sometimes or maybe a little bit more often, I hit up AI as well for help, uk!).....</p>
+      <p class="section-more"><a class="project-link" href="about">Wanna know more about me? →</a></p>
     </div>
     <div class="about-facts reveal">
       <div class="fact-card"><div class="fact-emoji"><i data-lucide="school"></i></div><div class="fact-label">School</div><div class="fact-value">PM SHRI KV 210 CoBRA CRPF Dalgaon</div></div>
-      <div class="fact-card"><div class="fact-emoji"><i data-lucide="book-open"></i></div><div class="fact-label">Stream</div><div class="fact-value">PCMCs — 12th Standard</div></div>
-      <div class="fact-card"><div class="fact-emoji"><i data-lucide="hammer"></i></div><div class="fact-label">Currently Learning</div><div class="fact-value">Flask</div></div>
-      <div class="fact-card"><div class="fact-emoji"><i data-lucide="trophy"></i></div><div class="fact-label">Achievement</div><div class="fact-value">Hackathon — Zonal Level</div></div>
+      <div class="fact-card"><div class="fact-emoji"><i data-lucide="book-open"></i></div><div class="fact-label">Stream</div><div class="fact-value">PCMCs, 12th grade</div></div>
+      <div class="fact-card"><div class="fact-emoji"><i data-lucide="hammer"></i></div><div class="fact-label">Currently</div><div class="fact-value">Boards szn. Pray for me ✌️😭</div></div>
+      <div class="fact-card" title="AI Vidyasetu 1.0"><div class="fact-emoji"><i data-lucide="trophy"></i></div><div class="fact-label">Achievement</div><div class="fact-value">Zonal-level, Hackathon</div></div>
     </div>
   </div>
 </section>
 
-<!-- TIMELINE -->
-<section id="timeline">
+<!-- FEATURED PROJECTS -->
+<section id="projects">
   <div class="reveal">
-    <p class="section-label">// how it started</p>
-    <h2 class="section-title">My Coding Journey</h2>
+    <p class="section-label">// things i've shipped</p>
+    <h2 class="section-title">Projects</h2>
   </div>
-  <div class="timeline">
-    <div class="tl-item reveal">
-      <div class="tl-dot"></div>
-      <div class="tl-year">8TH STANDARD • THE BEGINNING</div>
-      <div class="tl-title">Minecraft Started the Journey</div>
-      <div class="tl-desc">Got my first laptop and spent hours building redstone circuits, logic setups, and contraptions in Minecraft. That problem-solving mindset naturally pulled me toward programming, and I started experimenting with HTML projects.</div>
-    </div>
-    <div class="tl-item reveal">
-      <div class="tl-dot"></div>
-      <div class="tl-year">8TH–9TH STANDARD • THE DETOUR</div>
-      <div class="tl-title">Built a JARVIS Before Learning Python</div>
-      <div class="tl-desc">I decided to build a Jarvis-style desktop assistant in Python before I properly knew the language. I followed YouTube tutorials line by line, and through that process I picked up Python syntax and kept improving my CSS skills too.</div>
-    </div>
-    <div class="tl-item reveal">
-      <div class="tl-dot"></div>
-      <div class="tl-year">10TH STANDARD • THE PAUSE</div>
-      <div class="tl-title">Board Exams Took Priority</div>
-      <div class="tl-desc">I started a structured Python course, but 10th board exams demanded full focus. Coding had to pause for a while until academics settled down.</div>
-    </div>
-    <div class="tl-item reveal">
-      <div class="tl-dot"></div>
-      <div class="tl-year">11TH STANDARD • THE COMEBACK</div>
-      <div class="tl-title">Python Done, Streamlit Added</div>
-      <div class="tl-desc">I returned to Python and completed it properly. Then I discovered Streamlit and realized I could build real web apps using pure Python, which gave me strong momentum again.</div>
-    </div>
-    <div class="tl-item reveal" data-type="achievement">
-      <div class="tl-dot"></div>
-      <div class="tl-year">MID 11TH • THE AHA MOMENT</div>
-      <div class="tl-title">Hackathon from School to Zonal</div>
-      <div class="tl-desc">I led my team in an All-India school-level hackathon. We cleared the school round and reached the Zonal level, placing in the top 120 nationwide. That was the moment I knew I wanted to keep building seriously.</div>
-      <div class="tl-badge"> 🏅 Top 120 Nationwide</div>
-    </div>
-    <div class="tl-item reveal" data-type="launch">
-      <div class="tl-dot"></div>
-      <div class="tl-year">MID 11TH • THE LAUNCH</div>
-      <div class="tl-title">DayMark Goes Live</div>
-      <div class="tl-desc">Developed and deployed DayMark — a real, live productivity web app. My first proper full-stack project shipped to the world. Still running at daymark.streamlit.app.</div>
-    </div>
-  </div>
-</section>
+  <div class="projects-grid">
+    <article class="project-card reveal project-featured">
+      <div class="project-emoji"><span class="project-glyph" aria-hidden="true"><i data-lucide="mouse-pointer-click"></i></span></div>
+      <h3 class="project-title">Handoff</h3>
+      <p class="project-desc">A prototype agent that operates a Windows PC from a plain-language task, using a Gemini computer-use model and PyAutoGUI.</p>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Gemini</span>
+        <span class="project-tag">PyAutoGUI</span>
+        <span class="project-tag">Prototype</span>
+      </div>
+      <div class="project-links">
+        <a href="projects/handoff" class="project-link project-case-link">Read the case study →</a>
+        <a href="https://github.com/Tahsin2155/handoff" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
+      </div>
+    </article>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="reveal">
-    <p class="section-label">// tools of the trade</p>
-    <h2 class="section-title">Skills</h2>
+    <article class="project-card reveal project-featured">
+      <div class="project-emoji"><img loading="lazy" src="assets/img/zipline.png" alt="Zipline icon" width="40" height="40"></div>
+      <h3 class="project-title">Zipline</h3>
+      <p class="project-desc">A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite.</p>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Flask</span>
+        <span class="project-tag">SQLite</span>
+        <span class="project-tag">Self-hosted</span>
+      </div>
+      <div class="project-links">
+        <a href="projects/zipline" class="project-link project-case-link">Read the case study →</a>
+        <a href="https://github.com/Tahsin2155/zipline" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
+      </div>
+    </article>
+
+    <article class="project-card reveal project-featured">
+      <div class="project-emoji"><img loading="lazy" src="assets/img/velin.svg" alt="Velin icon" width="40" height="40"></div>
+      <h3 class="project-title">Velin</h3>
+      <p class="project-desc">A customizable new-tab page with a clock, Pomodoro timer, to-do list, notes and bookmarks, saved in your browser.</p>
+      <div class="project-tags">
+        <span class="project-tag">New Tab</span>
+        <span class="project-tag">Vanilla web</span>
+        <span class="project-tag">Customizable</span>
+        <span class="project-tag">Personal Tool</span>
+        <span class="project-tag">Vibe Coded</span>
+      </div>
+      <div class="project-links">
+        <a href="projects/velin" class="project-link project-case-link">Read the case study →</a>
+        <a href="https://newvelintab.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">Live app →</a>
+        <a href="https://github.com/Tahsin2155/velin" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
+      </div>
+    </article>
   </div>
-  <div class="skills-grid reveal">
-    <div class="skill-chip"><img loading="lazy" src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="16" height="16"> Python</div>
-    <div class="skill-chip"><img loading="lazy" src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5" width="16" height="16"> HTML</div>
-    <div class="skill-chip"><img loading="lazy" src="https://www.svgrepo.com/show/452185/css-3.svg" alt="CSS3" width="16" height="16"> CSS</div>
-    <div class="skill-chip"><img loading="lazy" src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="Streamlit" width="16" height="16"> Streamlit</div>
-    <div class="skill-chip"><span data-lucide="calculator"></span> Mathematics</div>
-    <div class="skill-chip"><span data-lucide="flask-conical"></span> Physics & Science</div>
-    <div class="skill-chip"><img loading="lazy" src="https://cdn.simpleicons.org/github/181717" alt="GitHub" width="16" height="16"> Git & GitHub</div>
-    <div class="skill-chip"><span data-lucide="brain"></span> Problem Solving</div>
-  </div>
+  <p class="section-more reveal"><a class="project-link" href="projects/">Rest of the mess →</a></p>
 </section>
 
 <!-- GITHUB STATS -->
@@ -520,161 +195,51 @@ footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: cent
     <div class="gh-card reveal">
       <div class="gh-icon"><i data-lucide="git-branch"></i></div>
       <div class="gh-value gh-loading" id="gh-latestrepo">...</div>
-      <div class="gh-label">Latest Repo</div>
+      <div class="gh-label">Recently Worked</div>
     </div>
   </div>
   <a href="https://github.com/Tahsin2155" target="_blank" rel="noopener noreferrer" class="gh-profile-link reveal">
-    Visit GitHub Profile →
+    Visit GitHub profile →
   </a>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="reveal">
-    <p class="section-label">// things i've shipped</p>
-    <h2 class="section-title">Projects</h2>
-  </div>
-  <div class="projects-grid">
-    <div class="project-card project-featured reveal">
-      <div class="project-emoji"><img loading="lazy" src="https://github.com/Tahsin2155/DayMark/blob/main/assets/logo.png?raw=1" alt="DayMark logo" width="40" height="40"></div>
-      <div class="project-title">DayMark</div>
-      <div class="project-desc">A personal productivity web app built entirely with Python & Streamlit. Track your days, mark milestones, and stay organised — all in a clean, minimal interface. Live and running!</div>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Streamlit</span>
-        <span class="project-tag">Productivity</span>
-      </div>
-      <a href="https://daymark.streamlit.app" target="_blank" rel="noopener noreferrer" class="project-link">Live App →</a><br>
-      <a href="https://github.com/Tahsin2155/DayMark" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repo →</a>
-      
-    </div>
-
-    <div class="project-card reveal project-featured">
-      <div class="project-emoji"><img loading="lazy" src="https://markdstudio.netlify.app/assets/favicon-48.png" alt="MarkdStudio icon" width="40" height="40"></div>
-      <div class="project-title">MarkdStudio</div>
-      <div class="project-desc">A markdown editor and writing app focused on clean writing flow and simple formatting. Built for drafting, editing, and shipping content faster.</div>
-      <div class="project-tags">
-        <span class="project-tag">Markdown</span>
-        <span class="project-tag">Editor</span>
-        <span class="project-tag">Writing</span>
-      </div>
-      <a href="https://markdstudio.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">Live App →</a><br>
-      <a href="https://github.com/Tahsin2155/markdstudio" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repo →</a>
-    </div>
-
-    <div class="project-card reveal project-featured">
-      <div class="project-emoji"><img loading="lazy" src="https://newvelintab.netlify.app/favicon-light.svg" alt="Velin icon" width="40" height="40"></div>
-      <div class="project-title">Velin</div>
-      <div class="project-desc">A custom new tab page designed to make your browser start cleaner and more useful. It is live right now and actively in development.</div>
-      <div class="project-tags">
-        <span class="project-tag">New Tab</span>
-        <span class="project-tag">Productivity</span>
-        <span class="project-tag">In Development</span>
-      </div>
-      <a href="https://newvelintab.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">Live App →</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
 <section id="contact">
   <div class="reveal">
     <p class="section-label">// let's connect</p>
     <h2 class="section-title">Get in Touch</h2>
   </div>
-  <p class="contact-sub reveal">I'd love to connect with mentors, fellow builders, or anyone curious about the same things I am — always up for a good conversation or a collaboration on something interesting. (Still in high school, so I'm not looking for internships or paid work right now — just good people and good ideas.)</p>
+  <p class="contact-sub reveal">Always down to talk to people who build stuff, mentors, or anyone into the same things I am. Hit me up if you want to nerd out about a project or just say hi. (Still in school, so no internships or paid work rn — just good people and good ideas.)</p>
+  <form class="contact-form reveal" action="https://formspree.io/f/xwlpvooz" method="POST">
+    <div class="contact-field">
+      <label for="contact-name">Name</label>
+      <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+    </div>
+    <div class="contact-field">
+      <label for="contact-email">Email</label>
+      <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+    </div>
+    <div class="contact-field contact-field-full">
+      <label for="contact-subject">Subject</label>
+      <input id="contact-subject" name="subject" type="text" placeholder="What would you like to talk about?" required>
+    </div>
+    <div class="contact-field contact-field-full">
+      <label for="contact-message">Message</label>
+      <textarea id="contact-message" name="message" placeholder="Write your message..." required></textarea>
+    </div>
+    <input type="hidden" name="_subject" value="New message from tahsin2155.github.io">
+    <button class="btn btn-primary contact-submit" type="submit">Send message</button>
+  </form>
   <div class="contact-links reveal">
-    <a href="mailto:tahsindlg@gmail.com" class="contact-link email"><span data-lucide="mail"></span> tahsindlg@gmail.com</a>
-    <a href="https://www.linkedin.com/in/tahsinaliabtahi/" target="_blank" rel="noopener noreferrer" class="contact-link linkedin"><img loading="lazy" src="InBug-White.png" alt="LinkedIn" width="16" height="16"> Tahsin Ali Abtahi</a>
-    <a href="https://www.instagram.com/tahsin_2155" target="_blank" rel="noopener noreferrer" class="contact-link instagram"><img loading="lazy" src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" width="16" height="16"> @tahsin_2155</a>
-    <a href="https://github.com/Tahsin2155" target="_blank" rel="noopener noreferrer" class="contact-link github-link"><img loading="lazy" src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" width="16" height="16"> Tahsin2155</a>
+    <a href="https://www.linkedin.com/in/tahsinaliabtahi/" target="_blank" rel="noopener noreferrer" class="contact-link linkedin"><img loading="lazy" src="assets/img/InBug-White.png" alt="" width="16" height="16"> LinkedIn</a>
+    <a href="https://www.instagram.com/tahsin_2155" target="_blank" rel="noopener noreferrer" class="contact-link instagram"><img loading="lazy" src="https://cdn.simpleicons.org/instagram/ffffff" alt="" width="16" height="16"> @tahsin_2155</a>
+    <a href="https://github.com/Tahsin2155" target="_blank" rel="noopener noreferrer" class="contact-link github-link"><img loading="lazy" src="https://cdn.simpleicons.org/github/ffffff" alt="" width="16" height="16"> Tahsin2155</a>
   </div>
 </section>
+</main>
 
-<footer>© 2025 MD Tahsin Ali Abtahi</footer>
+<footer>© 2026 Tahsin Ali Abtahi</footer>
 
-<script src="https://unpkg.com/lucide@latest"></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => { if (typeof lucide !== 'undefined') lucide.createIcons(); });
-// Custom cursor
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
-function animateRing(){rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animateRing); }
-animateRing();
-
-// Hamburger
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
-function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
-
-// Typing effect
-const phrases = ['Python Developer', 'Aspiring Engineer', 'Hackathon Team Lead'];
-let pi=0, ci=0, deleting=false;
-const el = document.getElementById('typedText');
-function type(){
-  const phrase = phrases[pi];
-  if(!deleting){ el.textContent=phrase.slice(0,++ci); if(ci===phrase.length){setTimeout(()=>{deleting=true;},1800);setTimeout(type,100);} else setTimeout(type,65); }
-  else { el.textContent=phrase.slice(0,--ci); if(ci===0){deleting=false;pi=(pi+1)%phrases.length;setTimeout(type,400);} else setTimeout(type,35); }
-}
-type();
-
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*70); obs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-reveals.forEach(el => obs.observe(el));
-
-// GitHub Stats — cached in sessionStorage for 10 minutes to avoid hitting the
-// unauthenticated GitHub API's 60 req/hour limit on every page reload
-async function loadGHStats(){
-  const CACHE_KEY = 'gh-stats-cache';
-  const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
-  try {
-    const cached = sessionStorage.getItem(CACHE_KEY);
-    if (cached) {
-      const { data, ts } = JSON.parse(cached);
-      if (Date.now() - ts < CACHE_TTL) {
-        applyGHStats(data);
-        return;
-      }
-    }
-  } catch(e) { /* sessionStorage unavailable or corrupt cache — fall through to fetch */ }
-
-  try {
-    const res = await fetch('https://api.github.com/users/Tahsin2155');
-    if (!res.ok) throw new Error('GitHub API returned ' + res.status);
-    const data = await res.json();
-    const reposRes = await fetch('https://api.github.com/users/Tahsin2155/repos?per_page=100');
-    if (!reposRes.ok) throw new Error('GitHub API returned ' + reposRes.status);
-    const repos = await reposRes.json();
-    const stars = Array.isArray(repos) ? repos.reduce((a,r) => a + (r.stargazers_count||0), 0) : '—';
-    let latestRepo = '—';
-    if (Array.isArray(repos)) {
-      const sortedRepos = [...repos].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
-      latestRepo = sortedRepos.length ? sortedRepos[0].name : '—';
-    }
-    const result = { repos: data.public_repos ?? '—', followers: data.followers ?? '—', stars, latestRepo };
-    applyGHStats(result);
-    try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data: result, ts: Date.now() })); } catch(e) { /* storage full/unavailable, non-fatal */ }
-  } catch(e) {
-    ['gh-repos','gh-stars','gh-followers','gh-latestrepo'].forEach(id => document.getElementById(id).textContent = '—');
-  }
-}
-function applyGHStats(result){
-  document.getElementById('gh-repos').textContent = result.repos;
-  document.getElementById('gh-followers').textContent = result.followers;
-  document.getElementById('gh-stars').textContent = result.stars;
-  document.getElementById('gh-latestrepo').textContent = result.latestRepo;
-  ['gh-repos','gh-stars','gh-followers','gh-latestrepo'].forEach(id => document.getElementById(id).classList.remove('gh-loading'));
-}
-loadGHStats();
-</script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

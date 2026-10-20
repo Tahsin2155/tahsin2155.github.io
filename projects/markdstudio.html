@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- content last edited: 2026-10-20 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MarkdStudio — Tahsin Ali Abtahi</title>
+<meta name="description" content="A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device."/>
+<meta property="og:title" content="MarkdStudio — Tahsin Ali Abtahi"/>
+<meta property="og:description" content="A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://tahsin2155.github.io/projects/markdstudio"/>
+<meta property="og:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="MarkdStudio — Tahsin Ali Abtahi"/>
+<meta name="twitter:description" content="A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device."/>
+<meta name="twitter:image" content="https://tahsin2155.github.io/assets/img/og-image.png"/>
+<link rel="canonical" href="https://tahsin2155.github.io/projects/markdstudio"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.simpleicons.org"/>
+<link rel="icon" href="../assets/img/favicons/favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/img/favicons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../assets/img/favicons/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="../assets/img/favicons/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/css/style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MarkdStudio",
+  "description": "A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device.",
+  "url": "https://markdstudio.netlify.app",
+  "applicationCategory": "WebApplication",
+  "author": { "@type": "Person", "name": "Tahsin Ali Abtahi", "url": "https://tahsin2155.github.io/" }
+}
+</script>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main">
+  <a class="nav-logo" href="../">tahsin2155.github.io</a>
+  <div class="nav-links">
+    <a href="../">Home</a>
+    <a href="../about">About</a>
+    <a href="../projects/" aria-current="page">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../">Home</a>
+  <a href="../about">About</a>
+  <a href="../projects/" aria-current="page">Projects</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="main">
+<header class="page-header">
+  <div class="hero-grid-bg"></div>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><a href="./">Projects</a><span aria-hidden="true">/</span>MarkdStudio</nav>
+  <div class="case-heading">
+    <div class="case-icon"><img loading="lazy" src="../assets/img/markdstudio.png" alt="MarkdStudio icon" width="40" height="40"></div>
+    <h1 class="page-title">MarkdStudio</h1>
+  </div>
+  <p class="page-lead">A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device.</p>
+</header>
+
+<section>
+  <div class="case-layout">
+    <article class="case-body">
+      <h2>What it is</h2>
+      <p>MarkdStudio is a Markdown editor that runs entirely in your browser. You write on one side and see the rendered result live on the other, and you can keep several documents open at once in tabs, like browser tabs.</p>
+      <p>There's no account and no server. Your documents are stored on your own device, in the browser.</p>
+      <h2>Why I built it</h2>
+      <p>I wanted a Markdown editor that was fast, rendered live and was simple to start, with my data stored only on my device and no account to create.</p>
+      <p>The thing I cared about most was tabs. I wanted several documents open at once, browser-tab style, with an easy way to start a new one or delete one. Most of the features I wanted already existed in other editors, but I couldn't find one that had them all together, and none had the tab system. (Maybe one does and I just never found it.)</p>
+      <p>A few extras were on my wish list too: editing a file on my disk straight from the browser without installing an app, and different themes and styles.</p>
+      <h2>What it can do</h2>
+      <ul>
+        <li><strong>Tabs:</strong> keep several documents open at once, with an unsaved-changes indicator on each tab, and start a new one or close one easily.</li>
+        <li><strong>Four modes:</strong> Split, Write, Preview and Inline, where you edit right inside the rendered text.</li>
+        <li><strong>Code editor:</strong> syntax highlighting, line numbers, bracket matching, multi-cursor, and find/replace with regex.</li>
+        <li><strong>Rich Markdown:</strong> Mermaid diagrams, KaTeX math, callouts, footnotes, task lists, tables, emoji shortcodes and highlighted code blocks.</li>
+        <li><strong>Table of contents:</strong> it builds from your headings and tracks where you are.</li>
+        <li><strong>Edit files on your disk:</strong> open and save real files straight from the browser, in browsers that support it.</li>
+        <li><strong>Preview styles:</strong> five to pick from (GitHub, Documentation, Blog, Minimal and Academic), plus light and dark.</li>
+        <li><strong>Export:</strong> HTML, PDF (margin, orientation and paper size), print, an embeddable HTML snippet, or a plain Markdown file.</li>
+      </ul>
+      <h2>How it's built</h2>
+      <p>MarkdStudio is a static site with no backend: plain HTML, CSS and JavaScript, hosted on Netlify. The editor is CodeMirror 5, and the rendering uses marked.js, highlight.js, KaTeX, Mermaid and DOMPurify. PDF export uses html2pdf.js. All of those load from CDNs.</p>
+      <p>Your documents are saved in your browser's IndexedDB, and your settings in localStorage, so your documents never leave your device.</p>
+      <p><strong>About AI:</strong> MarkdStudio is entirely vibe coded. AI wrote all of the code. The idea and the list of features I wanted came from me, and I use it regularly.</p>
+      <h2>What I learned</h2>
+      <ul>
+        <li><strong>Working with AI:</strong> how to use it efficiently to get the best output, how to manage its work, and how to approach a problem even when AI is writing the code.</li>
+        <li><strong>Browser storage:</strong> how localStorage and IndexedDB work.</li>
+        <li><strong>SEO and launching:</strong> a lot about SEO, getting indexed by search engines, optimizing a site, and Google Analytics.</li>
+      </ul>
+      <h2>Limits and next steps</h2>
+      <ul>
+        <li><strong>Deleted documents are gone for good.</strong> There's no trash or undo.</li>
+        <li><strong>Your documents only live in your browser.</strong> If the browser clears its data, they're lost.</li>
+        <li><strong>The Inline mode isn't good.</strong></li>
+        <li><strong>Print and PDF export are still a bit glitchy.</strong> Print works a little better than PDF download.</li>
+      </ul>
+      <p>My next step, maybe, is a v2 built a better way, with a better Markdown engine and rendering that looks more like GitHub's.</p>
+
+      <div class="case-nav">
+        <a href="velin"><small>Previous</small>← Velin</a>
+        <a class="next" href="daymark"><small>Next</small>DayMark →</a>
+      </div>
+    </article>
+
+    <aside class="case-aside" aria-label="Project details">
+      <dl>
+        <div><dt>Status</dt><dd>Live</dd></div>
+        <div><dt>Built with</dt><dd>HTML, CSS, JavaScript, CodeMirror 5, marked.js, highlight.js, KaTeX, Mermaid, DOMPurify, html2pdf.js, IndexedDB, Netlify</dd></div>
+        <div><dt>When</dt><dd>March 2026</dd></div>
+        <div><dt>Topics</dt><dd><div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">Markdown</span><span class="project-tag">Editor</span><span class="project-tag">Vibe Coded</span></div></dd></div>
+      </dl>
+      <div class="project-links">
+        <a href="https://markdstudio.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">Open live app →</a>
+        <a href="https://github.com/Tahsin2155/markdstudio" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="reveal">
+    <p class="section-label">// let's connect</p>
+    <h2 class="section-title">Get in Touch</h2>
+  </div>
+  <p class="contact-sub reveal">I'd love to connect with mentors, fellow builders, or anyone curious about the same things I am — always up for a good conversation or a collaboration on something interesting. (Still in high school, so I'm not looking for internships or paid work right now — just good people and good ideas.)</p>
+  <form class="contact-form reveal" action="https://formspree.io/f/xwlpvooz" method="POST">
+    <div class="contact-field"><label for="contact-name">Name</label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
+    <div class="contact-field"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+    <div class="contact-field contact-field-full"><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" type="text" placeholder="What would you like to talk about?" required></div>
+    <div class="contact-field contact-field-full"><label for="contact-message">Message</label><textarea id="contact-message" name="message" placeholder="Write your message..." required></textarea></div>
+    <input type="hidden" name="_subject" value="New message from tahsin2155.github.io">
+    <button class="btn btn-primary contact-submit" type="submit">Send message</button>
+  </form>
+  <div class="contact-links reveal">
+    <a href="https://www.linkedin.com/in/tahsinaliabtahi/" target="_blank" rel="noopener noreferrer" class="contact-link linkedin"><img loading="lazy" src="../assets/img/InBug-White.png" alt="" width="16" height="16"> LinkedIn</a>
+    <a href="https://www.instagram.com/tahsin_2155" target="_blank" rel="noopener noreferrer" class="contact-link instagram"><img loading="lazy" src="https://cdn.simpleicons.org/instagram/ffffff" alt="" width="16" height="16"> @tahsin_2155</a>
+    <a href="https://github.com/Tahsin2155" target="_blank" rel="noopener noreferrer" class="contact-link github-link"><img loading="lazy" src="https://cdn.simpleicons.org/github/ffffff" alt="" width="16" height="16"> Tahsin2155</a>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Tahsin Ali Abtahi</footer>
+
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
