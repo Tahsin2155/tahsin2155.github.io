@@ -1,7 +1,7 @@
 ---
 file: _site.md
 purpose: "Content and technical notes shared by every page: brand, navigation, contact section, footer. Pages pull these in with INCLUDE markers."
-last_edited: 2026-10-20
+last_edited: 2026-10-22
 ---
 
 <!--
@@ -98,12 +98,28 @@ Placeholder: `Write your message...`
 © 2026 Tahsin Ali Abtahi
 
 
+<!-- Cursor picker: a labelled select in the bottom-right corner of the footer, on every page. It stays hidden unless the custom cursor is running (see CUSTOM CURSOR in the technical notes below). -->
+Cursor
+
+<!-- Picker options (the select's choices), in this order. assets/js/site-cursor.js fills them in from its own list of cursors. -->
+- Crosshair
+- Snappy ring
+- Orbit comet
+- Orbit snap
+- Dot and ring
+- System cursor
+
+<!-- Cursor picker info: an info icon (a button) right after the select. Hovering it, or focusing it with the keyboard, shows this text in a small tooltip. -->
+Pick how your pointer looks on this site. Your choice is saved in this browser. Custom cursors need a mouse or trackpad, and are off when your device is set to reduce motion.
+
+
 <!--
 TECHNICAL NOTES (site-wide)
 These apply to every page. A page's own TECHNICAL NOTES block only adds to them.
 
 SHARED FILES
-- Every page loads the shared stylesheet assets/css/style.css and the shared script assets/js/main.js.
+- Every page loads the shared stylesheet assets/css/style.css and the shared scripts assets/js/main.js and
+  assets/js/site-cursor.js (site-cursor.js has defer and comes after main.js).
   The 404 page loads them with root paths (/assets/...); the other pages use paths relative to their depth.
 
 HEAD & METADATA
@@ -125,12 +141,45 @@ BEHAVIOR
 - Lucide icons are rendered after DOMContentLoaded.
 - Elements marked .reveal animate into view with IntersectionObserver; without JavaScript they remain
   visible. (The 404 page has no .reveal elements.)
-- The custom cursor runs only on hover-capable fine-pointer devices.
-- prefers-reduced-motion disables cursor movement, reveal movement, smooth scrolling and decorative
-  transitions.
+- The custom cursor is described under CUSTOM CURSOR below.
+- prefers-reduced-motion turns the custom cursor off (the system cursor stays) and disables reveal movement,
+  smooth scrolling and decorative transitions.
+
+CUSTOM CURSOR (every page)
+- It is handled by assets/js/site-cursor.js, which has no dependencies. The cursor code that used to be in
+  main.js was moved into it; main.js has no cursor code.
+- It starts only on devices with a fine pointer ((pointer: fine)) when prefers-reduced-motion is not set.
+  Otherwise it does nothing, the system cursor stays and the footer picker stays hidden. It creates the cursor on
+  the first mouse move.
+- Available cursors: crosshair-pro, snappy-ring, orbit-comet and orbit-snap are drawn on a full-screen fixed
+  canvas (aria-hidden, pointer-events none, above everything). dot-ring uses the #cursor and #cursor-ring elements
+  that every page has, styled in style.css and moved with the CSS translate property. system is no custom cursor.
+- While a custom cursor runs the system cursor is hidden (cursor: none on html.sc-on). It is handed back while a
+  modal <dialog> or fullscreen is open, and when the system option is chosen.
+- Options are the SETTINGS object at the top of site-cursor.js: default cursor (crosshair-pro), accent color,
+  dot-ring hover color, snap delay (150 ms), lean (14 px) and the list of elements the cursor reacts to. A
+  data-cursor, data-accent, data-hover-color, data-snap-delay or data-lean attribute on the script tag overrides
+  one option for that page; no page uses them.
+- Colors default to var(--accent) and var(--accent2) from assets/css/style.css, so changing the site colors changes
+  the cursor. They are read once, on the first mouse move (canvas cannot read CSS variables). dot-ring gets them as
+  --cursor-accent and --cursor-hover on <html>.
+- Cursor picker (footer): a native select (#cursor-select) with a visible label, inside an element marked
+  data-cursor-picker that has the hidden attribute until site-cursor.js is running. It sits in the bottom-right
+  corner of the footer (absolutely positioned); at 800px wide and below it drops under the copyright, centered. The
+  script fills in the options from its list of cursors. Changing the select switches the cursor immediately and saves the choice. The visitor's
+  choice wins over SETTINGS and over data-cursor.
+- Cursor picker info icon: a button (aria-label "About the cursor picker") with an inline SVG icon, described by a
+  role="tooltip" element (aria-describedby). The tooltip is plain text in the HTML; it opens above the icon on
+  hover or keyboard focus, stays open while the pointer is over it, and Esc closes it (site-cursor.js sets
+  data-dismissed until the pointer or focus leaves). It tells visitors the choice is saved in the browser, that
+  custom cursors need a mouse or trackpad, and that they are off when the device is set to reduce motion.
+  Visitors with reduced motion do not see the picker at all.
 
 DATA & STORAGE
-- The site uses no localStorage or IndexedDB. Only the home page uses sessionStorage (GitHub stats cache).
+- The visitor's cursor choice is saved in localStorage under the key site-cursor (the cursor's name, for example
+  dot-ring) and read on every page load. A missing or unrecognised value is ignored and the default cursor is used.
+  If localStorage is blocked or unavailable nothing breaks; the choice then lasts only until the page is reloaded.
+- Only the home page uses sessionStorage (GitHub stats cache). The site uses no IndexedDB.
 
 CONTACT FORM (every page except 404)
 - The form submits with POST to https://formspree.io/f/xwlpvooz.

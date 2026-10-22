@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- content last edited: 2026-10-20 -->
+<!-- content last edited: 2026-10-22 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -64,7 +64,7 @@
 
 <section class="projects-section">
   <div class="projects-grid">
-    <article class="project-card reveal project-featured">
+    <article class="project-card reveal project-featured" data-case-study="handoff" tabindex="0" role="link" aria-label="Read the Handoff case study">
       <div class="project-emoji"><span class="project-glyph" aria-hidden="true"><i data-lucide="mouse-pointer-click"></i></span></div>
       <h2 class="project-title">Handoff</h2>
       <p class="project-desc">A prototype agent that operates a Windows PC from a plain-language task, using a Gemini computer-use model and PyAutoGUI.</p>
@@ -75,12 +75,12 @@
         <span class="project-tag">Prototype</span>
       </div>
       <div class="project-links">
-        <a href="handoff" class="project-link project-case-link">Read the case study →</a>
+        <a href="handoff" class="project-link">Read the case study →</a>
         <a href="https://github.com/Tahsin2155/handoff" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
       </div>
     </article>
 
-    <article class="project-card reveal project-featured">
+    <article class="project-card reveal project-featured" data-case-study="zipline" tabindex="0" role="link" aria-label="Read the Zipline case study">
       <div class="project-emoji"><img loading="lazy" src="../assets/img/zipline.png" alt="Zipline icon" width="40" height="40"></div>
       <h2 class="project-title">Zipline</h2>
       <p class="project-desc">A self-hosted file transfer app with login, folders, search, previews and notes, built with Flask and SQLite.</p>
@@ -91,12 +91,12 @@
         <span class="project-tag">Self-hosted</span>
       </div>
       <div class="project-links">
-        <a href="zipline" class="project-link project-case-link">Read the case study →</a>
+        <a href="zipline" class="project-link">Read the case study →</a>
         <a href="https://github.com/Tahsin2155/zipline" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
       </div>
     </article>
 
-    <article class="project-card reveal project-featured">
+    <article class="project-card reveal project-featured" data-case-study="velin" tabindex="0" role="link" aria-label="Read the Velin case study">
       <div class="project-emoji"><img loading="lazy" src="../assets/img/velin.svg" alt="Velin icon" width="40" height="40"></div>
       <h2 class="project-title">Velin</h2>
       <p class="project-desc">A customizable new-tab page with a clock, Pomodoro timer, to-do list, notes and bookmarks, saved in your browser.</p>
@@ -108,13 +108,13 @@
         <span class="project-tag">Vibe Coded</span>
       </div>
       <div class="project-links">
-        <a href="velin" class="project-link project-case-link">Read the case study →</a>
+        <a href="velin" class="project-link">Read the case study →</a>
         <a href="https://newvelintab.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">Live app →</a>
         <a href="https://github.com/Tahsin2155/velin" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
       </div>
     </article>
 
-    <article class="project-card reveal project-featured">
+    <article class="project-card reveal project-featured" data-case-study="markdstudio" tabindex="0" role="link" aria-label="Read the MarkdStudio case study">
       <div class="project-emoji"><img loading="lazy" src="../assets/img/markdstudio.png" alt="MarkdStudio icon" width="40" height="40"></div>
       <h2 class="project-title">MarkdStudio</h2>
       <p class="project-desc">A browser-based Markdown editor with live preview and tabs for multiple documents, stored only on your device.</p>
@@ -125,13 +125,13 @@
         <span class="project-tag">Vibe Coded</span>
       </div>
       <div class="project-links">
-        <a href="markdstudio" class="project-link project-case-link">Read the case study →</a>
+        <a href="markdstudio" class="project-link">Read the case study →</a>
         <a href="https://markdstudio.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">Live app →</a>
         <a href="https://github.com/Tahsin2155/markdstudio" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
       </div>
     </article>
 
-    <article class="project-card reveal project-featured">
+    <article class="project-card reveal project-featured" data-case-study="daymark" tabindex="0" role="link" aria-label="Read the DayMark case study">
       <div class="project-emoji"><img loading="lazy" src="../assets/img/daymark.png" alt="DayMark logo" width="40" height="40"></div>
       <h2 class="project-title">DayMark</h2>
       <p class="project-desc">A habit tracker and daily journal with a to-do list and monthly analytics, built with Streamlit and Firebase.</p>
@@ -142,7 +142,7 @@
         <span class="project-tag">Habit Tracker</span>
       </div>
       <div class="project-links">
-        <a href="daymark" class="project-link project-case-link">Read the case study →</a>
+        <a href="daymark" class="project-link">Read the case study →</a>
         <a href="https://daymark.streamlit.app" target="_blank" rel="noopener noreferrer" class="project-link">Live app →</a>
         <a href="https://github.com/Tahsin2155/DayMark" target="_blank" rel="noopener noreferrer" class="project-link">GitHub repo →</a>
       </div>
@@ -172,9 +172,22 @@
 </section>
 </main>
 
-<footer>© 2026 Tahsin Ali Abtahi</footer>
+<footer>
+  © 2026 Tahsin Ali Abtahi
+  <div class="cursor-picker" data-cursor-picker hidden>
+    <label for="cursor-select">Cursor</label>
+    <select id="cursor-select"></select>
+    <span class="cursor-info">
+      <button type="button" class="cursor-info__btn" aria-label="About the cursor picker" aria-describedby="cursor-info-tip">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      </button>
+      <span id="cursor-info-tip" class="cursor-info__tip" role="tooltip">Pick how your pointer looks on this site. Your choice is saved in this browser. Custom cursors need a mouse or trackpad, and are off when your device is set to reduce motion.</span>
+    </span>
+  </div>
+</footer>
 
 <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/site-cursor.js" defer></script>
 </body>
 </html>

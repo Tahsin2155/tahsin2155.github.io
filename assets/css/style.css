@@ -36,10 +36,11 @@ html.cursor-ready [role="button"] { cursor: none !important; }
 html.cursor-ready #cursor {
     display: block;
     width: 12px; height: 12px;
-    background: #2563EB;
+    background: var(--cursor-accent, #2563EB);
     border-radius: 50%;
     position: fixed; top: 0; left: 0;
     pointer-events: none; z-index: 9999;
+    will-change: translate;
     transform: translate(-50%,-50%) scale(1);
     opacity: 0;
     transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s, transform 0.2s;
@@ -47,10 +48,11 @@ html.cursor-ready #cursor {
 html.cursor-ready #cursor-ring {
     display: block;
     width: 36px; height: 36px;
-    border: 1.5px solid #2563EB;
+    border: 1.5px solid var(--cursor-accent, #2563EB);
     border-radius: 50%;
     position: fixed; top: 0; left: 0;
     pointer-events: none; z-index: 9998;
+    will-change: translate;
     transform: translate(-50%,-50%) scale(1);
     transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
     opacity: 0;
@@ -59,8 +61,8 @@ html.cursor-ready #cursor.is-visible,
 html.cursor-ready #cursor-ring.is-visible {
   opacity: 1;
 }
-html.cursor-ready #cursor.is-hovering { width: 18px; height: 18px; background: var(--accent2); }
-html.cursor-ready #cursor-ring.is-hovering { width: 52px; height: 52px; border-color: var(--accent2); opacity: 0.35; }
+html.cursor-ready #cursor.is-hovering { width: 18px; height: 18px; background: var(--cursor-hover, var(--accent2)); }
+html.cursor-ready #cursor-ring.is-hovering { width: 52px; height: 52px; border-color: var(--cursor-hover, var(--accent2)); opacity: 0.35; }
 html.cursor-ready #cursor.is-clicking { transform: translate(-50%,-50%) scale(0.72); }
 html.cursor-ready #cursor-ring.is-clicking { transform: translate(-50%,-50%) scale(0.82); }
 
@@ -376,14 +378,6 @@ section { padding: 6rem 6%; }
 .project-link:hover { gap: 0.7rem; }
 .project-featured { border-color: #bfdbfe; background: linear-gradient(135deg, #eff6ff 0%, #fff 60%); }
 
-/* WHOLE-CARD LINK — the case-study link is stretched over the card with ::after, so a click anywhere on
-   the card opens the case study while there is still only one case-study link per card. The card is
-   already position: relative. The other links sit above the overlay so they keep their own targets. */
-.project-card .project-case-link::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: var(--radius); }
-.project-card .project-links a:not(.project-case-link) { position: relative; z-index: 2; }
-.project-card .project-case-link:focus-visible { outline: none; }
-.project-card .project-case-link:focus-visible::after { outline: 2.5px solid var(--accent); outline-offset: -3px; }
-
 /* CASE STUDY */
 .case-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 4rem; align-items: start; }
 .case-body h2 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; margin: 2.4rem 0 0.8rem; }
@@ -452,6 +446,20 @@ section { padding: 6rem 6%; }
 .error-code { font-family: 'DM Mono', monospace; font-size: clamp(4rem, 14vw, 9rem); font-weight: 400; color: var(--accent); line-height: 1; letter-spacing: -0.05em; }
 
 footer { background: var(--ink); color: rgba(255,255,255,0.25); text-align: center; padding: 1.5rem; font-size: 0.78rem; font-family: 'DM Mono', monospace; border-top: 1px solid rgba(255,255,255,0.06); }
+footer { position: relative; }
+.cursor-picker { position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 0.6rem; }
+.cursor-picker[hidden] { display: none; }
+.cursor-picker label { color: rgba(255,255,255,0.55); }
+.cursor-picker select { font: inherit; color: rgba(255,255,255,0.7); background: transparent; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; padding: 0.25rem 0.5rem; color-scheme: dark; }
+.cursor-picker select:hover { border-color: rgba(255,255,255,0.35); }
+.cursor-picker option { background: var(--ink); color: #fff; }
+.cursor-info { position: relative; display: inline-flex; }
+.cursor-info__btn { display: inline-flex; padding: 2px; background: none; border: 0; border-radius: 50%; color: rgba(255,255,255,0.55); line-height: 0; }
+.cursor-info__btn:hover, .cursor-info__btn:focus-visible { color: rgba(255,255,255,0.95); }
+.cursor-info__tip { position: absolute; right: 0; bottom: calc(100% + 0.6rem); z-index: 20; width: min(18rem, 80vw); padding: 0.7rem 0.85rem; background: var(--ink); color: #fff; border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.35); font-size: 0.75rem; line-height: 1.55; text-align: left; opacity: 0; visibility: hidden; transition: opacity 0.15s; }
+.cursor-info__tip::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 0.6rem; } /* keeps the tip open while the pointer crosses the gap */
+.cursor-info:is(:hover, :focus-within):not([data-dismissed]) .cursor-info__tip { opacity: 1; visibility: visible; }
+@media (max-width: 800px) { .cursor-picker { position: static; transform: none; justify-content: center; margin-top: 0.9rem; } }
 
 /* ANIMATIONS */
 @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }

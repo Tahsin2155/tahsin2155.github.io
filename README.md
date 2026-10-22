@@ -20,20 +20,21 @@ Live site: https://tahsin2155.github.io
 ├── index.html
 ├── about.html
 ├── 404.html
-├── favicon.ico        copy of the favicon for browsers that request /favicon.ico
-├── projects/          project index and case-study pages
+├── favicon.ico             copy of the favicon for browsers that request /favicon.ico
+├── projects/               project index and case-study pages
 ├── assets/
 │   ├── css/style.css
 │   ├── js/main.js
-│   └── img/           project icons, LinkedIn icon, social preview image
-│       └── favicons/  favicon.svg, PNG sizes, favicon.ico, Apple touch icon
-├── content/           Markdown source of truth for every page (see Content below)
+│   ├── js/site-cursor.js   custom cursors, their settings and the footer cursor picker
+│   └── img/                project icons, LinkedIn icon, social preview image
+│       └── favicons/       favicon.svg, PNG sizes, favicon.ico, Apple touch icon
+├── content/                Markdown source of truth for every page (see Content below)
 │   └── projects/
 ├── tools/
-│   ├── serve.py       local preview server that behaves like GitHub Pages
-│   ├── scaffold.py    old page generator (do not run, see below)
-│   ├── content-format.md  how the Markdown in content/ is written and read
-│   └── prompt.md      AI prompts: update a page's HTML from its Markdown, update technical notes
+│   ├── serve.py            local preview server that behaves like GitHub Pages
+│   ├── scaffold.py         old page generator (do not run, see below)
+│   ├── content-format.md   how the Markdown in content/ is written and read
+│   └── prompt.md           AI prompts: update a page's HTML from its Markdown, update technical notes
 ├── sitemap.xml
 └── robots.txt
 ```
@@ -93,5 +94,6 @@ Update pages through the Markdown workflow described under Content, not by runni
 
 ## Notes
 
+- The visitor's cursor choice (the footer select) is saved in `localStorage` under `site-cursor`.
 - The GitHub stats use the unauthenticated GitHub API, which is limited to 60 requests per hour per IP. Results are cached in `sessionStorage` for 10 minutes, and the stats show a dash if the request fails.
 - The DayMark, MarkdStudio, Velin and Zipline icons are local files in `assets/img/`. Handoff uses a decorative Lucide icon instead of an image. The skill and social icons still load from external hosts.

@@ -5,78 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof lucide !== 'undefined') lucide.createIcons();
 });
 
-// Custom cursor (fine-pointer devices only; the elements are display:none otherwise)
-(function () {
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-  if (!cursor || !ring) return;
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  const root = document.documentElement;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  let hasEntered = false;
-  let clickTimer;
-
-  root.classList.add('cursor-ready');
-
-  function setPosition(x, y) {
-    mx = x;
-    my = y;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-    if (reduceMotion) {
-      rx = mx;
-      ry = my;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
-    }
-  }
-
-  function setVisible(visible) {
-    hasEntered = visible;
-    cursor.classList.toggle('is-visible', visible);
-    ring.classList.toggle('is-visible', visible);
-  }
-
-  function setHovering(target) {
-    const interactive = target instanceof Element
-      ? target.closest('a, button, input, textarea, select, [role="button"]')
-      : null;
-    const hovering = Boolean(interactive);
-    cursor.classList.toggle('is-hovering', hovering);
-    ring.classList.toggle('is-hovering', hovering);
-  }
-
-  document.addEventListener('pointermove', e => {
-    setPosition(e.clientX, e.clientY);
-    if (!hasEntered) setVisible(true);
-    setHovering(e.target);
-  });
-  document.addEventListener('pointerdown', () => {
-    cursor.classList.add('is-clicking');
-    ring.classList.add('is-clicking');
-    clearTimeout(clickTimer);
-    clickTimer = setTimeout(() => {
-      cursor.classList.remove('is-clicking');
-      ring.classList.remove('is-clicking');
-    }, 160);
-  });
-  document.addEventListener('pointerleave', () => setVisible(false));
-  document.addEventListener('pointerenter', e => {
-    setPosition(e.clientX, e.clientY);
-    setVisible(true);
-  });
-
-  (function animateRing() {
-    if (!reduceMotion) {
-      rx += (mx - rx) * 0.14;
-      ry += (my - ry) * 0.14;
-    }
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
-  })();
-})();
-
 // Mobile menu
 (function () {
   const hamburger = document.getElementById('hamburger');
@@ -132,6 +60,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => obs.observe(el));
+})();
+
+// Project cards navigate to their case study without intercepting secondary links.
+(function () {
+  const cards = document.querySelectorAll('.project-card[data-case-study]');
+  if (!cards.length) return;
+
+  function openCaseStudy(card) {
+    window.location.href = card.dataset.caseStudy;
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', event => {
+      if (event.target.closest('a, button, input, select, textarea')) return;
+      openCaseStudy(card);
+    });
+    card.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      openCaseStudy(card);
+    });
+  });
 })();
 
 // GitHub stats (home page only) — cached in sessionStorage for 10 minutes to avoid
